@@ -1,12 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import SprintCarSetup from './SprintCarSetup'
+import { BrowserRouter as Router } from "react-router-dom";
+import 'semantic-ui-css/semantic.min.css'
+import * as firebase from 'firebase/app'
+import keys from './keys'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+var firebaseConfig = {
+  apiKey: keys.firebaseKey,
+  authDomain: "sprintcarsetup-7a299.firebaseapp.com",
+  databaseURL: "https://sprintcarsetup-7a299.firebaseio.com",
+  projectId: "sprintcarsetup-7a299",
+  storageBucket: "sprintcarsetup-7a299.appspot.com",
+  messagingSenderId: "643760824010",
+  appId: "1:643760824010:web:313fdaf4c9eb3f1b"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig)
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+ReactDOM.render(
+  <Router>
+    <SprintCarSetup />
+  </Router>,
+  document.getElementById("root")
+);
+
