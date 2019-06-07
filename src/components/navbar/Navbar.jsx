@@ -19,7 +19,7 @@ export default class Navbar extends Component {
                     </Menu.Item>
 
                     <Menu.Item>
-                        <Link to='/'>Tracks</Link>
+                        <Link to='/tracks'>Tracks</Link>
                     </Menu.Item>
 
                     <Menu.Item>

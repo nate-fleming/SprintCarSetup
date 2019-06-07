@@ -6,6 +6,7 @@ import SignIn from './auth/SignIn'
 import SignUp from './auth/SignUp'
 import loginManager from '../modules/loginManager'
 import Schedule from './schedule/Schedule'
+import Tracks from './tracks/Tracks'
 
 
 
@@ -52,7 +53,11 @@ class ApplicationViews extends Component {
 
                 <Route exact path="/tracks"
                     render={props => {
-                        return
+                        return this.state.user ? (
+                            <Tracks user={this.state.user} {...props}></Tracks>
+                        ) : (
+                                <Redirect to="/sign-in" />
+                            )
                     }}
 
                 />
