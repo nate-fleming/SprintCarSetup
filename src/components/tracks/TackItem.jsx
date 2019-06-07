@@ -5,7 +5,7 @@ export default class TackItem extends Component {
     render() {
         return (
             <Card>
-                <Image src={this.props.track.imgUrl} wrapped ui={false} />
+                <Image src={this.props.track.imgUrl} style={{ height: 250 }} wrapped ui={false} />
                 <Card.Content>
                     <Card.Header>{this.props.track.name}</Card.Header>
                     <Card.Description>
@@ -17,7 +17,7 @@ export default class TackItem extends Component {
                         </Grid.Column>
                     </Grid>
                 </Card.Content>
-            </Card>
+            </Card >
         )
     }
 }
