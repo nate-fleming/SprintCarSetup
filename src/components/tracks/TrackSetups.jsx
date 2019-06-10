@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Header, Container, Image, Button, Grid } from 'semantic-ui-react'
+import { Container, Image, Button, Grid } from 'semantic-ui-react'
+import { Link } from "react-router-dom";
 
 export default class TrackSetups extends Component {
     render() {
@@ -8,7 +9,9 @@ export default class TrackSetups extends Component {
             <Container>
                 <Image src={this.props.track.imgUrl} style={{ height: 200 }} centered></Image>
                 <Grid textAlign='center' style={{ marginTop: 50 }}>
-                    <Button color='orange' centered size='huge'>Add Setup</Button>
+                    <Button color='orange' size='huge'>
+                        <Link to={`/setups/new/${this.props.track.id}`}>Add New Setup</Link>
+                    </Button>
                 </Grid>
             </Container>
         )

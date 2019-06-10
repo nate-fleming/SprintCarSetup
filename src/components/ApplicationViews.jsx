@@ -9,6 +9,7 @@ import Schedule from './schedule/Schedule'
 import Tracks from './tracks/Tracks'
 import trackManager from '../modules/trackManager'
 import TrackSetups from './tracks/TrackSetups'
+import SetupForm from './setups/SetupForm'
 
 
 
@@ -82,6 +83,20 @@ class ApplicationViews extends Component {
                         <TrackSetups user={this.state.user} {...props} track={track}></TrackSetups>
                     )
                 }}
+                />
+
+                <Route path="/setups/new/:trackId" render={(props) => {
+                    let track = this.state.tracks.find(track =>
+                        track.id === parseInt(props.match.params.trackId))
+
+                    if (!track) {
+                        track = { id: 404, name: "" }
+                    }
+                    return (
+                        <SetupForm user={this.state.user} {...props} track={track}></SetupForm>
+                    )
+                }}
+
                 />
             </div>
         )
