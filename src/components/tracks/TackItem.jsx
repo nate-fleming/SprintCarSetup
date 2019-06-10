@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { Button, Grid, Image, Card } from 'semantic-ui-react'
+import { Link } from "react-router-dom";
 
 export default class TackItem extends Component {
     render() {
         return (
             <Card>
-                <Image src={this.props.track.imgUrl} style={{ height: 250 }} wrapped ui={false} />
+                <Image src={this.props.track.imgUrl} style={{ height: 200 }} centered />
                 <Card.Content>
                     <Card.Header>{this.props.track.name}</Card.Header>
                     <Card.Description>
@@ -13,7 +14,7 @@ export default class TackItem extends Component {
                     </Card.Description>
                     <Grid>
                         <Grid.Column textAlign="center">
-                            <Button color='orange' >See Setups</Button>
+                            <Button color='orange' ><Link to={`tracks/${this.props.track.id}`}>See Setups</Link></Button>
                         </Grid.Column>
                     </Grid>
                 </Card.Content>

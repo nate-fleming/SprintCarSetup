@@ -7,12 +7,20 @@ import SignUp from './auth/SignUp'
 import loginManager from '../modules/loginManager'
 import Schedule from './schedule/Schedule'
 import Tracks from './tracks/Tracks'
+import trackManager from '../modules/trackManager'
+import TrackSetups from './tracks/TrackSetups'
 
 
 
 class ApplicationViews extends Component {
     state = {
-        user: loginManager.getUserFromLocalStorage()
+        user: loginManager.getUserFromLocalStorage(),
+        tracks: []
+    }
+
+    componentDidMount() {
+        trackManager.getTracks()
+            .then(tracks => this.setState({ tracks: tracks }))
     }
 
 
@@ -54,12 +62,27 @@ class ApplicationViews extends Component {
                 <Route exact path="/tracks"
                     render={props => {
                         return this.state.user ? (
-                            <Tracks user={this.state.user} {...props}></Tracks>
+                            <Tracks user={this.state.user} {...props}
+                                tracks={this.state.tracks}></Tracks>
                         ) : (
                                 <Redirect to="/sign-in" />
                             )
                     }}
+                />
 
+                <Route exact path="/tracks/:trackId" render={(props) => {
+                    let track = this.state.tracks.find(track =>
+                        track.id === parseInt(props.match.params.trackId))
+                    console.log(track)
+
+                    if (!track) {
+                        track = { id: 404, name: "" }
+                    }
+
+                    return (
+                        <TrackSetups user={this.state.user} {...props} track={track}></TrackSetups>
+                    )
+                }}
                 />
             </div>
         )
