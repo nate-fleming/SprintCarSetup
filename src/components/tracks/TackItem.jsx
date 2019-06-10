@@ -14,7 +14,7 @@ export default class TackItem extends Component {
                     </Card.Description>
                     <Grid>
                         <Grid.Column textAlign="center">
-                            <Button color='orange' ><Link to={`tracks/${this.props.track.id}`}>See Setups</Link></Button>
+                            <Button color='orange' inverted style={{ marginTop: 20 }}><Link to={`tracks/${this.props.track.id}`}>See Setups</Link></Button>
                         </Grid.Column>
                     </Grid>
                 </Card.Content>

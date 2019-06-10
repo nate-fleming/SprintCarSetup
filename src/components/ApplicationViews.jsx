@@ -73,7 +73,6 @@ class ApplicationViews extends Component {
                 <Route exact path="/tracks/:trackId" render={(props) => {
                     let track = this.state.tracks.find(track =>
                         track.id === parseInt(props.match.params.trackId))
-                    console.log(track)
 
                     if (!track) {
                         track = { id: 404, name: "" }
