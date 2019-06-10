@@ -1,25 +1,36 @@
 import React, { Component } from 'react'
-import { Container, Image, Button, Grid, Header, Table, Input, Dropdown, GridColumn, TableCell } from 'semantic-ui-react'
+import { Container, Image, Button, Grid, Header, Table, Input, Dropdown } from 'semantic-ui-react'
+import setupManager from '../../modules/setupManager'
+
 
 export default class setupForm extends Component {
     state = {
-        date: new Date()
+        date: new Date(),
+        userId: this.props.user,
+        trackId: this.props.track.id
     }
 
     wingOptions = [
         {
             key: 'winged',
             text: 'winged',
-            value: 'winged'
+            value: 'winged',
         },
         {
             key: 'non-winged',
             text: 'non-winged',
-            value: 'non-winged'
+            value: 'non-winged',
         }
     ]
 
+    saveSetup = async () => {
+        await this.setState({ trackId: this.props.track.id })
+        await setupManager.post(this.state)
+    }
+
+
     render() {
+        console.log(this.state)
         return (
             <>
                 <Container>
@@ -27,7 +38,7 @@ export default class setupForm extends Component {
                         Create a new setup for {this.props.track.name}
                     </Header>
                 </Container>
-                <Grid columns={2}>
+                <Grid columns={2} style={{ padding: 20 }}>
                     <Grid.Row>
                         <Grid.Column>
                             <Table celled>
@@ -40,21 +51,26 @@ export default class setupForm extends Component {
                                     <Table.Row>
                                         <Table.Cell>
                                             LF
-                                            <Input fluid></Input>
+                                            <Input fluid
+                                                onChange={(e) => this.setState({ gSetupBlockLF: e.target.value })}
+                                            ></Input>
                                         </Table.Cell>
                                         <Table.Cell>
                                             RF
-                                            <Input fluid></Input>
+                                            <Input fluid
+                                                onChange={(e) => this.setState({ gSetupBlockRF: e.target.value })}></Input>
                                         </Table.Cell>
                                     </Table.Row>
                                     <Table.Row>
                                         <Table.Cell>
                                             LR
-                                            <Input fluid></Input>
+                                            <Input fluid
+                                                onChange={(e) => this.setState({ gSetupBlockLR: e.target.value })}></Input>
                                         </Table.Cell>
                                         <Table.Cell>
                                             RR
-                                            <Input fluid></Input>
+                                            <Input fluid
+                                                onChange={(e) => this.setState({ gSetupBlockRR: e.target.value })}></Input>
                                         </Table.Cell>
                                     </Table.Row>
                                 </Table.Body>
@@ -70,15 +86,18 @@ export default class setupForm extends Component {
                                 <Table.Body>
                                     <Table.Row>
                                         <Table.Cell>
-                                            <Input fluid></Input>
+                                            <Input fluid
+                                                onChange={(e) => this.setState({ gGearRatio1: e.target.value })}></Input>
                                         </Table.Cell>
                                         <Table.Cell>
-                                            <Input fluid></Input>
+                                            <Input fluid
+                                                onChange={(e) => this.setState({ gGearRatio2: e.target.value })}></Input>
                                         </Table.Cell>
                                     </Table.Row>
                                     <Table.Row>
                                         <Table.Cell colSpan='2'>
-                                            <Input fluid></Input>
+                                            <Input fluid
+                                                onChange={(e) => this.setState({ gGearRatio3: e.target.value })}></Input>
                                         </Table.Cell>
                                     </Table.Row>
                                 </Table.Body>
@@ -97,21 +116,25 @@ export default class setupForm extends Component {
                                     <Table.Row>
                                         <Table.Cell>
                                             LF
-                                            <Input fluid></Input>
+                                            <Input fluid
+                                                onChange={(e) => this.setState({ gBarLF: e.target.value })}></Input>
                                         </Table.Cell>
                                         <Table.Cell>
                                             RF
-                                            <Input fluid></Input>
+                                            <Input fluid
+                                                onChange={(e) => this.setState({ gBarRF: e.target.value })}></Input>
                                         </Table.Cell>
                                     </Table.Row>
                                     <Table.Row>
                                         <Table.Cell>
                                             LR
-                                            <Input fluid></Input>
+                                            <Input fluid
+                                                onChange={(e) => this.setState({ gBarLR: e.target.value })}></Input>
                                         </Table.Cell>
                                         <Table.Cell>
                                             RR
-                                            <Input fluid></Input>
+                                            <Input fluid
+                                                onChange={(e) => this.setState({ gBarRR: e.target.value })}></Input>
                                         </Table.Cell>
                                     </Table.Row>
                                 </Table.Body>
@@ -127,13 +150,26 @@ export default class setupForm extends Component {
                                 <Table.Body>
                                     <Table.Row>
                                         <Table.Cell>
-                                            <Dropdown
+                                            winged race?
+                                            {/* <Dropdown
                                                 fluid
                                                 placeholder='winged race?'
                                                 selection
                                                 options={this.wingOptions}
                                             >
-                                            </Dropdown>
+                                            </Dropdown> */}
+                                            <select
+                                                placeholder='winged race?'
+                                                onChange={(e) => this.setState({ gWing: e.target.value })}
+                                            >
+                                                <option value='winged'>
+                                                    winged
+                                                </option>
+                                                <option value='non-winged'>
+                                                    non-winged
+                                                </option>
+
+                                            </select>
                                         </Table.Cell>
                                     </Table.Row>
                                     <Table.Row>
@@ -142,6 +178,7 @@ export default class setupForm extends Component {
                                             <Input
                                                 fluid
                                                 placeholder='write none if non-winged race'
+                                                onChange={(e) => this.setState({ gWingAngle: e.target.value })}
                                             ></Input>
                                         </Table.Cell>
                                     </Table.Row>
@@ -161,21 +198,25 @@ export default class setupForm extends Component {
                                     <Table.Row>
                                         <Table.Cell>
                                             LF
-                                            <Input fluid></Input>
+                                            <Input fluid
+                                                onChange={(e) => this.setState({ gTurnLF: e.target.value })}></Input>
                                         </Table.Cell>
                                         <Table.Cell>
                                             RF
-                                            <Input fluid></Input>
+                                            <Input fluid
+                                                onChange={(e) => this.setState({ gTurnRF: e.target.value })}></Input>
                                         </Table.Cell>
                                     </Table.Row>
                                     <Table.Row>
                                         <Table.Cell>
                                             LR
-                                            <Input fluid></Input>
+                                            <Input fluid
+                                                onChange={(e) => this.setState({ gTurnLR: e.target.value })}></Input>
                                         </Table.Cell>
                                         <Table.Cell>
                                             RR
-                                            <Input fluid></Input>
+                                            <Input fluid
+                                                onChange={(e) => this.setState({ gTurnRR: e.target.value })}></Input>
                                         </Table.Cell>
                                     </Table.Row>
                                 </Table.Body>
@@ -191,7 +232,8 @@ export default class setupForm extends Component {
                                 <Table.Body>
                                     <Table.Row>
                                         <Table.Cell colSpan='2'>
-                                            <Input fluid ></Input>
+                                            <Input fluid
+                                                onChange={(e) => this.setState({ gStagger: e.target.value })}></Input>
                                         </Table.Cell>
                                     </Table.Row>
                                 </Table.Body>
@@ -210,12 +252,6 @@ export default class setupForm extends Component {
                                 </Table.Row>
                             </Table.Header>
                             <Table.Body>
-                                <Table.Row >
-                                    <Table.Cell colSpan='2' textAlign='center'>
-                                        Stagger
-                                            <Input></Input>
-                                    </Table.Cell>
-                                </Table.Row>
                                 <Table.Row>
                                     <Table.Cell textAlign='center'>
                                         Left Front
@@ -227,15 +263,19 @@ export default class setupForm extends Component {
                                 <Table.Row>
                                     <Table.Cell>
                                         Model
-                                            <Input fluid></Input>
+                                            <Input fluid
+                                            onChange={(e) => this.setState({ gTireModelLF: e.target.value })}></Input>
                                         Brand
-                                            <Input fluid></Input>
+                                            <Input fluid
+                                            onChange={(e) => this.setState({ gTireBrandLF: e.target.value })}></Input>
                                     </Table.Cell>
                                     <Table.Cell>
                                         Model
-                                            <Input fluid></Input>
+                                            <Input fluid
+                                            onChange={(e) => this.setState({ gTireModelRF: e.target.value })}></Input>
                                         Brand
-                                            <Input fluid></Input>
+                                            <Input fluid
+                                            onChange={(e) => this.setState({ gTireBrandRF: e.target.value })}></Input>
                                     </Table.Cell>
                                 </Table.Row>
                                 <Table.Row>
@@ -249,20 +289,31 @@ export default class setupForm extends Component {
                                 <Table.Row>
                                     <Table.Cell>
                                         Model
-                                            <Input fluid></Input>
+                                            <Input fluid
+                                            onChange={(e) => this.setState({ gTireModelLR: e.target.value })}></Input>
                                         Brand
-                                            <Input fluid></Input>
+                                            <Input fluid
+                                            onChange={(e) => this.setState({ gTireBrandLR: e.target.value })}></Input>
                                     </Table.Cell>
                                     <Table.Cell>
                                         Model
-                                            <Input fluid></Input>
+                                            <Input fluid
+                                            onChange={(e) => this.setState({ gTireModelRF: e.target.value })}></Input>
                                         Brand
-                                            <Input fluid></Input>
+                                            <Input fluid
+                                            onChange={(e) => this.setState({ gTireBrandRR: e.target.value })}></Input>
                                     </Table.Cell>
                                 </Table.Row>
                             </Table.Body>
                         </Table>
                     </Grid.Row>
+                </Grid>
+                <Grid textAlign='center' style={{ marginTop: 20 }}>
+                    <Button color='orange' size='huge'
+                        onClick={this.saveSetup}
+                    >
+                        Save
+                    </Button>
                 </Grid>
             </>
         )
