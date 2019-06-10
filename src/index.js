@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
 import SprintCarSetup from './SprintCarSetup'
 import { BrowserRouter as Router } from "react-router-dom";
 import 'semantic-ui-css/semantic.min.css'
 import * as firebase from 'firebase/app'
 import keys from './keys'
+import "./index.css";
 
 var firebaseConfig = {
   apiKey: keys.firebaseKey,
