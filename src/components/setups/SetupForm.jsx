@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Image, Button, Grid, Header, Table, Input, Dropdown } from 'semantic-ui-react'
+import { Container, Form, Button, Grid, Header, Table, Input, Dropdown } from 'semantic-ui-react'
 import setupManager from '../../modules/setupManager'
 
 
@@ -30,7 +30,6 @@ export default class setupForm extends Component {
 
 
     render() {
-        console.log(this.state)
         return (
             <>
                 <Container>
@@ -38,7 +37,13 @@ export default class setupForm extends Component {
                         Create a new setup for {this.props.track.name}
                     </Header>
                 </Container>
-                <Grid columns={2} style={{ padding: 20 }}>
+                <Grid columns={2} style={{ padding: 20 }} textAlign='center'>
+                    <Form>
+                        <Form.Input
+                            label='Setup Name'
+                            onChange={(e) => this.setState({ name: e.target.value })}
+                        ></Form.Input>
+                    </Form>
                     <Grid.Row>
                         <Grid.Column>
                             <Table celled>

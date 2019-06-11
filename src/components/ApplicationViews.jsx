@@ -10,6 +10,7 @@ import Tracks from './tracks/Tracks'
 import trackManager from '../modules/trackManager'
 import TrackSetups from './tracks/TrackSetups'
 import SetupForm from './setups/SetupForm'
+import SetupDetail from './setups/SetupDetail'
 
 
 
@@ -96,8 +97,20 @@ class ApplicationViews extends Component {
                         <SetupForm user={this.state.user} {...props} track={track}></SetupForm>
                     )
                 }}
-
                 />
+
+                <Route path="/setups/:setupkId" render={(props) => {
+                    let setup = parseInt(props.match.params.setupId)
+
+                    if (!setup) {
+                        setup = { id: 404, name: "" }
+                    }
+                    return (
+                        <SetupDetail user={this.state.user} {...props} setup={setup}></SetupDetail>
+                    )
+                }}
+                />
+
             </div>
         )
     }

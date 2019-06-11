@@ -1,20 +1,26 @@
 import React, { Component } from 'react'
 import { Button, Grid, Image, Card, Icon } from 'semantic-ui-react'
 import { Link } from "react-router-dom";
+import moment from 'moment'
 
-export default class TackItem extends Component {
+
+export default class SetupItem extends Component {
+
+
     render() {
         return (
             <Card>
-                <Image src={this.props.track.imgUrl} style={{ height: 200 }} centered />
                 <Card.Content>
-                    <Card.Header>{this.props.track.name}</Card.Header>
+                    <Card.Header>{this.props.setup.name}</Card.Header>
                     <Card.Description>
-                        <Icon name='map marker alternate' />{this.props.track.address}
+                        <Icon name='calendar alternate outline' /> {moment(this.props.setup.date).format('MMM-DD-YYYY')}
                     </Card.Description>
                     <Grid>
                         <Grid.Column textAlign="center">
-                            <Button color='orange' inverted style={{ marginTop: 20 }}><Link to={`tracks/${this.props.track.id}`}>See Setups</Link></Button>
+                            <Button color='orange' inverted
+                                style={{ marginTop: 20 }}>
+                                <Link to={`setups/${this.props.setup.id}`}>See Setup</Link>
+                            </Button>
                         </Grid.Column>
                     </Grid>
                 </Card.Content>
