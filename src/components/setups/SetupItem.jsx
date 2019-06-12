@@ -14,7 +14,12 @@ export default class SetupItem extends Component {
                     <Card.Header>{this.props.setup.name}</Card.Header>
                     <Card.Description>
                         <Icon name='calendar alternate outline' /> {moment(this.props.setup.date).format('MMM-DD-YYYY')}
+
                     </Card.Description>
+                    <Card.Content extra>
+                        <Icon name='wrench' />
+                        {this.props.setup.gWing}
+                    </Card.Content>
                     <Grid>
                         <Grid.Column textAlign="center">
                             <Button as='a' color='orange'

@@ -70,7 +70,7 @@ export default class SetupDetail extends Component {
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center'
-                                            style={{ fontSize: 20, backgroundColor: '#f56b00' }}>Setup Blocks</Table.HeaderCell>
+                                            style={{ fontSize: 20, backgroundColor: '' }}>Setup Blocks</Table.HeaderCell>
                                     </Table.Row>
                                 </Table.Header>
                                 <Table.Body>
@@ -411,7 +411,7 @@ export default class SetupDetail extends Component {
                                 </Table.Row>
                                 <Table.Row>
                                     <Table.Cell textAlign='center'>
-                                        Model <span style={{ display: `${reverseHidden}` }}>{this.state.trackSetup.gTireModelLF}</span>
+                                        <p>Model <span style={{ display: `${reverseHidden}` }}>{this.state.trackSetup.gTireModelLF}</span></p>
                                         <Input fluid
                                             onChange={(e) => this.setState(
                                                 Object.assign(
@@ -432,7 +432,7 @@ export default class SetupDetail extends Component {
                                         ></Input>
                                     </Table.Cell>
                                     <Table.Cell textAlign='center'>
-                                        Model <span style={{ display: `${reverseHidden}` }}>{this.state.trackSetup.gTireModelRF}</span>
+                                        <p>Model <span style={{ display: `${reverseHidden}` }}>{this.state.trackSetup.gTireModelRF}</span></p>
                                         <Input fluid
                                             onChange={(e) => this.setState(
                                                 Object.assign(
@@ -462,7 +462,7 @@ export default class SetupDetail extends Component {
                                 </Table.Row>
                                 <Table.Row>
                                     <Table.Cell textAlign='center'>
-                                        Model <span style={{ display: `${reverseHidden}` }}>{this.state.trackSetup.gTireModelLR}</span>
+                                        <p>Model <span style={{ display: `${reverseHidden}` }}>{this.state.trackSetup.gTireModelLR}</span></p>
                                         <Input fluid
                                             onChange={(e) => this.setState(
                                                 Object.assign(
@@ -483,7 +483,7 @@ export default class SetupDetail extends Component {
                                         ></Input>
                                     </Table.Cell>
                                     <Table.Cell textAlign='center'>
-                                        Model <span style={{ display: `${reverseHidden}` }}>{this.state.trackSetup.gTireModelRR}</span>
+                                        <p>Model <span style={{ display: `${reverseHidden}` }}>{this.state.trackSetup.gTireModelRR}</span></p>
                                         <Input fluid
                                             onChange={(e) => this.setState(
                                                 Object.assign(

@@ -14,18 +14,23 @@ import SetupDetail from './setups/SetupDetail'
 import SetupManager from '../modules/setupManager'
 import setupForm from './setups/SetupForm';
 import setupManager from '../modules/setupManager';
+import ScheduleForm from './schedule/ScheduleForm'
+import scheduleManager from '../modules/scheduleManager'
 
 
 
 class ApplicationViews extends Component {
     state = {
         user: loginManager.getUserFromLocalStorage(),
-        tracks: []
+        tracks: [],
+        schedule: []
     }
 
     componentDidMount() {
         trackManager.getTracks()
             .then(tracks => this.setState({ tracks: tracks }))
+            .then(() => scheduleManager.getSchedule())
+            .then(schedule => this.setState({ schedule: schedule }))
     }
 
 
@@ -57,11 +62,18 @@ class ApplicationViews extends Component {
 
                 <Route exact path="/" render={(props) => {
                     return this.state.user ? (
-                        <Schedule></Schedule>
+                        <Schedule {...props} tracks={this.state.tracks} schedule={this.state.schedule}></Schedule>
                     ) : (
                             <Redirect to="/sign-in" />
                         )
                 }} />
+
+                <Route path="/schedule/new" render={(props) => {
+                    return (
+                        <ScheduleForm user={this.state.user} {...props} tracks={this.state.tracks}></ScheduleForm>
+                    )
+                }}
+                />
 
                 <Route exact path="/tracks"
                     render={props => {
