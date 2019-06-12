@@ -26,6 +26,7 @@ export default class setupForm extends Component {
     saveSetup = async () => {
         await this.setState({ trackId: this.props.track.id })
         await setupManager.post(this.state)
+        await this.props.history.push(`/tracks/${this.state.trackId}`)
     }
 
 
@@ -33,11 +34,11 @@ export default class setupForm extends Component {
         return (
             <>
                 <Container>
-                    <Header textAlign='center' size='huge'>
+                    <Header textAlign='center' style={{ fontSize: 40 }}>
                         Create a new setup for {this.props.track.name}
                     </Header>
                 </Container>
-                <Grid columns={2} style={{ padding: 20 }} textAlign='center'>
+                <Grid columns={2} style={{ padding: 20, marginTop: 20 }} textAlign='center'>
                     <Form>
                         <Form.Input
                             label='Setup Name'
@@ -155,18 +156,23 @@ export default class setupForm extends Component {
                                 <Table.Body>
                                     <Table.Row>
                                         <Table.Cell>
-                                            winged race?
-                                            {/* <Dropdown
+                                            <Dropdown
                                                 fluid
                                                 placeholder='winged race?'
                                                 selection
                                                 options={this.wingOptions}
+                                                onChange={(e, { value }) => this.setState(
+                                                    { gWing: value })
+                                                }
                                             >
-                                            </Dropdown> */}
-                                            <select
+                                            </Dropdown>
+                                            {/* <select
                                                 placeholder='winged race?'
                                                 onChange={(e) => this.setState({ gWing: e.target.value })}
                                             >
+                                                <option value='winged'>
+                                                    winged race?
+                                                </option>
                                                 <option value='winged'>
                                                     winged
                                                 </option>
@@ -174,7 +180,7 @@ export default class setupForm extends Component {
                                                     non-winged
                                                 </option>
 
-                                            </select>
+                                            </select> */}
                                         </Table.Cell>
                                     </Table.Row>
                                     <Table.Row>
@@ -303,7 +309,7 @@ export default class setupForm extends Component {
                                     <Table.Cell>
                                         Model
                                             <Input fluid
-                                            onChange={(e) => this.setState({ gTireModelRF: e.target.value })}></Input>
+                                            onChange={(e) => this.setState({ gTireModelRR: e.target.value })}></Input>
                                         Brand
                                             <Input fluid
                                             onChange={(e) => this.setState({ gTireBrandRR: e.target.value })}></Input>
@@ -313,7 +319,7 @@ export default class setupForm extends Component {
                         </Table>
                     </Grid.Row>
                 </Grid>
-                <Grid textAlign='center' style={{ marginTop: 20 }}>
+                <Grid textAlign='center' style={{ marginTop: 20, marginBottom: 40 }}>
                     <Button color='orange' size='huge'
                         onClick={this.saveSetup}
                     >

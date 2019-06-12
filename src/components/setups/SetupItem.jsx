@@ -17,9 +17,16 @@ export default class SetupItem extends Component {
                     </Card.Description>
                     <Grid>
                         <Grid.Column textAlign="center">
-                            <Button color='orange' inverted
-                                style={{ marginTop: 20 }}>
-                                <Link to={`setups/${this.props.setup.id}`}>See Setup</Link>
+                            <Button as='a' color='orange'
+                                style={{ marginTop: 20 }}
+                                href={`/setups/detail/${this.props.setup.id}`}
+                            >
+                                See Setup
+                            </Button>
+                            <Button color='black'
+                                onClick={() => this.props.deleteSetup(this.props.setup.id, this.props.trackId)}
+                            >
+                                Delete
                             </Button>
                         </Grid.Column>
                     </Grid>

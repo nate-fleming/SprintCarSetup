@@ -11,6 +11,9 @@ import trackManager from '../modules/trackManager'
 import TrackSetups from './tracks/TrackSetups'
 import SetupForm from './setups/SetupForm'
 import SetupDetail from './setups/SetupDetail'
+import SetupManager from '../modules/setupManager'
+import setupForm from './setups/SetupForm';
+import setupManager from '../modules/setupManager';
 
 
 
@@ -24,7 +27,6 @@ class ApplicationViews extends Component {
         trackManager.getTracks()
             .then(tracks => this.setState({ tracks: tracks }))
     }
-
 
 
     render() {
@@ -99,8 +101,9 @@ class ApplicationViews extends Component {
                 }}
                 />
 
-                <Route path="/setups/:setupkId" render={(props) => {
-                    let setup = parseInt(props.match.params.setupId)
+                <Route path="/setups/detail/:setupId" render={(props) => {
+                    let setup = props.match.params.setupId
+
 
                     if (!setup) {
                         setup = { id: 404, name: "" }

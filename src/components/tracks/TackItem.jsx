@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Button, Grid, Image, Card, Icon } from 'semantic-ui-react'
-import { Link } from "react-router-dom";
+
 
 export default class TackItem extends Component {
     render() {
@@ -14,7 +14,9 @@ export default class TackItem extends Component {
                     </Card.Description>
                     <Grid>
                         <Grid.Column textAlign="center">
-                            <Button color='orange' inverted style={{ marginTop: 20 }}><Link to={`tracks/${this.props.track.id}`}>See Setups</Link></Button>
+                            <Button as='a' color='orange' style={{ marginTop: 20 }}
+                                href={`/tracks/${this.props.track.id}`}
+                            >See Setups</Button>
                         </Grid.Column>
                     </Grid>
                 </Card.Content>
