@@ -1,13 +1,22 @@
 import React, { Component } from 'react'
 import moment from 'moment'
 import { Container, Button, Grid, Header, Card } from 'semantic-ui-react'
+import ScheduleItemWW from './ScheduleItemWW'
 import ScheduleItem from './ScheduleItem'
 
 
 export default class Schedule extends Component {
     year = moment(new Date()).format('YYYY')
     today = new Date()
+
+
     render() {
+        const sortedSchedule = this.props.schedule.sort((a, b) => {
+            a = new Date(a.date)
+            b = new Date(b.date)
+            return (a < b) ? -1 : (a > b) ? 1 : 0
+        })
+        console.log('sorted schedule', sortedSchedule)
         return (
             <>
                 <Container>
@@ -24,9 +33,15 @@ export default class Schedule extends Component {
                 <Container>
                     <Card.Group centered style={{ marginTop: 40 }}>
                         {
-                            this.props.schedule.map(race => {
+                            sortedSchedule.map((race, index) => {
+                                console.log(index)
+                                const raceDate = new Date(race.date)
+                                console.log('raceDate', raceDate, this.today)
                                 return (
-                                    <ScheduleItem key={race.id} race={race} tracks={this.props.tracks}></ScheduleItem>
+                                    (index === 0) ?
+                                        <ScheduleItemWW key={race.id} race={race} tracks={this.props.tracks} ></ScheduleItemWW>
+                                        :
+                                        <ScheduleItem key={race.id} race={race} tracks={this.props.tracks} ></ScheduleItem>
                                 )
                             })
                         }
