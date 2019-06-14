@@ -11,11 +11,9 @@ import trackManager from '../modules/trackManager'
 import TrackSetups from './tracks/TrackSetups'
 import SetupForm from './setups/SetupForm'
 import SetupDetail from './setups/SetupDetail'
-import SetupManager from '../modules/setupManager'
-import setupForm from './setups/SetupForm';
-import setupManager from '../modules/setupManager';
 import ScheduleForm from './schedule/ScheduleForm'
 import scheduleManager from '../modules/scheduleManager'
+import Results from './results/Results'
 
 
 
@@ -84,8 +82,27 @@ class ApplicationViews extends Component {
                 />
 
                 <Route exact path="/" render={(props) => {
+                    const today = new Date()
+                    const futureSchedule = this.state.schedule.filter(schedule =>
+                        new Date(schedule.date) >= today
+                    )
+
                     return this.state.user ? (
-                        <Schedule {...props} tracks={this.state.tracks} schedule={this.state.schedule} deleteRace={this.deleteRace} editRace={this.editRace} user={this.state.user}></Schedule>
+                        <Schedule {...props} tracks={this.state.tracks} schedule={futureSchedule} deleteRace={this.deleteRace} editRace={this.editRace} user={this.state.user}></Schedule>
+                    ) : (
+                            <Redirect to="/sign-in" />
+                        )
+                }} />
+
+                <Route exact path="/results" render={(props) => {
+                    const today = new Date()
+                    const pastSchedule = this.state.schedule.filter(schedule =>
+                        new Date(schedule.date) < today
+                    )
+
+                    return this.state.user ? (
+                        <Results {...props} races={pastSchedule} tracks={this.state.tracks}
+                            editRace={this.editRace} user={this.state.user} ></Results>
                     ) : (
                             <Redirect to="/sign-in" />
                         )

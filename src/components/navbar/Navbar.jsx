@@ -23,7 +23,7 @@ export default class Navbar extends Component {
                     </Menu.Item>
 
                     <Menu.Item>
-                        <Link to='/'>Results</Link>
+                        <Link to='/results'>Results</Link>
                     </Menu.Item>
 
                     <Menu.Item position='right'>

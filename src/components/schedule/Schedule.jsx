@@ -7,8 +7,6 @@ import ScheduleItem from './ScheduleItem'
 
 export default class Schedule extends Component {
     year = moment(new Date()).format('YYYY')
-    today = new Date()
-
 
     render() {
         const sortedSchedule = this.props.schedule.sort((a, b) => {
@@ -34,7 +32,6 @@ export default class Schedule extends Component {
                     <Card.Group centered style={{ marginTop: 40 }}>
                         {
                             sortedSchedule.map((race, index) => {
-                                const raceDate = new Date(race.date)
                                 return (
                                     (index === 0) ?
                                         <ScheduleItemWW key={race.id} race={race} tracks={this.props.tracks} deleteRace={this.props.deleteRace}
