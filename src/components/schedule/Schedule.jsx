@@ -16,7 +16,7 @@ export default class Schedule extends Component {
             b = new Date(b.date)
             return (a < b) ? -1 : (a > b) ? 1 : 0
         })
-        console.log('sorted schedule', sortedSchedule)
+
         return (
             <>
                 <Container>
@@ -34,14 +34,14 @@ export default class Schedule extends Component {
                     <Card.Group centered style={{ marginTop: 40 }}>
                         {
                             sortedSchedule.map((race, index) => {
-                                console.log(index)
                                 const raceDate = new Date(race.date)
-                                console.log('raceDate', raceDate, this.today)
                                 return (
                                     (index === 0) ?
-                                        <ScheduleItemWW key={race.id} race={race} tracks={this.props.tracks} ></ScheduleItemWW>
+                                        <ScheduleItemWW key={race.id} race={race} tracks={this.props.tracks} deleteRace={this.props.deleteRace}
+                                            editRace={this.props.editRace} user={this.props.user}></ScheduleItemWW>
                                         :
-                                        <ScheduleItem key={race.id} race={race} tracks={this.props.tracks} ></ScheduleItem>
+                                        <ScheduleItem key={race.id} race={race} tracks={this.props.tracks} deleteRace={this.props.deleteRace}
+                                            editRace={this.props.editRace} user={this.props.user}></ScheduleItem>
                                 )
                             })
                         }
@@ -51,3 +51,4 @@ export default class Schedule extends Component {
         )
     }
 }
+

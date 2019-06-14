@@ -52,6 +52,13 @@ export default class SetupDetail extends Component {
                         {this.state.trackSetup.name}
                     </Header>
                 </Container>
+                <Grid textAlign='center' style={{ marginTop: 40 }}>
+                    <Button color='orange' size='huge'
+                        onClick={() => this.setState({ isHidden: false })}
+                        style={{ display: `${reverseHidden}` }}>
+                        Edit
+                    </Button>
+                </Grid>
                 <Grid columns={2} style={{ padding: 20, marginTop: 20 }} textAlign='center'>
                     <Form style={{ display: `${hidden}` }}>
                         <Form.Input

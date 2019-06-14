@@ -5,14 +5,9 @@ import scheduleManager from '../../modules/scheduleManager'
 export default class ScheduleForm extends Component {
     state = {
         date: '',
-        trackId: ''
+        trackId: '',
+        userId: this.props.user
     }
-
-    saveRace = () => {
-        scheduleManager.post(this.state)
-            .then(() => this.props.history.push('/'))
-    }
-
 
 
     render() {
@@ -50,7 +45,7 @@ export default class ScheduleForm extends Component {
                             >
                             </Dropdown>
                             <Button color='orange' size='large' style={{ marginTop: 20 }}
-                                onClick={this.saveRace}>
+                                onClick={() => this.props.saveRace(this.state)}>
                                 Save
                             </Button>
                         </Segment>

@@ -27,10 +27,33 @@ class ApplicationViews extends Component {
     }
 
     componentDidMount() {
+        const user = loginManager.getUserFromLocalStorage()
         trackManager.getTracks()
             .then(tracks => this.setState({ tracks: tracks }))
-            .then(() => scheduleManager.getSchedule())
+            .then(() => scheduleManager.getSchedule(user))
             .then(schedule => this.setState({ schedule: schedule }))
+    }
+
+
+    saveRace = (race) => {
+        scheduleManager.post(race)
+            .then(() => scheduleManager.getSchedule(this.state.user))
+            .then(schedule => this.setState({ schedule: schedule }))
+            .then(() => this.props.history.push('/'))
+    }
+
+    deleteRace = (id) => {
+        scheduleManager.deleteRace(id)
+            .then(() => scheduleManager.getSchedule(this.state.user))
+            .then(schedule => this.setState({ schedule: schedule }))
+            .then(() => this.props.history.push('/'))
+    }
+
+    editRace = (editedRace) => {
+        scheduleManager.editRace(editedRace)
+            .then(() => scheduleManager.getSchedule(this.state.user))
+            .then(schedule => this.setState({ schedule: schedule }))
+            .then(() => this.props.history.push('/'))
     }
 
 
@@ -62,7 +85,7 @@ class ApplicationViews extends Component {
 
                 <Route exact path="/" render={(props) => {
                     return this.state.user ? (
-                        <Schedule {...props} tracks={this.state.tracks} schedule={this.state.schedule}></Schedule>
+                        <Schedule {...props} tracks={this.state.tracks} schedule={this.state.schedule} deleteRace={this.deleteRace} editRace={this.editRace} user={this.state.user}></Schedule>
                     ) : (
                             <Redirect to="/sign-in" />
                         )
@@ -70,7 +93,7 @@ class ApplicationViews extends Component {
 
                 <Route path="/schedule/new" render={(props) => {
                     return (
-                        <ScheduleForm user={this.state.user} {...props} tracks={this.state.tracks}></ScheduleForm>
+                        <ScheduleForm user={this.state.user} {...props} tracks={this.state.tracks} saveRace={this.saveRace} user={this.state.user}></ScheduleForm>
                     )
                 }}
                 />

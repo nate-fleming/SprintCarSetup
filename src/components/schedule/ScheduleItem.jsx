@@ -1,31 +1,121 @@
 import React, { Component } from 'react'
-import { Button, Grid, Image, Card, Icon, Segment } from 'semantic-ui-react'
+import { Button, Grid, Image, Modal, Icon, Segment, Header, Form, Dropdown } from 'semantic-ui-react'
 import moment from 'moment'
 
 export default class ScheduleItem extends Component {
+    state = {
+        modalOpen: false,
+        track: [],
+        date: '',
+        trackId: '',
+        id: ''
+    }
 
-    track = this.props.tracks.find(track => track.id === this.props.race.trackId)
 
+
+    componentDidMount() {
+        this.setState({
+            track: this.props.tracks.find(track => track.id === this.props.race.trackId),
+            date: this.props.race.date,
+            trackId: this.props.race.trackId,
+            id: this.props.race.id
+        })
+    }
+
+    handleOpen = () => this.setState({ modalOpen: true })
+
+    handleClose = () => this.setState({ modalOpen: false })
+
+    saveEdits = () => {
+        const editedRace = {
+            date: this.state.date,
+            trackId: this.state.trackId,
+            id: this.state.id,
+            userId: this.props.user
+        }
+        this.props.editRace(editedRace)
+    }
 
     render() {
-        console.log("track", this.track)
+        const trackOptions = []
+        const getTrackackOptions = () => this.props.tracks.map(track => {
+            const options = {
+                key: track.id, text: track.name, value: track.id
+            }
+            trackOptions.push(options)
+        })
+
+        getTrackackOptions()
+        const track = this.props.tracks.find(track => track.id === this.props.race.trackId)
         return (
             <Grid>
                 <Segment.Group horizontal raised style={{ padding: 20 }}>
-                    <Grid.Column >
-                        <Image src={this.track.imgUrl} style={{ maxHeight: 200 }}></Image>
+                    <Grid.Column style={{ minWidth: 450 }}>
+                        <Image centered src={track.imgUrl} style={{ maxHeight: 200 }}></Image>
                     </Grid.Column>
-                    <Grid.Column style={{ paddingLeft: 40 }}>
+                    <Grid.Column style={{ paddingLeft: 40 }} textAlign='center'>
                         <Grid.Row style={{ fontSize: 20 }}>
                             <Icon name='calendar alternate outline' />
                             {moment(this.props.race.date).format('MMM-DD')}
                         </Grid.Row>
                     </Grid.Column>
-                    <Grid.Column>
-                        <Grid.Row>
+                    <Grid.Column verticalAlign='middle'>
+                        <Grid.Row >
                             <Button as='a' color='orange' style={{ marginTop: 20, marginLeft: 40 }}
                                 href={`/tracks/${this.props.race.trackId}`}
                             >See My Setups</Button>
+                        </Grid.Row>
+                        <Grid.Row >
+                            <Modal trigger={<Button onClick={this.handleOpen} color='black' style={{ marginTop: 20, marginLeft: 40 }}>Edit Race</Button>}
+                                closeIcon
+                                open={this.state.modalOpen}
+                                onClose={this.handleClose}>
+                                <Header icon='cog' content='Edit Race' style={{ backgroundColor: '#D0D6D9' }} />
+                                <Modal.Content>
+                                    <Grid textAlign='center' style={{ fontSize: 40 }}  >
+                                        <Grid.Column style={{ maxWidth: 450 }}>
+                                            <Form size='large' >
+                                                <Segment stacked color='orange' inverted>
+                                                    <Form.Input type='date' fluid icon='calendar alternate outline' iconPosition='left'
+                                                        placeholder='Date'
+                                                        label='Date'
+                                                        defaultValue={this.props.race.date}
+                                                        onChange={(e) => this.setState({ date: e.target.value })} />
+                                                    <Dropdown
+                                                        fluid
+                                                        placeholder='Track'
+                                                        selection
+                                                        defaultValue={this.props.race.trackId}
+                                                        options={trackOptions}
+                                                        onChange={(e, { value }) => this.setState(
+                                                            { trackId: value })
+                                                        }
+                                                    >
+                                                    </Dropdown>
+                                                </Segment>
+                                            </Form>
+                                        </Grid.Column>
+                                    </Grid>
+                                </Modal.Content>
+                                <Modal.Actions style={{ backgroundColor: '#D0D6D9' }}>
+                                    <Button color='black' onClick={this.handleClose}>
+                                        <Icon name='remove' /> Cancel
+                                    </Button>
+                                    <Button color='orange'
+                                        onClick={() => {
+                                            this.handleClose()
+                                            this.saveEdits()
+                                        }}
+                                    >
+                                        <Icon name='checkmark' /> Save
+                                    </Button>
+                                </Modal.Actions>
+                            </Modal>
+                        </Grid.Row>
+                        <Grid.Row >
+                            <Button as='a' color='red' style={{ marginTop: 20, marginLeft: 40 }}
+                                onClick={() => this.props.deleteRace(this.props.race.id)}
+                            >Remove Race</Button>
                         </Grid.Row>
                     </Grid.Column>
                 </Segment.Group>

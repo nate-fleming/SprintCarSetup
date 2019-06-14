@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Grid, Image, Card, Icon, GridColumn, Segment, GridRow } from 'semantic-ui-react'
+import { Button, Grid, Image, Modal, Icon, Header, Segment, Form, Dropdown, Confirm } from 'semantic-ui-react'
 import moment from 'moment'
 import trackManager from '../../modules/trackManager'
 import weatherManager from '../../modules/weatherManager'
@@ -7,36 +7,74 @@ import WeatherIcon from 'react-icons-weather'
 
 export default class ScheduleItem extends Component {
     state = {
-        track: [],
         currentWeather: {},
-        dailyWeather: {}
+        dailyWeather: {},
+        modalOpen: false,
+        open: false,
+        date: '',
+        trackId: '',
+        id: ''
     }
 
-    track = this.props.tracks.find(track => track.id === this.props.race.trackId)
 
     componentDidMount() {
+        const track = this.props.tracks.find(track => track.id === this.props.race.trackId)
         const newState = {}
         const date = this.props.race.date + "T19:00:00"
-        weatherManager.getWeather(this.track.latitude, this.track.longitude, date)
+        newState.date = this.props.race.date
+        newState.trackId = this.props.race.trackId
+        newState.id = this.props.race.id
+        weatherManager.getWeather(track.latitude, track.longitude, date)
             .then(weather => {
                 newState.currentWeather = weather.currently
                 newState.dailyWeather = weather.daily.data[0]
             })
+            .catch(error => newState.currentWeather = {})
             .then(() => this.setState(newState))
     }
 
 
+    handleOpen = () => this.setState({ modalOpen: true })
+    handleClose = () => this.setState({ modalOpen: false })
+    open = () => this.setState({ open: true })
+    close = () => this.setState({ open: false })
+
+    saveEdits = () => {
+        const editedRace = {
+            date: this.state.date,
+            trackId: this.state.trackId,
+            id: this.state.id,
+            userId: this.props.user
+        }
+        this.props.editRace(editedRace)
+    }
 
 
     render() {
-        console.log(this.state.dailyWeather.icon)
-        const rain = (this.state.currentWeather.precipProbability) * 100
-        const temp = parseInt(this.state.currentWeather.temperature)
+        console.log(this.state.currentWeather)
+        const track = this.props.tracks.find(track => track.id === this.props.race.trackId)
+        const rain = (!!this.state.currentWeather) ? "no weather data" :
+            `${(this.state.currentWeather.precipProbability) * 100}% chaince of rain`
+        const temp = (!!this.state.currentWeather) ? "no weather data" :
+            `Temp ${parseInt(this.state.currentWeather.temperature)} &deg;`
+        const trackOptions = []
+
+
+        const getTrackackOptions = () => this.props.tracks.map(track => {
+            const options = {
+                key: track.id, text: track.name, value: track.id
+            }
+            trackOptions.push(options)
+        })
+
+        getTrackackOptions()
+
+
         return (
             <Grid>
                 <Segment.Group horizontal raised style={{ padding: 20 }}>
-                    <Grid.Column >
-                        <Image src={this.track.imgUrl} style={{ maxHeight: 200 }} ></Image>
+                    <Grid.Column style={{ minWidth: 450 }}>
+                        <Image centered src={track.imgUrl} style={{ maxHeight: 200 }} ></Image>
                     </Grid.Column>
                     <Grid.Column style={{ paddingLeft: 40 }}>
                         <Grid.Row style={{ fontSize: 20 }}>
@@ -50,17 +88,69 @@ export default class ScheduleItem extends Component {
                             <p>{this.state.currentWeather.summary}</p>
                         </Grid.Row>
                         <Grid.Row>
-                            <p>Temp {temp}&deg;</p>
+                            <p>{temp}</p>
                         </Grid.Row>
                         <Grid.Row>
-                            <p>{rain}% chaince of rain</p>
+                            <p>{rain}</p>
                         </Grid.Row>
                     </Grid.Column>
                     <Grid.Column>
                         <Grid.Row>
                             <Button as='a' color='orange' style={{ marginTop: 20, marginLeft: 40 }}
-                                href={`/tracks/${this.state.track.id}`}
+                                href={`/tracks/${this.props.race.trackId}`}
                             >See My Setups</Button>
+                        </Grid.Row>
+                        <Grid.Row >
+                            <Modal trigger={<Button onClick={this.handleOpen} color='black' style={{ marginTop: 20, marginLeft: 40 }}>Edit Race</Button>}
+                                closeIcon
+                                open={this.state.modalOpen}
+                                onClose={this.handleClose}>
+                                <Header icon='cog' content='Edit Race' style={{ backgroundColor: '#D0D6D9' }} />
+                                <Modal.Content>
+                                    <Grid textAlign='center' style={{ fontSize: 40 }}  >
+                                        <Grid.Column style={{ maxWidth: 450 }}>
+                                            <Form size='large' >
+                                                <Segment stacked color='orange' inverted>
+                                                    <Form.Input type='date' fluid icon='calendar alternate outline' iconPosition='left'
+                                                        placeholder='Date'
+                                                        label='Date'
+                                                        defaultValue={this.props.race.date}
+                                                        onChange={(e) => this.setState({ date: e.target.value })} />
+                                                    <Dropdown
+                                                        fluid
+                                                        placeholder='Track'
+                                                        selection
+                                                        defaultValue={this.props.race.trackId}
+                                                        options={trackOptions}
+                                                        onChange={(e, { value }) => this.setState(
+                                                            { trackId: value })
+                                                        }
+                                                    >
+                                                    </Dropdown>
+                                                </Segment>
+                                            </Form>
+                                        </Grid.Column>
+                                    </Grid>
+                                </Modal.Content>
+                                <Modal.Actions style={{ backgroundColor: '#D0D6D9' }}>
+                                    <Button color='black' onClick={this.handleClose}>
+                                        <Icon name='remove' /> Cancel
+                                    </Button>
+                                    <Button color='orange'
+                                        onClick={() => {
+                                            this.handleClose()
+                                            this.saveEdits()
+                                        }}
+                                    >
+                                        <Icon name='checkmark' /> Save
+                                    </Button>
+                                </Modal.Actions>
+                            </Modal>
+                        </Grid.Row>
+                        <Grid.Row >
+                            <Button as='a' color='red' style={{ marginTop: 20, marginLeft: 40 }}
+                                onClick={() => this.props.deleteRace(this.props.race.id)}
+                            >Remove Race</Button>
                         </Grid.Row>
                     </Grid.Column>
                 </Segment.Group>
