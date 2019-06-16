@@ -18,7 +18,7 @@ export default class Schedule extends Component {
         return (
             <>
                 <Container>
-                    <Header textAlign='center' style={{ fontSize: 40 }}>
+                    <Header as='h1' textAlign='center' style={{ fontSize: 80, fontFamily: 'Racing Sans One, cursive', textWithShadow: '-12px 10px 5px 0px rgba(0,0,0,0.75)' }}>
                         {this.year} Schedule</Header>
                     <Grid textAlign='center' style={{ marginTop: 50 }}>
                         <Button as='a' color='orange' size='huge'

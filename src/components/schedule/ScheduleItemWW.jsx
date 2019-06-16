@@ -29,7 +29,7 @@ export default class ScheduleItem extends Component {
                 newState.currentWeather = weather.currently
                 newState.dailyWeather = weather.daily.data[0]
             })
-            .catch(error => newState.currentWeather = {})
+            .catch(error => newState.currentWeather = "")
             .then(() => this.setState(newState))
     }
 
@@ -53,12 +53,11 @@ export default class ScheduleItem extends Component {
     render() {
         console.log(this.state.currentWeather)
         const track = this.props.tracks.find(track => track.id === this.props.race.trackId)
-        const rain = (!!this.state.currentWeather) ? "no weather data" :
+        const rain = (this.state.currentWeather === "") ? "no weather data" :
             `${(this.state.currentWeather.precipProbability) * 100}% chaince of rain`
-        const temp = (!!this.state.currentWeather) ? "no weather data" :
-            `Temp ${parseInt(this.state.currentWeather.temperature)} &deg;`
+        const temp = (this.state.currentWeather === "") ? "no weather data" :
+            `Temp ${parseInt(this.state.currentWeather.temperature)}`
         const trackOptions = []
-
 
         const getTrackackOptions = () => this.props.tracks.map(track => {
             const options = {
@@ -88,7 +87,7 @@ export default class ScheduleItem extends Component {
                             <p>{this.state.currentWeather.summary}</p>
                         </Grid.Row>
                         <Grid.Row>
-                            <p>{temp}</p>
+                            <p>{temp}&deg;</p>
                         </Grid.Row>
                         <Grid.Row>
                             <p>{rain}</p>

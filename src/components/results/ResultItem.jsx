@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Button, Grid, Image, Modal, Icon, Segment, Header, Form, Dropdown, Label, Divider } from 'semantic-ui-react'
 import moment from 'moment'
+import scheduleManager from '../../modules/scheduleManager'
 
 export default class ResultItem extends Component {
     state = {
@@ -39,34 +40,42 @@ export default class ResultItem extends Component {
             featureResult: this.state.featureResult,
             heatRaceResult: this.state.heatRaceResult
         }
-        this.props.editRace(editedRace)
+        scheduleManager.editRace(editedRace)
+            .then(race => this.setState({
+                date: race.date,
+                trackId: race.trackId,
+                id: race.id,
+                userId: race.userId,
+                featureResult: race.featureResult,
+                heatRaceResult: race.heatRaceResult
+            }))
     }
 
     results = [
-        { key: 1, text: '1st', value: 1 },
-        { key: 2, text: '2nd', value: 2 },
-        { key: 3, text: '3rd', value: 3 },
-        { key: 4, text: '4th', value: 4 },
-        { key: 5, text: '5th', value: 5 },
-        { key: 6, text: '6th', value: 6 },
-        { key: 7, text: '7th', value: 7 },
-        { key: 8, text: '8th', value: 8 },
-        { key: 9, text: '9th', value: 9 },
-        { key: 10, text: '10th', value: 10 },
-        { key: 11, text: '11th', value: 11 },
-        { key: 12, text: '12th', value: 12 },
-        { key: 13, text: '13th', value: 13 },
-        { key: 14, text: '14th', value: 14 },
-        { key: 15, text: '15th', value: 15 },
-        { key: 16, text: '16th', value: 16 },
-        { key: 17, text: '17th', value: 17 },
-        { key: 18, text: '18th', value: 18 },
-        { key: 19, text: '19th', value: 19 },
-        { key: 20, text: '20th', value: 20 },
-        { key: 21, text: '21st', value: 21 },
-        { key: 22, text: '22nd', value: 22 },
-        { key: 23, text: '23rd', value: 23 },
-        { key: 24, text: '24th', value: 24 },
+        { key: 1, text: '1st', value: '1st' },
+        { key: 2, text: '2nd', value: '2nd' },
+        { key: 3, text: '3rd', value: '3rd' },
+        { key: 4, text: '4th', value: '4th' },
+        { key: 5, text: '5th', value: '5th' },
+        { key: 6, text: '6th', value: '6th' },
+        { key: 7, text: '7th', value: '7th' },
+        { key: 8, text: '8th', value: '8th' },
+        { key: 9, text: '9th', value: '9th' },
+        { key: 10, text: '10th', value: '10th' },
+        { key: 11, text: '11th', value: '11th' },
+        { key: 12, text: '12th', value: '12th' },
+        { key: 13, text: '13th', value: '13th' },
+        { key: 14, text: '14th', value: '14th' },
+        { key: 15, text: '15th', value: '15th' },
+        { key: 16, text: '16th', value: '16th' },
+        { key: 17, text: '17th', value: '17th' },
+        { key: 18, text: '18th', value: '18th' },
+        { key: 19, text: '19th', value: '19th' },
+        { key: 20, text: '20th', value: '20th' },
+        { key: 21, text: '21st', value: '21st' },
+        { key: 22, text: '22nd', value: '22nd' },
+        { key: 23, text: '23rd', value: '23rd' },
+        { key: 24, text: '24th', value: '24th' },
         { key: 25, text: 'DNF', value: 'DNF' },
     ]
 
@@ -83,17 +92,23 @@ export default class ResultItem extends Component {
                             <Icon name='calendar alternate outline' />
                             {moment(this.props.race.date).format('MMM-DD')}
                         </Grid.Row>
-                        <Grid.Row>
+                        <Grid.Row style={{ marginTop: 20, fontSize: 20 }}>
                             Feature Result
                         </Grid.Row>
-                        <Grid.Row>
-                            <Icon name='flag checkered' /> {this.state.featureResult}
+                        <Grid.Row style={{ marginTop: 10, fontSize: 20 }}>
+                            <Icon name='flag checkered' />
+                            {(!this.state.featureResult) ? 'enter result'
+                                : this.state.featureResult
+                            }
                         </Grid.Row>
-                        <Grid.Row>
+                        <Grid.Row style={{ marginTop: 20, fontSize: 20 }}>
                             Heat Race Result
                         </Grid.Row>
-                        <Grid.Row>
-                            <Icon name='flag checkered' /> {this.state.heatRaceResult}
+                        <Grid.Row style={{ marginTop: 10, fontSize: 20 }}>
+                            <Icon name='flag checkered' />
+                            {(!this.state.heatRaceResult) ? 'enter result'
+                                : this.state.heatRaceResult
+                            }
                         </Grid.Row>
                     </Grid.Column>
                     <Grid.Column verticalAlign='middle'>
@@ -165,7 +180,7 @@ export default class ResultItem extends Component {
                         </Grid.Row>
                         <Grid.Row >
                             <Button as='a' color='red' style={{ marginTop: 20, marginLeft: 40 }}
-                                onClick={() => this.props.deleteRace(this.props.race.id)}
+                                onClick={() => this.props.deleteResult(this.props.race.id)}
                             >Remove Race</Button>
                         </Grid.Row>
                     </Grid.Column>

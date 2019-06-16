@@ -15,8 +15,9 @@ export default class SignIn extends Component {
     signIn = () => {
         loginManager.login(this.state.email, this.state.password)
             .then(user => {
-                this.props.onLogin(user)
-                this.props.history.push('/')
+                console.log(user.user.uid)
+                // this.props.onLogin(user.user.uid)
+                this.props.login(user.user.uid)
             })
             .catch(() => {
                 this.setState({ hasError: true })

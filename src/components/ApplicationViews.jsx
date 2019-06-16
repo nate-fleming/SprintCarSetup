@@ -14,6 +14,8 @@ import SetupDetail from './setups/SetupDetail'
 import ScheduleForm from './schedule/ScheduleForm'
 import scheduleManager from '../modules/scheduleManager'
 import Results from './results/Results'
+import moment from 'moment'
+
 
 
 
@@ -25,11 +27,26 @@ class ApplicationViews extends Component {
     }
 
     componentDidMount() {
-        const user = loginManager.getUserFromLocalStorage()
-        trackManager.getTracks()
-            .then(tracks => this.setState({ tracks: tracks }))
-            .then(() => scheduleManager.getSchedule(user))
-            .then(schedule => this.setState({ schedule: schedule }))
+        const newState = {}
+
+        scheduleManager.getSchedule(this.state.user)
+            .then(schedule => {
+                console.log('schedule', schedule)
+                newState.schedule = schedule
+            })
+            .then(() => trackManager.getTracks())
+            .then(tracks => newState.tracks = tracks)
+            .then(() => this.setState(newState))
+    }
+
+    login = (user) => {
+        scheduleManager.getSchedule(user)
+            .then(schedule =>
+                this.setState({
+                    schedule: schedule,
+                    user: user
+                }))
+            .then(() => this.props.history.push('/'))
     }
 
 
@@ -45,6 +62,13 @@ class ApplicationViews extends Component {
             .then(() => scheduleManager.getSchedule(this.state.user))
             .then(schedule => this.setState({ schedule: schedule }))
             .then(() => this.props.history.push('/'))
+    }
+
+    deleteResult = (id) => {
+        scheduleManager.deleteRace(id)
+            .then(() => scheduleManager.getSchedule(this.state.user))
+            .then(schedule => this.setState({ schedule: schedule }))
+            .then(() => this.props.history.push('/results'))
     }
 
     editRace = (editedRace) => {
@@ -65,6 +89,7 @@ class ApplicationViews extends Component {
                             <SignIn
                                 {...props}
                                 onLogin={(user) => this.setState({ user: user })}
+                                login={this.login}
                             />
                         );
                     }}
@@ -82,9 +107,10 @@ class ApplicationViews extends Component {
                 />
 
                 <Route exact path="/" render={(props) => {
-                    const today = new Date()
+                    console.log(this.state)
+                    const today = moment(new Date()).format('YYYY-MM-DD')
                     const futureSchedule = this.state.schedule.filter(schedule =>
-                        new Date(schedule.date) >= today
+                        schedule.date >= today
                     )
 
                     return this.state.user ? (
@@ -95,14 +121,14 @@ class ApplicationViews extends Component {
                 }} />
 
                 <Route exact path="/results" render={(props) => {
-                    const today = new Date()
+                    const today = moment(new Date()).format('YYYY-MM-DD')
                     const pastSchedule = this.state.schedule.filter(schedule =>
-                        new Date(schedule.date) < today
+                        schedule.date < today
                     )
 
                     return this.state.user ? (
                         <Results {...props} races={pastSchedule} tracks={this.state.tracks}
-                            editRace={this.editRace} user={this.state.user} ></Results>
+                            user={this.state.user} deleteResult={this.deleteResult}></Results>
                     ) : (
                             <Redirect to="/sign-in" />
                         )

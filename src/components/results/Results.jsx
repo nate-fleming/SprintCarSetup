@@ -21,7 +21,7 @@ export default class Results extends Component {
                         {
                             sortedRaces.map(race => {
                                 return (
-                                    <ResultItem key={race.id} race={race} tracks={this.props.tracks} editRace={this.props.editRace}
+                                    <ResultItem key={race.id} race={race} tracks={this.props.tracks} deleteResult={this.props.deleteResult}
                                         user={this.props.user}></ResultItem>
                                 )
                             })

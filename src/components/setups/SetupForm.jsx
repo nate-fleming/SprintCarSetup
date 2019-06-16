@@ -47,7 +47,7 @@ export default class setupForm extends Component {
                     </Form>
                     <Grid.Row>
                         <Grid.Column>
-                            <Table celled>
+                            <Table celled color='orange' >
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center'>Setup Blocks</Table.HeaderCell>
@@ -83,7 +83,7 @@ export default class setupForm extends Component {
                             </Table>
                         </Grid.Column>
                         <Grid.Column>
-                            <Table celled>
+                            <Table celled color='orange'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center'>Gear Ratio</Table.HeaderCell>
@@ -112,7 +112,7 @@ export default class setupForm extends Component {
                     </Grid.Row>
                     <Grid.Row>
                         <Grid.Column>
-                            <Table celled>
+                            <Table celled color='orange'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center'>Bars</Table.HeaderCell>
@@ -147,7 +147,7 @@ export default class setupForm extends Component {
                             </Table>
                         </Grid.Column>
                         <Grid.Column>
-                            <Table celled>
+                            <Table celled color='orange'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center'>Wing Angle</Table.HeaderCell>
@@ -199,7 +199,7 @@ export default class setupForm extends Component {
                     </Grid.Row>
                     <Grid.Row>
                         <Grid.Column>
-                            <Table celled>
+                            <Table celled color='orange'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center'>Turns</Table.HeaderCell>
@@ -234,7 +234,7 @@ export default class setupForm extends Component {
                             </Table>
                         </Grid.Column>
                         <Grid.Column>
-                            <Table celled>
+                            <Table celled color='orange'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center'>Stagger</Table.HeaderCell>
@@ -252,7 +252,7 @@ export default class setupForm extends Component {
                         </Grid.Column>
                     </Grid.Row>
                     <Grid.Row>
-                        <Table celled>
+                        <Table celled color='orange'>
                             <Table.Header>
                                 <Table.Row>
                                     <Table.HeaderCell colSpan='2'
