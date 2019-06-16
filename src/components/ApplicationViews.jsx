@@ -30,10 +30,7 @@ class ApplicationViews extends Component {
         const newState = {}
 
         scheduleManager.getSchedule(this.state.user)
-            .then(schedule => {
-                console.log('schedule', schedule)
-                newState.schedule = schedule
-            })
+            .then(schedule => newState.schedule = schedule)
             .then(() => trackManager.getTracks())
             .then(tracks => newState.tracks = tracks)
             .then(() => this.setState(newState))
