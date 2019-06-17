@@ -49,7 +49,7 @@ export default class ResultItem extends Component {
                 featureResult: race.featureResult,
                 heatRaceResult: race.heatRaceResult
             }))
-            .then(this.props.history.push('/results'))
+        // .then(this.props.history.push('/results'))
     }
 
     results = [
