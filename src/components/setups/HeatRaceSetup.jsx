@@ -62,7 +62,7 @@ export default class HeatRaceSetup extends Component {
                             <Table celled color='orange'>
                                 <Table.Header>
                                     <Table.Row>
-                                        <Table.HeaderCell colSpan='2' textAlign='center'>Stagger</Table.HeaderCell>
+                                        <Table.HeaderCell colSpan='2' textAlign='center' style={{ fontSize: 20 }}>Stagger</Table.HeaderCell>
                                     </Table.Row>
                                 </Table.Header>
                                 <Table.Body>
@@ -133,7 +133,7 @@ export default class HeatRaceSetup extends Component {
                             <Table celled color='orange'>
                                 <Table.Header>
                                     <Table.Row>
-                                        <Table.HeaderCell colSpan='2' textAlign='center'>RR Spacing</Table.HeaderCell>
+                                        <Table.HeaderCell colSpan='2' textAlign='center' style={{ fontSize: 20 }}>RR Spacing</Table.HeaderCell>
                                     </Table.Row>
                                 </Table.Header>
                                 <Table.Body>
@@ -205,7 +205,7 @@ export default class HeatRaceSetup extends Component {
                                 <Table celled color='orange'>
                                     <Table.Header>
                                         <Table.Row>
-                                            <Table.HeaderCell colSpan='2' textAlign='center'>Wing Position</Table.HeaderCell>
+                                            <Table.HeaderCell colSpan='2' textAlign='center' style={{ fontSize: 20 }}>Wing Position</Table.HeaderCell>
                                         </Table.Row>
                                     </Table.Header>
                                     <Table.Body>
@@ -222,11 +222,11 @@ export default class HeatRaceSetup extends Component {
                                     </Table.Body>
                                 </Table>
                             </Grid.Row>
-                            <Grid.Row>
+                            <Grid.Row style={{ marginTop: 20 }}>
                                 <Table celled color='orange'>
                                     <Table.Header>
                                         <Table.Row>
-                                            <Table.HeaderCell colSpan='2' textAlign='center'>RPM</Table.HeaderCell>
+                                            <Table.HeaderCell colSpan='2' textAlign='center' style={{ fontSize: 20 }}>RPM</Table.HeaderCell>
                                         </Table.Row>
                                     </Table.Header>
                                     <Table.Body>

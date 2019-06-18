@@ -25,6 +25,7 @@ export default class ScheduleItem extends Component {
         newState.trackId = this.props.race.trackId
         newState.id = this.props.race.id
         weatherManager.getWeather(track.latitude, track.longitude, date)
+            // .then(weather => console.log(weather))
             .then(weather => {
                 newState.currentWeather = weather.currently
                 newState.dailyWeather = weather.daily.data[0]
@@ -57,6 +58,9 @@ export default class ScheduleItem extends Component {
             `${(this.state.currentWeather.precipProbability) * 100}% chaince of rain`
         const temp = (this.state.currentWeather === "") ? "no weather data" :
             `Temp ${parseInt(this.state.currentWeather.temperature)}`
+        const icon = (this.state.currentWeather === "") ? "no weather data" :
+            `${this.state.currentWeather.icon}`
+
         const trackOptions = []
 
         const getTrackackOptions = () => this.props.tracks.map(track => {
@@ -81,7 +85,7 @@ export default class ScheduleItem extends Component {
                             {moment(this.props.race.date).format('MMM-DD')}
                         </Grid.Row>
                         {/* <Grid.Row>
-                            <WeatherIcon name='darksky' iconId={this.state.dailyWeather.icon}></WeatherIcon>
+                            <WeatherIcon name='darksky' iconId='' className='icon' />
                         </Grid.Row> */}
                         <Grid.Row>
                             <p>{this.state.currentWeather.summary}</p>

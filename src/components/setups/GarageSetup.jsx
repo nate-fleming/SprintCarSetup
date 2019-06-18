@@ -288,7 +288,7 @@ export default class GarageSetup extends Component {
                             <Table celled color='orange'>
                                 <Table.Header>
                                     <Table.Row>
-                                        <Table.HeaderCell colSpan='2' textAlign='center'>Stagger</Table.HeaderCell>
+                                        <Table.HeaderCell colSpan='2' textAlign='center' style={{ fontSize: 20 }}>Stagger</Table.HeaderCell>
                                     </Table.Row>
                                 </Table.Header>
                                 <Table.Body>
