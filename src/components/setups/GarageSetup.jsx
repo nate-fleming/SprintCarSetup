@@ -2,19 +2,6 @@ import React, { Component } from 'react'
 import { Container, Button, Grid, Table, Input, Dropdown } from 'semantic-ui-react'
 
 export default class GarageSetup extends Component {
-    // state = {
-    //     trackSetup: [],
-    //     isHidden: true,
-    // }
-
-    // componentDidMount() {
-    //     // console.log(this.props.trackSetup)
-    //     // console.log(this.props.isHidden)
-    //     this.setState({
-    //         trackSetup: this.props.trackSetup,
-    //         isHidden: this.props.isHidden
-    //     })
-    // }
 
     wingOptions = [
         {

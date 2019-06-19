@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Grid, Image, Modal, Icon, Header, Segment, Form, Dropdown, Confirm } from 'semantic-ui-react'
+import { Button, Grid, Image, Modal, Icon, Header, Segment, Form, Dropdown, Confirm, GridRow } from 'semantic-ui-react'
 import moment from 'moment'
 import trackManager from '../../modules/trackManager'
 import weatherManager from '../../modules/weatherManager'
@@ -55,9 +55,9 @@ export default class ScheduleItem extends Component {
         console.log(this.state.currentWeather)
         const track = this.props.tracks.find(track => track.id === this.props.race.trackId)
         const rain = (this.state.currentWeather === "") ? "no weather data" :
-            `${(this.state.currentWeather.precipProbability) * 100}% chaince of rain`
+            `${(this.state.currentWeather.precipProbability) * 100}% chance of rain`
         const temp = (this.state.currentWeather === "") ? "no weather data" :
-            `Temp ${parseInt(this.state.currentWeather.temperature)}`
+            parseInt(this.state.currentWeather.temperature)
         const icon = (this.state.currentWeather === "") ? "no weather data" :
             `${this.state.currentWeather.icon}`
 
@@ -76,35 +76,43 @@ export default class ScheduleItem extends Component {
         return (
             <Grid>
                 <Segment.Group horizontal raised style={{ padding: 20 }}>
-                    <Grid.Column style={{ minWidth: 450 }}>
+                    <Grid.Column >
+                        <Grid.Row >
+                            <Icon name='calendar alternate outline' size='huge' style={{ marginTop: 20 }} />
+                        </Grid.Row>
+                        <Grid.Row>
+                            <p style={{ fontSize: 40, marginTop: 20 }}>{moment(this.props.race.date).format('MMM-DD')}</p>
+                        </Grid.Row>
+                    </Grid.Column>
+                    <Grid.Column style={{ maxWidth: 400, marginLeft: 20 }}>
                         <Image centered src={track.imgUrl} style={{ maxHeight: 200 }} ></Image>
                     </Grid.Column>
-                    <Grid.Column style={{ paddingLeft: 40 }}>
-                        <Grid.Row style={{ fontSize: 20 }}>
-                            <Icon name='calendar alternate outline' />
-                            {moment(this.props.race.date).format('MMM-DD')}
-                        </Grid.Row>
+                    <Grid.Column style={{ paddingLeft: 20 }}>
                         {/* <Grid.Row>
                             <WeatherIcon name='darksky' iconId='' className='icon' />
                         </Grid.Row> */}
                         <Grid.Row>
-                            <p>{this.state.currentWeather.summary}</p>
+                            <p style={{ marginTop: 20, fontSize: 20 }}>Race Day Weather</p>
+                        </Grid.Row>
+                        <hr />
+                        <Grid.Row>
+                            <p style={{ marginTop: 10, fontSize: 20 }}>{this.state.currentWeather.summary}</p>
                         </Grid.Row>
                         <Grid.Row>
-                            <p>{temp}&deg;</p>
+                            <p style={{ marginTop: 10, fontSize: 20 }}>{temp}&deg;</p>
                         </Grid.Row>
                         <Grid.Row>
-                            <p>{rain}</p>
+                            <p style={{ marginTop: 10, fontSize: 20 }}>{rain}</p>
                         </Grid.Row>
                     </Grid.Column>
                     <Grid.Column>
                         <Grid.Row>
-                            <Button as='a' color='orange' style={{ marginTop: 20, marginLeft: 40 }}
+                            <Button as='a' color='orange' style={{ marginTop: 20, marginLeft: 40, width: 140 }}
                                 href={`/tracks/${this.props.race.trackId}`}
                             >See My Setups</Button>
                         </Grid.Row>
                         <Grid.Row >
-                            <Modal trigger={<Button onClick={this.handleOpen} color='black' style={{ marginTop: 20, marginLeft: 40 }}>Edit Race</Button>}
+                            <Modal trigger={<Button onClick={this.handleOpen} color='black' style={{ marginTop: 20, marginLeft: 40, width: 140 }}>Edit Race</Button>}
                                 closeIcon
                                 open={this.state.modalOpen}
                                 onClose={this.handleClose}>
@@ -151,7 +159,7 @@ export default class ScheduleItem extends Component {
                             </Modal>
                         </Grid.Row>
                         <Grid.Row >
-                            <Button as='a' color='red' style={{ marginTop: 20, marginLeft: 40 }}
+                            <Button as='a' color='red' style={{ marginTop: 20, marginLeft: 40, width: 140 }}
                                 onClick={() => this.props.deleteRace(this.props.race.id)}
                             >Remove Race</Button>
                         </Grid.Row>

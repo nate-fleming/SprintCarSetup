@@ -50,23 +50,25 @@ export default class ScheduleItem extends Component {
         return (
             <Grid>
                 <Segment.Group horizontal raised style={{ padding: 20 }}>
-                    <Grid.Column style={{ minWidth: 450 }}>
-                        <Image centered src={track.imgUrl} style={{ maxHeight: 200 }}></Image>
-                    </Grid.Column>
-                    <Grid.Column style={{ paddingLeft: 40 }} textAlign='center'>
-                        <Grid.Row style={{ fontSize: 20 }}>
-                            <Icon name='calendar alternate outline' />
-                            {moment(this.props.race.date).format('MMM-DD')}
+                    <Grid.Column>
+                        <Grid.Row >
+                            <Icon name='calendar alternate outline' size='huge' style={{ marginTop: 20 }} />
                         </Grid.Row>
+                        <Grid.Row>
+                            <p style={{ fontSize: 40, marginTop: 20 }}>{moment(this.props.race.date).format('MMM-DD')}</p>
+                        </Grid.Row>
+                    </Grid.Column>
+                    <Grid.Column style={{ maxWidth: 400, marginLeft: 40 }}>
+                        <Image centered src={track.imgUrl} style={{ maxHeight: 200 }}></Image>
                     </Grid.Column>
                     <Grid.Column verticalAlign='middle'>
                         <Grid.Row >
-                            <Button as='a' color='orange' style={{ marginTop: 20, marginLeft: 40 }}
+                            <Button as='a' color='orange' style={{ marginTop: 20, marginLeft: 40, width: 140 }}
                                 href={`/tracks/${this.props.race.trackId}`}
                             >See My Setups</Button>
                         </Grid.Row>
                         <Grid.Row >
-                            <Modal trigger={<Button onClick={this.handleOpen} color='black' style={{ marginTop: 20, marginLeft: 40 }}>Edit Race</Button>}
+                            <Modal trigger={<Button onClick={this.handleOpen} color='black' style={{ marginTop: 20, marginLeft: 40, width: 140 }}>Edit Race</Button>}
                                 closeIcon
                                 open={this.state.modalOpen}
                                 onClose={this.handleClose}>
@@ -113,7 +115,7 @@ export default class ScheduleItem extends Component {
                             </Modal>
                         </Grid.Row>
                         <Grid.Row >
-                            <Button as='a' color='red' style={{ marginTop: 20, marginLeft: 40 }}
+                            <Button as='a' color='red' style={{ marginTop: 20, marginLeft: 40, width: 140 }}
                                 onClick={() => this.props.deleteRace(this.props.race.id)}
                             >Remove Race</Button>
                         </Grid.Row>

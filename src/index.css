@@ -1,6 +1,9 @@
 body {
   margin: 0;
   padding-top: 100px;
+  /* background-image: url('../src/img/setupbackground.jpg');
+  background-repeat: no-repeat;
+  background-size: cover; */
   background-color:#D0D6D9;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",

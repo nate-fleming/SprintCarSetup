@@ -9,8 +9,8 @@ export default class ResultsChart extends Component {
 
     render() {
         const dates = this.props.races.map(race => moment(race.date).format('MMM-DD'))
-        const featureResult = this.props.races.map(race => race.featureResult.replace(/(^\d+)(.+$)/i, '$1'))
-        const heatRaceResult = this.props.races.map(race => race.heatRaceResult.replace(/(^\d+)(.+$)/i, '$1'))
+        const featureResult = this.props.races.map(race => (race.featureResult) ? race.featureResult.replace(/(^\d+)(.+$)/i, '$1') : 'enter result')
+        const heatRaceResult = this.props.races.map(race => (race.featureResult) ? race.heatRaceResult.replace(/(^\d+)(.+$)/i, '$1') : 'enter result')
 
         const data = {
             labels: dates,
