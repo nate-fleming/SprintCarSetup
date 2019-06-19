@@ -294,7 +294,7 @@ export default class GarageSetup extends Component {
                         </Grid.Column>
                     </Grid.Row>
                     <Grid.Row>
-                        <Table celled color='orange'>
+                        <Table celled color='orange' style={{ marginLeft: 10, marginRight: 10 }}>
                             <Table.Header>
                                 <Table.Row>
                                     <Table.HeaderCell colSpan='2'
@@ -307,10 +307,10 @@ export default class GarageSetup extends Component {
                             </Table.Header>
                             <Table.Body>
                                 <Table.Row>
-                                    <Table.Cell textAlign='center' style={{ backgroundColor: 'black', color: 'white', fontSize: 20 }}>
+                                    <Table.Cell textAlign='center' style={{ backgroundColor: 'grey', color: 'white', fontSize: 20 }}>
                                         Left Front
                                 </Table.Cell>
-                                    <Table.Cell textAlign='center' style={{ backgroundColor: 'black', color: 'white', fontSize: 20 }}>
+                                    <Table.Cell textAlign='center' style={{ backgroundColor: 'grey', color: 'white', fontSize: 20 }}>
                                         Right Front
                                 </Table.Cell>
                                 </Table.Row>
@@ -346,10 +346,10 @@ export default class GarageSetup extends Component {
                                     </Table.Cell>
                                 </Table.Row>
                                 <Table.Row>
-                                    <Table.Cell textAlign='center' style={{ backgroundColor: 'black', color: 'white', fontSize: 20 }}>
+                                    <Table.Cell textAlign='center' style={{ backgroundColor: 'grey', color: 'white', fontSize: 20 }}>
                                         Left Rear
                                 </Table.Cell>
-                                    <Table.Cell textAlign='center' style={{ backgroundColor: 'black', color: 'white', fontSize: 20 }}>
+                                    <Table.Cell textAlign='center' style={{ backgroundColor: 'grey', color: 'white', fontSize: 20 }}>
                                         Right Rear
                                 </Table.Cell>
                                 </Table.Row>

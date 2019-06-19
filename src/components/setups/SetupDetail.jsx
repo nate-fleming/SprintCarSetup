@@ -52,23 +52,23 @@ export default class SetupDetail extends Component {
 
     panes = [
         {
-            menuItem: 'Garage', render: () => <Tab.Pane attached={false}><GarageSetup
+            menuItem: 'Garage', render: () => <Tab.Pane attached={false} style={{ backgroundColor: 'black' }}><GarageSetup
                 trackSetup={this.state.trackSetup} isHidden={this.state.isHidden}
                 handleFieldChange={this.handleFieldChange} editSetup={this.editSetup}
                 handleDropdown={this.handleDropdown}></GarageSetup></Tab.Pane>
         },
         {
-            menuItem: 'Hot Laps', render: () => <Tab.Pane attached={false}><HotLapsSetup trackSetup={this.state.trackSetup} isHidden={this.state.isHidden}
+            menuItem: 'Hot Laps', render: () => <Tab.Pane attached={false} style={{ backgroundColor: 'black' }}><HotLapsSetup trackSetup={this.state.trackSetup} isHidden={this.state.isHidden}
                 handleFieldChange={this.handleFieldChange} editSetup={this.editSetup}
                 handleDropdown={this.handleDropdown}></HotLapsSetup></Tab.Pane>
         },
         {
-            menuItem: 'Heat Race', render: () => <Tab.Pane attached={false}><HeatRaceSetup trackSetup={this.state.trackSetup} isHidden={this.state.isHidden}
+            menuItem: 'Heat Race', render: () => <Tab.Pane attached={false} style={{ backgroundColor: 'black' }}><HeatRaceSetup trackSetup={this.state.trackSetup} isHidden={this.state.isHidden}
                 handleFieldChange={this.handleFieldChange} editSetup={this.editSetup}
                 handleDropdown={this.handleDropdown}></HeatRaceSetup></Tab.Pane>
         },
         {
-            menuItem: 'Feature', render: () => <Tab.Pane attached={false}><FeatureSetup
+            menuItem: 'Feature', render: () => <Tab.Pane attached={false} style={{ backgroundColor: 'black' }}><FeatureSetup
                 trackSetup={this.state.trackSetup} isHidden={this.state.isHidden}
                 handleFieldChange={this.handleFieldChange} editSetup={this.editSetup}
                 handleDropdown={this.handleDropdown}></FeatureSetup></Tab.Pane>
@@ -85,43 +85,45 @@ export default class SetupDetail extends Component {
                     <Header style={{ fontSize: 40 }}>
                         {this.state.trackSetup.name}
                     </Header>
-                </Container>
-                <Grid style={{ marginTop: 40, marginLeft: 80 }}>
-                    <Button color='orange' size='huge'
-                        onClick={() => this.setState({ isHidden: false })}
-                        style={{ display: `${reverseHidden}` }}>
-                        Edit
+                    <Grid columns={2} >
+                        <Form style={{ display: `${hidden}` }}>
+                            <Form.Input
+                                label='Setup Name'
+                                onChange={(e) => this.setState(
+                                    Object.assign(
+                                        this.state.trackSetup,
+                                        { name: e.target.value })
+                                )}
+                                defaultValue={this.state.trackSetup.name}
+                            ></Form.Input>
+                        </Form>
+                    </Grid>
+                    <Grid style={{ marginTop: 40 }}>
+                        <Button color='orange' size='huge'
+                            onClick={() => this.setState({ isHidden: false })}
+                            style={{ display: `${reverseHidden}` }}>
+                            Edit
                     </Button>
-                </Grid>
+                    </Grid>
+                </Container>
                 <Grid textAlign='center' style={{ marginTop: 40 }}>
                     <Tab menu={{ secondary: true, pointing: true, size: 'massive' }} panes={this.panes}
                     />
                 </Grid>
-                <Grid columns={2} style={{ padding: 20, marginTop: 20 }} textAlign='center'>
-                    <Form style={{ display: `${hidden}` }}>
-                        <Form.Input
-                            label='Setup Name'
-                            onChange={(e) => this.setState(
-                                Object.assign(
-                                    this.state.trackSetup,
-                                    { name: e.target.value })
-                            )}
-                            defaultValue={this.state.trackSetup.name}
-                        ></Form.Input>
-                    </Form>
-                </Grid>
-                <Grid textAlign='center' style={{ marginTop: 20, marginBottom: 40 }}>
-                    <Button color='orange' size='huge'
-                        onClick={() => this.setState({ isHidden: false })}
-                        style={{ display: `${reverseHidden}` }}>
-                        Edit
+                <Container>
+                    <Grid style={{ marginTop: 40, marginBottom: 40 }}>
+                        <Button color='orange' size='huge'
+                            onClick={() => this.setState({ isHidden: false })}
+                            style={{ display: `${reverseHidden}` }}>
+                            Edit
                     </Button>
-                    <Button color='black' size='huge' style={{ display: `${reverseHidden}` }}
-                        onClick={() => this.deleteSetup(this.state.trackSetup.id)}
-                    >
-                        Delete
+                        <Button color='black' size='huge' style={{ display: `${reverseHidden}` }}
+                            onClick={() => this.deleteSetup(this.state.trackSetup.id)}
+                        >
+                            Delete
                     </Button>
-                </Grid>
+                    </Grid>
+                </Container>
             </>
         )
     }

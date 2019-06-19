@@ -55,7 +55,7 @@ export default class ScheduleItem extends Component {
                             <Icon name='calendar alternate outline' size='huge' style={{ marginTop: 20 }} />
                         </Grid.Row>
                         <Grid.Row>
-                            <p style={{ fontSize: 40, marginTop: 20 }}>{moment(this.props.race.date).format('MMM-DD')}</p>
+                            <p style={{ fontSize: 20, marginTop: 20 }}>{moment(this.props.race.date).format('MMM-DD')}</p>
                         </Grid.Row>
                     </Grid.Column>
                     <Grid.Column style={{ maxWidth: 400, marginLeft: 40 }}>

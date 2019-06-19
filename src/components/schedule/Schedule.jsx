@@ -29,7 +29,7 @@ export default class Schedule extends Component {
                     </Grid>
                 </Container>
                 <Container>
-                    <Card.Group centered style={{ marginTop: 40 }}>
+                    <Card.Group centered style={{ marginTop: 40, marginBottom: 80 }}>
                         {
                             sortedSchedule.map((race, index) => {
                                 return (

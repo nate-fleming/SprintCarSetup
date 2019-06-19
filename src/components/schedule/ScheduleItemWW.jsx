@@ -55,7 +55,7 @@ export default class ScheduleItem extends Component {
         console.log(this.state.currentWeather)
         const track = this.props.tracks.find(track => track.id === this.props.race.trackId)
         const rain = (this.state.currentWeather === "") ? "no weather data" :
-            `${(this.state.currentWeather.precipProbability) * 100}% chance of rain`
+            `${(this.state.currentWeather.precipProbability) * 100}%`
         const temp = (this.state.currentWeather === "") ? "no weather data" :
             parseInt(this.state.currentWeather.temperature)
         const icon = (this.state.currentWeather === "") ? "no weather data" :
@@ -81,7 +81,7 @@ export default class ScheduleItem extends Component {
                             <Icon name='calendar alternate outline' size='huge' style={{ marginTop: 20 }} />
                         </Grid.Row>
                         <Grid.Row>
-                            <p style={{ fontSize: 40, marginTop: 20 }}>{moment(this.props.race.date).format('MMM-DD')}</p>
+                            <p style={{ fontSize: 20, marginTop: 20 }}>{moment(this.props.race.date).format('MMM-DD')}</p>
                         </Grid.Row>
                     </Grid.Column>
                     <Grid.Column style={{ maxWidth: 400, marginLeft: 20 }}>
@@ -98,11 +98,13 @@ export default class ScheduleItem extends Component {
                         <Grid.Row>
                             <p style={{ marginTop: 10, fontSize: 20 }}>{this.state.currentWeather.summary}</p>
                         </Grid.Row>
-                        <Grid.Row>
-                            <p style={{ marginTop: 10, fontSize: 20 }}>{temp}&deg;</p>
+                        <Grid.Row style={{ fontSize: 20, marginTop: 10 }}>
+                            <Icon name='thermometer half' size='big' />
+                            {temp}&deg;
                         </Grid.Row>
-                        <Grid.Row>
-                            <p style={{ marginTop: 10, fontSize: 20 }}>{rain}</p>
+                        <Grid.Row style={{ fontSize: 20, marginTop: 10 }}>
+                            <Icon name='theme' size='big' />
+                            {rain}
                         </Grid.Row>
                     </Grid.Column>
                     <Grid.Column>

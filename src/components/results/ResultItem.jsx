@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Grid, Image, Modal, Icon, Segment, Header, Form, Dropdown, Label, Divider } from 'semantic-ui-react'
+import { Button, Grid, Modal, Icon, Segment, Header, Form, Dropdown, Label, Divider, Table } from 'semantic-ui-react'
 import moment from 'moment'
 import scheduleManager from '../../modules/scheduleManager'
 
@@ -83,38 +83,28 @@ export default class ResultItem extends Component {
     render() {
         const track = this.props.tracks.find(track => track.id === this.props.race.trackId)
         return (
-            <Grid>
-                <Segment.Group horizontal raised style={{ padding: 20 }}>
-                    <Grid.Column style={{ minWidth: 200 }}>
-                        <Image centered src={track.imgUrl} style={{ maxHeight: 200 }}></Image>
-                    </Grid.Column>
-                    <Grid.Column style={{ paddingLeft: 40 }} textAlign='center'>
-                        <Grid.Row style={{ fontSize: 20 }}>
-                            <Icon name='calendar alternate outline' />
-                            {moment(this.props.race.date).format('MMM-DD')}
-                        </Grid.Row>
-                        <Grid.Row style={{ marginTop: 20, fontSize: 20 }}>
-                            Feature Result
-                        </Grid.Row>
-                        <Grid.Row style={{ marginTop: 10, fontSize: 20 }}>
-                            <Icon name='flag checkered' />
-                            {(!this.state.featureResult) ? 'enter result'
-                                : this.state.featureResult
-                            }
-                        </Grid.Row>
-                        <Grid.Row style={{ marginTop: 20, fontSize: 20 }}>
-                            Heat Race Result
-                        </Grid.Row>
-                        <Grid.Row style={{ marginTop: 10, fontSize: 20 }}>
-                            <Icon name='flag checkered' />
-                            {(!this.state.heatRaceResult) ? 'enter result'
-                                : this.state.heatRaceResult
-                            }
-                        </Grid.Row>
-                    </Grid.Column>
-                    <Grid.Column verticalAlign='middle'>
-                        <Grid.Row >
-                            <Modal trigger={<Button onClick={this.handleOpen} color='black' style={{ marginTop: 20, marginLeft: 40 }}>Log Results</Button>}
+            <>
+                <Table.Cell style={{ fontSize: 16 }}>
+                    <Icon name='calendar alternate outline' size='large' />
+                    {moment(this.props.race.date).format('MMM-DD')}
+                </Table.Cell>
+                <Table.Cell>
+                    <p style={{ fontSize: 16 }}>{track.name}</p>
+                </Table.Cell>
+                <Table.Cell style={{ fontSize: 16 }}>
+                    <p>{(!this.state.featureResult) ? 'enter result'
+                        : this.state.featureResult
+                    }</p>
+                </Table.Cell>
+                <Table.Cell style={{ fontSize: 16 }}>
+                    <p>{(!this.state.heatRaceResult) ? 'enter result'
+                        : this.state.heatRaceResult
+                    }</p>
+                </Table.Cell>
+                <Table.Cell>
+                    <Grid>
+                        <Grid.Column>
+                            <Modal trigger={<Button onClick={this.handleOpen} color='orange' >Log Results</Button>}
                                 closeIcon
                                 open={this.state.modalOpen}
                                 onClose={this.handleClose}>
@@ -178,15 +168,15 @@ export default class ResultItem extends Component {
                                     </Button>
                                 </Modal.Actions>
                             </Modal>
-                        </Grid.Row>
-                        <Grid.Row >
-                            <Button as='a' color='red' style={{ marginTop: 20, marginLeft: 40 }}
+                        </Grid.Column>
+                        <Grid.Column style={{ marginLeft: 80 }}>
+                            <Button as='a' color='black'
                                 onClick={() => this.props.deleteResult(this.props.race.id)}
                             >Remove Race</Button>
-                        </Grid.Row>
-                    </Grid.Column>
-                </Segment.Group>
-            </Grid>
+                        </Grid.Column>
+                    </Grid>
+                </Table.Cell>
+            </>
         )
     }
 }
