@@ -78,7 +78,7 @@ export default class ResultItem extends Component {
             <>
                 <Table.Cell style={{ fontSize: 16 }}>
                     <Icon name='calendar alternate outline' size='large' />
-                    {moment(this.props.race.date).format('MMM-DD')}
+                    {moment(this.props.race.date).format('MMM-DD-YY')}
                 </Table.Cell>
                 <Table.Cell>
                     <p style={{ fontSize: 16 }}>{track.name}</p>

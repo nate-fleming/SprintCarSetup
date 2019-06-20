@@ -59,13 +59,66 @@ export default class ResultsChart extends Component {
                     data: heatRaceResult
                 }
             ]
-
         };
+
+        const options = {
+            options: {
+                responsive: true,
+                scales: {
+                    xAxes: [{
+                        type: 'time',
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Date'
+                        },
+                        ticks: {
+                            major: {
+                                fontStyle: 'bold',
+                                fontColor: '#FF0000'
+                            }
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'value'
+                        }
+                    }]
+                }
+            }
+        }
 
         const displayName = '2019Results'
         return (
             <div style={{ position: 'relative', maxHeight: 300, maxWidth: 700, margin: 'auto' }}>
-                <Line data={data} />
+                <Line data={data} options={{
+                    responsive: true,
+                    scales: {
+                        xAxes: [{
+                            type: 'time',
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Date'
+                            },
+                            ticks: {
+                                major: {
+                                    fontStyle: 'bold',
+                                    fontColor: 'black'
+                                }
+                            }
+                        }],
+                        yAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Result'
+                            }
+                        }]
+                    }
+                }} />
             </div>
         )
     }
