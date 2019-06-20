@@ -2,20 +2,20 @@ import React, { Component } from 'react'
 import { Container, Table, Header } from 'semantic-ui-react'
 import ResultItem from './ResultItem'
 import ResultsChart from './ResultsChart'
+import moment from 'moment';
 
 export default class Results extends Component {
+
     render() {
+        const earlyRaces = this.props.races.filter(race => moment(race.date).format('YYYY') === '2019')
+
         const sortedRaces = this.props.races.sort((a, b) => {
             a = new Date(a.date)
             b = new Date(b.date)
             return (a < b) ? -1 : (a > b) ? 1 : 0
         })
 
-        // const graphRaces = this.props.races.sort((a, b) => {
-        //     a = new Date(a.date)
-        //     b = new Date(b.date)
-        //     return (a < b) ? -1 : (a > b) ? 1 : 0
-        // })
+        console.log(earlyRaces)
 
         return (
             <>
@@ -27,7 +27,7 @@ export default class Results extends Component {
                     <ResultsChart races={sortedRaces}></ResultsChart>
                 </Container>
                 <Container>
-                    <Table striped style={{ marginTop: 100, marginBottom: 100 }}>
+                    <Table striped style={{ marginTop: 120, marginBottom: 100 }}>
                         <Table.Header>
                             <Table.Row>
                                 <Table.HeaderCell width={2} textAlign='center'
@@ -46,8 +46,9 @@ export default class Results extends Component {
                             {
                                 sortedRaces.map(race => {
                                     return (
-                                        <Table.Row>
-                                            <ResultItem key={race.id} race={race} tracks={this.props.tracks} deleteResult={this.props.deleteResult}
+                                        <Table.Row key={race.id}>
+                                            <ResultItem race={race} tracks={this.props.tracks} deleteResult={this.props.deleteResult}
+                                                editResult={this.props.editResult}
                                                 user={this.props.user} {...this.props}></ResultItem>
                                         </Table.Row>
                                     )

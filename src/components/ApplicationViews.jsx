@@ -75,6 +75,13 @@ class ApplicationViews extends Component {
             .then(() => this.props.history.push('/'))
     }
 
+    editResult = (editedRace) => {
+        scheduleManager.editRace(editedRace)
+            .then(() => scheduleManager.getSchedule(this.state.user))
+            .then(schedule => this.setState({ schedule: schedule }))
+            .then(() => this.props.history.push('/results'))
+    }
+
 
     render() {
         return (
@@ -125,7 +132,7 @@ class ApplicationViews extends Component {
 
                     return this.state.user ? (
                         <Results {...props} races={pastSchedule} tracks={this.state.tracks}
-                            user={this.state.user} deleteResult={this.deleteResult}></Results>
+                            user={this.state.user} deleteResult={this.deleteResult} editResult={this.editResult}></Results>
                     ) : (
                             <Redirect to="/sign-in" />
                         )

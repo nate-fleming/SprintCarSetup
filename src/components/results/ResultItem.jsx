@@ -40,16 +40,8 @@ export default class ResultItem extends Component {
             featureResult: this.state.featureResult,
             heatRaceResult: this.state.heatRaceResult
         }
-        scheduleManager.editRace(editedRace)
-            .then(race => this.setState({
-                date: race.date,
-                trackId: race.trackId,
-                id: race.id,
-                userId: race.userId,
-                featureResult: race.featureResult,
-                heatRaceResult: race.heatRaceResult
-            }))
-        // .then(this.props.history.push('/results'))
+
+        this.props.editResult(editedRace)
     }
 
     results = [
