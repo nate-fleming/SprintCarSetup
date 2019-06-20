@@ -9,7 +9,7 @@ import { Container } from 'semantic-ui-react'
 export default class ResultsChart extends Component {
 
     render() {
-        const dates = this.props.races.map(race => moment(race.date).format('MMM-DD'))
+        const dates = this.props.races.map(race => moment(race.date).format('MMM-DD-YY'))
         const featureResult = this.props.races.map(race => (race.featureResult) ? race.featureResult.replace(/(^\d+)(.+$)/i, '$1') : 'enter result')
         const heatRaceResult = this.props.races.map(race => (race.featureResult) ? race.heatRaceResult.replace(/(^\d+)(.+$)/i, '$1') : 'enter result')
 
@@ -65,7 +65,6 @@ export default class ResultsChart extends Component {
         const displayName = '2019Results'
         return (
             <div style={{ position: 'relative', maxHeight: 300, maxWidth: 700, margin: 'auto' }}>
-                <h2>2019</h2>
                 <Line data={data} />
             </div>
         )

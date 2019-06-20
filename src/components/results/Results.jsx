@@ -1,62 +1,81 @@
 import React, { Component } from 'react'
-import { Container, Table, Header } from 'semantic-ui-react'
-import ResultItem from './ResultItem'
-import ResultsChart from './ResultsChart'
-import moment from 'moment';
+import { Container, Tab, Header, Grid } from 'semantic-ui-react'
+import ResultTab from './ResultTab'
+import moment from 'moment'
+
 
 export default class Results extends Component {
 
     render() {
-        const earlyRaces = this.props.races.filter(race => moment(race.date).format('YYYY') === '2019')
-
         const sortedRaces = this.props.races.sort((a, b) => {
             a = new Date(a.date)
             b = new Date(b.date)
             return (a < b) ? -1 : (a > b) ? 1 : 0
         })
 
-        console.log(earlyRaces)
+        const twentyNineteenRaces = this.props.races.filter(race => moment(race.date).format('YYYY') === '2019').sort((a, b) => {
+            a = new Date(a.date)
+            b = new Date(b.date)
+            return (a < b) ? -1 : (a > b) ? 1 : 0
+        })
+
+        const twentyEighteenRaces = this.props.races.filter(race => moment(race.date).format('YYYY') === '2018').sort((a, b) => {
+            a = new Date(a.date)
+            b = new Date(b.date)
+            return (a < b) ? -1 : (a > b) ? 1 : 0
+        })
+
+        const twentySeventeenRaces = this.props.races.filter(race => moment(race.date).format('YYYY') === '2017').sort((a, b) => {
+            a = new Date(a.date)
+            b = new Date(b.date)
+            return (a < b) ? -1 : (a > b) ? 1 : 0
+        })
+
+        console.log(twentyEighteenRaces)
+
+
+        const panes = [
+            {
+                menuItem: '2019', render: () => <Tab.Pane attached={false} style={{ backgroundColor: '#D0D6D9' }}><ResultTab
+                    filteredRaces={twentyNineteenRaces}
+                    tracks={this.props.tracks} deleteResult={this.props.deleteResult}
+                    editResult={this.props.editResult}
+                    user={this.props.user} {...this.props}></ResultTab></Tab.Pane>
+            },
+            {
+                menuItem: '2018', render: () => <Tab.Pane attached={false} style={{ backgroundColor: '#D0D6D9' }}><ResultTab filteredRaces={twentyEighteenRaces}
+                    tracks={this.props.tracks} deleteResult={this.props.deleteResult}
+                    editResult={this.props.editResult}
+                    user={this.props.user} {...this.props}></ResultTab></Tab.Pane>
+            },
+            {
+                menuItem: '2017', render: () => <Tab.Pane attached={false} style={{ backgroundColor: '#D0D6D9' }}><ResultTab filteredRaces={twentySeventeenRaces}
+                    tracks={this.props.tracks} deleteResult={this.props.deleteResult}
+                    editResult={this.props.editResult}
+                    user={this.props.user} {...this.props}></ResultTab></Tab.Pane>
+            },
+            {
+                menuItem: 'All', render: () => <Tab.Pane attached={false} style={{ backgroundColor: '#D0D6D9' }}><ResultTab
+                    filteredRaces={sortedRaces}
+                    tracks={this.props.tracks} deleteResult={this.props.deleteResult}
+                    editResult={this.props.editResult}
+                    user={this.props.user} {...this.props}></ResultTab></Tab.Pane>
+            },
+        ]
+
+
 
         return (
             <>
                 <Container>
                     <Header textAlign='center' style={{ fontSize: 40 }}>
                         Results </Header>
+                    <Grid textAlign='center' style={{ marginTop: 40, marginBottom: 80 }}>
+                        <Tab menu={{ secondary: true, pointing: true, size: 'massive' }} panes={panes}
+                        />
+                    </Grid>
                 </Container>
-                <Container >
-                    <ResultsChart races={sortedRaces}></ResultsChart>
-                </Container>
-                <Container>
-                    <Table striped style={{ marginTop: 120, marginBottom: 100 }}>
-                        <Table.Header>
-                            <Table.Row>
-                                <Table.HeaderCell width={2} textAlign='center'
-                                    style={{ fontSize: 20 }}>Date</Table.HeaderCell>
-                                <Table.HeaderCell width={3} textAlign='center'
-                                    style={{ fontSize: 20 }}>Track</Table.HeaderCell>
-                                <Table.HeaderCell width={2} textAlign='center'
-                                    style={{ fontSize: 20 }}>Feature Result</Table.HeaderCell>
-                                <Table.HeaderCell width={2} textAlign='center'
-                                    style={{ fontSize: 20 }}>Heat Race Result</Table.HeaderCell>
-                                <Table.HeaderCell width={2} textAlign='center'
-                                    style={{ fontSize: 20 }}></Table.HeaderCell>
-                            </Table.Row>
-                        </Table.Header>
-                        <Table.Body>
-                            {
-                                sortedRaces.map(race => {
-                                    return (
-                                        <Table.Row key={race.id}>
-                                            <ResultItem race={race} tracks={this.props.tracks} deleteResult={this.props.deleteResult}
-                                                editResult={this.props.editResult}
-                                                user={this.props.user} {...this.props}></ResultItem>
-                                        </Table.Row>
-                                    )
-                                })
-                            }
-                        </Table.Body>
-                    </Table>
-                </Container>
+
             </>
         )
     }
