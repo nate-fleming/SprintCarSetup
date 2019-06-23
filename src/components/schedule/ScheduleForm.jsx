@@ -25,11 +25,11 @@ export default class ScheduleForm extends Component {
         return (
             <Grid textAlign='center' style={{ fontSize: 40 }} >
                 <Grid.Column style={{ maxWidth: 450 }}>
-                    <Header as='h1' color='black' textAlign='center'>
+                    <Header as='h1' color='black' textAlign='center' style={{ fontSize: 60, fontFamily: 'Racing Sans One, cursive' }}>
                         Create A New Race
               </Header>
                     <Form size='large' >
-                        <Segment stacked>
+                        <Segment color='orange'>
                             <Form.Input type='date' fluid icon='calendar alternate outline' iconPosition='left'
                                 placeholder='Date'
                                 label='Date'

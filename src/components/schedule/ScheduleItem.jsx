@@ -52,7 +52,7 @@ export default class ScheduleItem extends Component {
                 <Segment.Group horizontal raised style={{ padding: 20 }}>
                     <Grid.Column>
                         <Grid.Row >
-                            <Icon name='calendar alternate outline' size='huge' style={{ marginTop: 20 }} />
+                            <Icon name='calendar alternate outline' size='huge' style={{ marginTop: 40 }} />
                         </Grid.Row>
                         <Grid.Row>
                             <p style={{ fontSize: 20, marginTop: 20 }}>{moment(this.props.race.date).format('MMM-DD')}</p>
@@ -77,7 +77,7 @@ export default class ScheduleItem extends Component {
                                     <Grid textAlign='center' style={{ fontSize: 40 }}  >
                                         <Grid.Column style={{ maxWidth: 450 }}>
                                             <Form size='large' >
-                                                <Segment stacked color='orange' inverted>
+                                                <Segment color='orange' inverted>
                                                     <Form.Input type='date' fluid icon='calendar alternate outline' iconPosition='left'
                                                         placeholder='Date'
                                                         label='Date'

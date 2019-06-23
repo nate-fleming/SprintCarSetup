@@ -75,7 +75,7 @@ export default class ScheduleItem extends Component {
 
         return (
             <Grid>
-                <Segment.Group horizontal raised style={{ padding: 20 }}>
+                <Segment.Group horizontal raised style={{ padding: 20 }} >
                     <Grid.Column >
                         <Grid.Row >
                             <Icon name='calendar alternate outline' size='huge' style={{ marginTop: 20 }} />

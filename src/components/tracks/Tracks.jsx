@@ -9,7 +9,7 @@ export default class Tracks extends Component {
     render() {
         return (
             <Container>
-                <Header as='h1' textAlign='center' style={{ fontSize: 100 }}>Tracks</Header>
+                <Header as='h1' textAlign='center' style={{ fontSize: 80, fontFamily: 'Racing Sans One, cursive' }}>Tracks</Header>
                 <Card.Group centered>
                     {
                         this.props.tracks.map(track => {

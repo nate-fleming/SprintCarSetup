@@ -61,34 +61,6 @@ export default class ResultsChart extends Component {
             ]
         };
 
-        const options = {
-            options: {
-                responsive: true,
-                scales: {
-                    xAxes: [{
-                        type: 'time',
-                        display: true,
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Date'
-                        },
-                        ticks: {
-                            major: {
-                                fontStyle: 'bold',
-                                fontColor: '#FF0000'
-                            }
-                        }
-                    }],
-                    yAxes: [{
-                        display: true,
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'value'
-                        }
-                    }]
-                }
-            }
-        }
 
         const displayName = '2019Results'
         return (

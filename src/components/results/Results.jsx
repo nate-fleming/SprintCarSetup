@@ -68,7 +68,7 @@ export default class Results extends Component {
         return (
             <>
                 <Container>
-                    <Header textAlign='center' style={{ fontSize: 40 }}>
+                    <Header textAlign='center' style={{ fontSize: 80, fontFamily: 'Racing Sans One, cursive' }}>
                         Results </Header>
                     <Grid textAlign='center' style={{ marginTop: 40, marginBottom: 80 }}>
                         <Tab menu={{ secondary: true, pointing: true, size: 'massive' }} panes={panes}

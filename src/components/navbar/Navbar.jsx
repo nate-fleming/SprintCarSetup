@@ -8,27 +8,27 @@ import loginManager from '../../modules/loginManager'
 export default class Navbar extends Component {
     render() {
         return (
-            <Menu borderless size='massive' inverted fixed='top' className='navbar' color="orange">
-                <Container>
-                    <Menu.Item>
-                        <Link to='/'>Sprint Setup Pro</Link>
+
+            <Menu stackable borderless size='massive' inverted fixed='top' color="orange" style={{ minHeight: 80 }}>
+                <Container >
+                    <Menu.Item as='a' href='/' >
+                        Sprint Setup Pro
                     </Menu.Item>
 
-                    <Menu.Item>
-                        <Link to='/'>Schedule</Link>
+                    <Menu.Item as='a' href='/' >
+                        Schedule
                     </Menu.Item>
 
-                    <Menu.Item>
-                        <Link to='/tracks'>Tracks</Link>
+                    <Menu.Item as='a' href='/tracks' >
+                        Tracks
+                    </Menu.Item >
+
+                    <Menu.Item as='a' href='/results' >
+                        Results
                     </Menu.Item>
 
-                    <Menu.Item>
-                        <Link to='/results'>Results</Link>
-                    </Menu.Item>
-
-                    <Menu.Item position='right'>
-                        <Link to='/' onClick={loginManager.logout}>Logout
-                        </Link>
+                    <Menu.Item position='right' as='a' href='/' onClick={loginManager.logout} >
+                        Logout
                     </Menu.Item>
                 </Container>
             </Menu>

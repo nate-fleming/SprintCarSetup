@@ -52,23 +52,23 @@ export default class SetupDetail extends Component {
 
     panes = [
         {
-            menuItem: 'Garage', render: () => <Tab.Pane attached={false} style={{ backgroundColor: 'black' }}><GarageSetup
+            menuItem: 'Garage', render: () => <Tab.Pane attached={false} style={{ backgroundColor: '#4D4F52' }}><GarageSetup
                 trackSetup={this.state.trackSetup} isHidden={this.state.isHidden}
                 handleFieldChange={this.handleFieldChange} editSetup={this.editSetup}
                 handleDropdown={this.handleDropdown}></GarageSetup></Tab.Pane>
         },
         {
-            menuItem: 'Hot Laps', render: () => <Tab.Pane attached={false} style={{ backgroundColor: 'black' }}><HotLapsSetup trackSetup={this.state.trackSetup} isHidden={this.state.isHidden}
+            menuItem: 'Hot Laps', render: () => <Tab.Pane attached={false} style={{ backgroundColor: '#4D4F52' }}><HotLapsSetup trackSetup={this.state.trackSetup} isHidden={this.state.isHidden}
                 handleFieldChange={this.handleFieldChange} editSetup={this.editSetup}
                 handleDropdown={this.handleDropdown}></HotLapsSetup></Tab.Pane>
         },
         {
-            menuItem: 'Heat Race', render: () => <Tab.Pane attached={false} style={{ backgroundColor: 'black' }}><HeatRaceSetup trackSetup={this.state.trackSetup} isHidden={this.state.isHidden}
+            menuItem: 'Heat Race', render: () => <Tab.Pane attached={false} style={{ backgroundColor: '#4D4F52' }}><HeatRaceSetup trackSetup={this.state.trackSetup} isHidden={this.state.isHidden}
                 handleFieldChange={this.handleFieldChange} editSetup={this.editSetup}
                 handleDropdown={this.handleDropdown}></HeatRaceSetup></Tab.Pane>
         },
         {
-            menuItem: 'Feature', render: () => <Tab.Pane attached={false} style={{ backgroundColor: 'black' }}><FeatureSetup
+            menuItem: 'Feature', render: () => <Tab.Pane attached={false} style={{ backgroundColor: '#4D4F52' }}><FeatureSetup
                 trackSetup={this.state.trackSetup} isHidden={this.state.isHidden}
                 handleFieldChange={this.handleFieldChange} editSetup={this.editSetup}
                 handleDropdown={this.handleDropdown}></FeatureSetup></Tab.Pane>

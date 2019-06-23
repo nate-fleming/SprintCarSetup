@@ -105,7 +105,7 @@ export default class ResultItem extends Component {
                                     <Grid textAlign='center' style={{ fontSize: 40 }}  >
                                         <Grid.Column style={{ maxWidth: 450 }}>
                                             <Form size='large' >
-                                                <Segment stacked color='orange' inverted>
+                                                <Segment color='orange' inverted>
                                                     <Form.Field>
                                                         <Label
                                                             color='black'
