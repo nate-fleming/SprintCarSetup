@@ -11,7 +11,7 @@ export default class ResultsChart extends Component {
     render() {
         const dates = this.props.races.map(race => moment(race.date).format('MMM-DD-YY'))
         const featureResult = this.props.races.map(race => (race.featureResult) ? race.featureResult.replace(/(^\d+)(.+$)/i, '$1') : 'enter result')
-        const heatRaceResult = this.props.races.map(race => (race.featureResult) ? race.heatRaceResult.replace(/(^\d+)(.+$)/i, '$1') : 'enter result')
+        // const heatRaceResult = this.props.races.map(race => (race.featureResult) ? race.heatRaceResult.replace(/(^\d+)(.+$)/i, '$1') : 'enter result')
 
         const data = {
             labels: dates,
@@ -36,27 +36,6 @@ export default class ResultsChart extends Component {
                     pointRadius: 1,
                     pointHitRadius: 10,
                     data: featureResult
-                },
-                {
-                    label: 'Heat Race Result',
-                    fill: false,
-                    lineTension: 0.1,
-                    backgroundColor: 'black',
-                    borderColor: 'black',
-                    borderCapStyle: 'butt',
-                    borderDash: [],
-                    borderDashOffset: 0.0,
-                    borderJoinStyle: 'miter',
-                    pointBorderColor: 'orange',
-                    pointBackgroundColor: '#fff',
-                    pointBorderWidth: 1,
-                    pointHoverRadius: 5,
-                    pointHoverBackgroundColor: 'black',
-                    pointHoverBorderColor: 'orange',
-                    pointHoverBorderWidth: 2,
-                    pointRadius: 1,
-                    pointHitRadius: 10,
-                    data: heatRaceResult
                 }
             ]
         };

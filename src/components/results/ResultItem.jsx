@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Grid, Modal, Icon, Segment, Header, Form, Dropdown, Label, Divider, Table } from 'semantic-ui-react'
+import { Button, Grid, Modal, Icon, Segment, Header, Form, Dropdown, Label, Divider, Table, TextArea } from 'semantic-ui-react'
 import moment from 'moment'
 import scheduleManager from '../../modules/scheduleManager'
 
@@ -11,7 +11,7 @@ export default class ResultItem extends Component {
         trackId: '',
         id: '',
         featureResult: 'enter result',
-        heatRaceResult: 'enter result'
+        notes: ''
     }
 
 
@@ -23,7 +23,7 @@ export default class ResultItem extends Component {
             trackId: this.props.race.trackId,
             id: this.props.race.id,
             featureResult: (!this.props.race.featureResult) ? 'enter result' : this.props.race.featureResult,
-            heatRaceResult: (!this.props.race.heatRaceResult) ? 'enter result' : this.props.race.heatRaceResult
+            notes: this.props.race.notes
         })
     }
 
@@ -38,7 +38,7 @@ export default class ResultItem extends Component {
             id: this.state.id,
             userId: this.props.user,
             featureResult: this.state.featureResult,
-            heatRaceResult: this.state.heatRaceResult
+            notes: this.state.notes
         }
 
         this.props.editResult(editedRace)
@@ -83,90 +83,91 @@ export default class ResultItem extends Component {
                 <Table.Cell>
                     <p style={{ fontSize: 16 }}>{track.name}</p>
                 </Table.Cell>
-                <Table.Cell style={{ fontSize: 16 }}>
+                <Table.Cell style={{ fontSize: 16 }} textAlign='center'>
                     <p>{(!this.state.featureResult) ? 'enter result'
                         : this.state.featureResult
                     }</p>
                 </Table.Cell>
-                <Table.Cell style={{ fontSize: 16 }}>
+                {/* <Table.Cell style={{ fontSize: 16 }}>
                     <p>{(!this.state.heatRaceResult) ? 'enter result'
                         : this.state.heatRaceResult
                     }</p>
+                </Table.Cell> */}
+                <Table.Cell>
+                    <Modal trigger={<Button size='small' color='orange' >See Notes</Button>} closeIcon>
+                        <Header style={{ backgroundColor: '#F1A63B' }} icon='edit' content={`Notes for ${track.name} on ${moment(this.props.race.date).format('MMM-DD-YY')}`} />
+                        <Modal.Content>
+                            <p>
+                                {this.state.notes}
+                            </p>
+                        </Modal.Content>
+                    </Modal>
                 </Table.Cell>
                 <Table.Cell>
-                    <Grid>
-                        <Grid.Column>
-                            <Modal trigger={<Button onClick={this.handleOpen} color='orange' >Log Results</Button>}
-                                closeIcon
-                                open={this.state.modalOpen}
-                                onClose={this.handleClose}>
-                                <Header icon='cog' content={`Log Results for ${track.name} on ${moment(this.props.race.date).format('MMM-DD-YY')}`} style={{ backgroundColor: '#D0D6D9' }} />
-                                <Modal.Content>
-                                    <Grid textAlign='center' style={{ fontSize: 40 }}  >
-                                        <Grid.Column style={{ maxWidth: 450 }}>
-                                            <Form size='large' >
-                                                <Segment color='orange' inverted>
-                                                    <Form.Field>
-                                                        <Label
-                                                            color='black'
+                    <Modal trigger={<Button size='small' onClick={this.handleOpen} color='black' >Log Results</Button>}
+                        closeIcon
+                        open={this.state.modalOpen}
+                        onClose={this.handleClose}>
+                        <Header icon='cog' content={`Log Results for ${track.name} on ${moment(this.props.race.date).format('MMM-DD-YY')}`} style={{ backgroundColor: '#D0D6D9' }} />
+                        <Modal.Content>
+                            <Grid textAlign='center' style={{ fontSize: 40 }}  >
+                                <Grid.Column style={{ maxWidth: 450 }}>
+                                    <Form size='large' >
+                                        <Segment color='orange' inverted>
+                                            <Form.Field>
+                                                <Label
+                                                    color='black'
 
-                                                        // style={{ marginTop: 10, marginLeft: 10 }}
-                                                        >Feature Result</Label>
-                                                        <Dropdown fluid
-                                                            selection
-                                                            placeholder='Feature'
-                                                            options={this.results}
-                                                            defaultValue={this.state.featureResult}
-                                                            onChange={(e, { value }) => this.setState(
-                                                                { featureResult: value })
-                                                            }
-                                                        ></Dropdown>
-                                                    </Form.Field>
-                                                    <Divider />
-                                                    <Form.Field>
-                                                        <Label
-                                                            color='black'
+                                                // style={{ marginTop: 10, marginLeft: 10 }}
+                                                >Feature Result</Label>
+                                                <Dropdown fluid
+                                                    selection
+                                                    placeholder='Feature'
+                                                    options={this.results}
+                                                    defaultValue={this.state.featureResult}
+                                                    onChange={(e, { value }) => this.setState(
+                                                        { featureResult: value })
+                                                    }
+                                                ></Dropdown>
+                                            </Form.Field>
+                                            <Divider />
+                                            <Form.Field>
+                                                <Label
+                                                    color='black'
 
-                                                        // style={{ marginTop: 10, marginLeft: 10 }}
-                                                        >HeatRace Result</Label>
-                                                        <Dropdown fluid
-
-                                                            selection
-                                                            placeholder='Heat Race'
-                                                            options={this.results}
-                                                            header='Heat Race Result'
-                                                            defaultValue={this.state.heatRaceResult}
-                                                            onChange={(e, { value }) => this.setState(
-                                                                { heatRaceResult: value })
-                                                            }
-                                                        ></Dropdown>
-                                                    </Form.Field>
-                                                </Segment>
-                                            </Form>
-                                        </Grid.Column>
-                                    </Grid>
-                                </Modal.Content>
-                                <Modal.Actions style={{ backgroundColor: '#D0D6D9' }}>
-                                    <Button color='black' onClick={this.handleClose}>
-                                        <Icon name='remove' /> Cancel
+                                                // style={{ marginTop: 10, marginLeft: 10 }}
+                                                >Notes</Label>
+                                                <TextArea
+                                                    placeholder='Notes'
+                                                    header='Race Notes'
+                                                    defaultValue={this.state.notes}
+                                                    onChange={(e) => this.setState({ notes: e.target.value })}
+                                                ></TextArea>
+                                            </Form.Field>
+                                        </Segment>
+                                    </Form>
+                                </Grid.Column>
+                            </Grid>
+                        </Modal.Content>
+                        <Modal.Actions style={{ backgroundColor: '#D0D6D9' }}>
+                            <Button color='black' onClick={this.handleClose}>
+                                <Icon name='remove' /> Cancel
                                     </Button>
-                                    <Button color='orange'
-                                        onClick={() => {
-                                            this.handleClose()
-                                            this.saveEdits()
-                                        }}
-                                    >
-                                        <Icon name='checkmark' /> Save
+                            <Button color='orange'
+                                onClick={() => {
+                                    this.handleClose()
+                                    this.saveEdits()
+                                }}
+                            >
+                                <Icon name='checkmark' /> Save
                                     </Button>
-                                </Modal.Actions>
-                            </Modal>
-                        </Grid.Column>
-                        <Grid.Column style={{ marginLeft: 80 }}>
-                            <Button as='a' color='black'
-                                onClick={() => this.props.deleteResult(this.props.race.id)}
-                            >Remove Race</Button>
-                        </Grid.Column>
-                    </Grid>
+                        </Modal.Actions>
+                    </Modal>
+                </Table.Cell>
+                <Table.Cell>
+                    <Button size='small' as='a' color='red'
+                        onClick={() => this.props.deleteResult(this.props.race.id)}
+                    >Remove Race</Button>
                 </Table.Cell>
             </>
         )

@@ -20,9 +20,11 @@ export default class ResultTab extends Component {
                                     style={{ fontSize: 20 }}>Track</Table.HeaderCell>
                                 <Table.HeaderCell width={2} textAlign='center'
                                     style={{ fontSize: 20 }}>Feature Result</Table.HeaderCell>
-                                <Table.HeaderCell width={2} textAlign='center'
-                                    style={{ fontSize: 20 }}>Heat Race Result</Table.HeaderCell>
-                                <Table.HeaderCell width={2} textAlign='center'
+                                <Table.HeaderCell width={1} textAlign='center'
+                                    style={{ fontSize: 20 }}></Table.HeaderCell>
+                                <Table.HeaderCell width={1} textAlign='center'
+                                    style={{ fontSize: 20 }}></Table.HeaderCell>
+                                <Table.HeaderCell width={1} textAlign='center'
                                     style={{ fontSize: 20 }}></Table.HeaderCell>
                             </Table.Row>
                         </Table.Header>
