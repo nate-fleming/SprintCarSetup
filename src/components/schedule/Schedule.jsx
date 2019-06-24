@@ -19,7 +19,7 @@ export default class Schedule extends Component {
 
         return (
             <>
-                <Container>
+                <Container style={{ marginTop: 40 }}>
                     <Header as='h1' textAlign='center' style={{
                         fontSize: 80, fontFamily: 'Racing Sans One, cursive'
                     }}>

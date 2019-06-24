@@ -31,7 +31,6 @@ export default class Results extends Component {
             return (a < b) ? -1 : (a > b) ? 1 : 0
         })
 
-        console.log(twentyEighteenRaces)
 
 
         const panes = [

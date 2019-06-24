@@ -10,8 +10,8 @@ export default class ResultItem extends Component {
         date: '',
         trackId: '',
         id: '',
-        featureResult: '',
-        heatRaceResult: ''
+        featureResult: 'enter result',
+        heatRaceResult: 'enter result'
     }
 
 
@@ -22,8 +22,8 @@ export default class ResultItem extends Component {
             date: this.props.race.date,
             trackId: this.props.race.trackId,
             id: this.props.race.id,
-            featureResult: this.props.race.featureResult,
-            heatRaceResult: this.props.race.heatRaceResult
+            featureResult: (!this.props.race.featureResult) ? 'enter result' : this.props.race.featureResult,
+            heatRaceResult: (!this.props.race.heatRaceResult) ? 'enter result' : this.props.race.heatRaceResult
         })
     }
 
@@ -100,7 +100,7 @@ export default class ResultItem extends Component {
                                 closeIcon
                                 open={this.state.modalOpen}
                                 onClose={this.handleClose}>
-                                <Header icon='cog' content='Log Results' style={{ backgroundColor: '#D0D6D9' }} />
+                                <Header icon='cog' content={`Log Results for ${track.name} on ${moment(this.props.race.date).format('MMM-DD-YY')}`} style={{ backgroundColor: '#D0D6D9' }} />
                                 <Modal.Content>
                                     <Grid textAlign='center' style={{ fontSize: 40 }}  >
                                         <Grid.Column style={{ maxWidth: 450 }}>

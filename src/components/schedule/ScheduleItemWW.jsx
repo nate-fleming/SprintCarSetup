@@ -99,11 +99,11 @@ export default class ScheduleItem extends Component {
                             <p style={{ marginTop: 10, fontSize: 20 }}>{this.state.currentWeather.summary}</p>
                         </Grid.Row>
                         <Grid.Row style={{ fontSize: 20, marginTop: 10 }}>
-                            <Icon name='thermometer half' size='big' />
+                            <Icon name='thermometer half' size='large' />
                             {temp}&deg;
                         </Grid.Row>
                         <Grid.Row style={{ fontSize: 20, marginTop: 10 }}>
-                            <Icon name='theme' size='big' />
+                            <Icon name='theme' size='large' />
                             {rain}
                         </Grid.Row>
                     </Grid.Column>
