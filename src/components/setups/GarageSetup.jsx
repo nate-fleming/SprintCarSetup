@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Container, Button, Grid, Table, Input, Dropdown } from 'semantic-ui-react'
+import './setups.css'
 
 export default class GarageSetup extends Component {
 
@@ -27,7 +28,7 @@ export default class GarageSetup extends Component {
                 <Grid>
                     <Grid.Row>
                         <Grid.Column width={8}>
-                            <Table celled color='orange'>
+                            <Table celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center'
@@ -76,7 +77,7 @@ export default class GarageSetup extends Component {
                             </Table>
                         </Grid.Column>
                         <Grid.Column width={8}>
-                            <Table celled color='orange'>
+                            <Table celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center'
@@ -118,7 +119,7 @@ export default class GarageSetup extends Component {
                     </Grid.Row>
                     <Grid.Row>
                         <Grid.Column width={8}>
-                            <Table celled color='orange'>
+                            <Table celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center'
@@ -166,7 +167,7 @@ export default class GarageSetup extends Component {
                             </Table>
                         </Grid.Column>
                         <Grid.Column width={8}>
-                            <Table celled color='orange'>
+                            <Table celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center'
@@ -224,7 +225,7 @@ export default class GarageSetup extends Component {
                     </Grid.Row>
                     <Grid.Row>
                         <Grid.Column width={8}>
-                            <Table celled color='orange'>
+                            <Table celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center'
@@ -272,7 +273,7 @@ export default class GarageSetup extends Component {
                             </Table>
                         </Grid.Column>
                         <Grid.Column width={8}>
-                            <Table celled color='orange'>
+                            <Table celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center' style={{ fontSize: 20 }}>Stagger</Table.HeaderCell>
@@ -294,7 +295,7 @@ export default class GarageSetup extends Component {
                         </Grid.Column>
                     </Grid.Row>
                     <Grid.Row>
-                        <Table celled color='orange' style={{ marginLeft: 10, marginRight: 10 }}>
+                        <Table celled className='tire-table'>
                             <Table.Header>
                                 <Table.Row>
                                     <Table.HeaderCell colSpan='2'
@@ -388,7 +389,7 @@ export default class GarageSetup extends Component {
                         </Table>
                     </Grid.Row>
                 </Grid>
-                <Grid textAlign='center' style={{ marginTop: 20, marginBottom: 40 }}>
+                <Grid textAlign='center' style={{ marginTop: 20, marginBottom: 20 }}>
                     <Button color='orange' size='huge' style={{ display: `${hidden}` }}
                         onClick={() => this.props.editSetup()}
                     >

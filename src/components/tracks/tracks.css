@@ -1,0 +1,19 @@
+.track-header {
+    font-size: 6em !important;
+    color: #D0D6D7 !important;
+   text-shadow: -4px 4px 4px #4D4F52 !important;
+   margin-bottom: 40px !important
+}
+
+.card {
+    box-shadow: -6px 6px 3px 0px rgba(0,0,0,0.75) !important
+}
+
+.card-container {
+    margin-top: 40px
+}
+
+.track-button {
+    margin-top: 20px !important;
+    box-shadow: -2px 2px 0px rgba(0,0,0,0.75) !important
+}

@@ -1,0 +1,46 @@
+.setup-header {
+    font-size: 6em !important;
+    color: #D0D6D7 !important;
+   text-shadow: -4px 4px 4px #4D4F52 !important;
+   margin-bottom: 20px!important;
+   margin-top: 20px !important
+}
+
+.setup-tab {
+    background-color: #4D4F52 !important;
+    box-shadow: -8px 8px 4px 0px rgba(0,0,0,0.75) !important
+}
+
+.setup-table {
+    box-shadow: -4px 4px 2px 0px rgba(0,0,0,0.75) !important;
+    /* border-left: 6px solid #F1A63B !important; */
+    border-top: 6px solid #F1A63B !important;
+    background-color:  #f2f2f2 !important;
+    font-size: 1.25em !important
+}
+
+.tire-table {
+    box-shadow: -4px 4px 2px 0px rgba(0,0,0,0.75) !important;
+    margin: 0 10px !important;
+    border-top: 6px solid #F1A63B !important;
+    background-color:  #f2f2f2 !important;
+    font-size: 1.25em !important
+}
+
+th {background-color: #D0D6D7 !important;}
+
+tr:nth-child(even) {background-color: #f2f2f2 !important;}
+
+.setup-button {
+    box-shadow: -2px 2px 1px 0px rgba(0,0,0,0.75) !important;
+    margin-top: 40px !important;
+    margin-bottom: 40px !important;
+    margin-right: 20px !important
+}
+
+.setup-form-button {
+    box-shadow: -2px 2px 1px 0px rgba(0,0,0,0.75) !important;
+    margin-top: 10px !important;
+    margin-bottom: 60px !important;
+}
+

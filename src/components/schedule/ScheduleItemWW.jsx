@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { Button, Grid, Image, Modal, Icon, Header, Segment, Form, Dropdown, Confirm, GridRow } from 'semantic-ui-react'
 import moment from 'moment'
-import trackManager from '../../modules/trackManager'
 import weatherManager from '../../modules/weatherManager'
 import WeatherIcon from 'react-icons-weather'
+import './scheduleItemWW.css'
 
 export default class ScheduleItem extends Component {
     state = {
@@ -74,31 +74,30 @@ export default class ScheduleItem extends Component {
 
 
         return (
-            <Grid centered>
+            <Grid centered doubling stackable className='next-race'>
                 <Grid.Row >
                     <Grid.Column width={6} verticalAlign='middle'>
-                        <Grid.Row style={{ fontSize: 20, color: '#D0D6D7' }}>
-                            <Icon name='calendar alternate outline' size='big' style={{ marginTop: 20, marginBottom: 20, color: '#F1A63B' }} />
+                        <Grid.Row className='first-row'>
+                            <Icon name='calendar alternate outline' size='big' className='calendar-icon' />
                             {moment(this.props.race.date).format('MMM-DD')}
                         </Grid.Row>
                     </Grid.Column>
                     <Grid.Column width={10} >
-                        <Grid.Row style={{ backgroundColor: 'white', paddingTop: 20, paddingBottom: 20 }}>
-                            <Image centered src={track.imgUrl} style={{ maxHeight: 140 }} ></Image>
+                        <Grid.Row className='img-background'>
+                            <Image centered src={track.imgUrl} style={{ maxHeight: 120 }} ></Image>
                         </Grid.Row>
                     </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
-
-                    <Grid.Column width={9} textAlign='center' verticalAlign='middle'>
+                    <Grid.Column width={8} textAlign='center' verticalAlign='middle'>
                         {/* <Grid.Row>
                             <WeatherIcon name='darksky' iconId={`${icon}`} className='icon' />
                         </Grid.Row> */}
-                        <Grid.Row style={{ marginTop: 20, fontSize: 30, color: '#CFC7B2' }}>
+                        <Grid.Row className='weather-header'>
                             <p>Race Day Weather</p>
                         </Grid.Row>
-                        <hr style={{ borderColor: '#F1A63B' }}></hr>
-                        <Grid.Row style={{ marginTop: 10, fontSize: 20, color: '#D0D6D7' }}>
+                        <hr className='line'></hr>
+                        <Grid.Row className='current-weather'>
                             <p>{this.state.currentWeather.summary}</p>
                             <Icon name='thermometer half' size='large' style={{ color: '#F1A63B' }} />
                             {temp}&deg;
@@ -106,14 +105,14 @@ export default class ScheduleItem extends Component {
                             {rain}
                         </Grid.Row>
                     </Grid.Column>
-                    <Grid.Column width={4} textAlign='center' verticalAlign='middle'>
-                        <Grid.Row>
-                            <Button fluid as='a' color='orange' style={{ marginTop: 20, marginLeft: 40, maxWidth: 140 }}
+                    <Grid.Column width={6} textAlign='center' verticalAlign='middle'>
+                        <Grid.Row className='button-row'>
+                            <Button className='weather-button' fluid as='a' color='orange'
                                 href={`/tracks/${this.props.race.trackId}`}
                             >See My Setups</Button>
                         </Grid.Row>
-                        <Grid.Row >
-                            <Modal trigger={<Button fluid onClick={this.handleOpen} color='black' style={{ marginTop: 20, marginLeft: 40, maxWidth: 140 }}>Edit Race</Button>}
+                        <Grid.Row className='button-row'>
+                            <Modal trigger={<Button fluid onClick={this.handleOpen} color='black' className='weather-button'>Edit Race</Button>}
                                 closeIcon
                                 open={this.state.modalOpen}
                                 onClose={this.handleClose}>
@@ -159,8 +158,8 @@ export default class ScheduleItem extends Component {
                                 </Modal.Actions>
                             </Modal>
                         </Grid.Row>
-                        <Grid.Row >
-                            <Button fluid as='a' color='red' style={{ marginTop: 20, marginLeft: 40, maxWidth: 140 }}
+                        <Grid.Row className='button-row'>
+                            <Button fluid as='a' color='red' className='weather-button'
                                 onClick={() => this.props.deleteRace(this.props.race.id)}
                             >Remove Race</Button>
                         </Grid.Row>

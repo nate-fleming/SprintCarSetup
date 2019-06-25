@@ -3,6 +3,7 @@ import moment from 'moment'
 import { Container, Button, Grid, Header, Card, Table, Segment } from 'semantic-ui-react'
 import ScheduleItemWW from './ScheduleItemWW'
 import ScheduleItem from './ScheduleItem'
+import './schedule.css'
 
 
 export default class Schedule extends Component {
@@ -20,16 +21,10 @@ export default class Schedule extends Component {
         return (
             <>
                 <Container style={{ marginTop: 40 }}>
-                    <Header as='h1' textAlign='center' style={{
-                        fontSize: 80, fontFamily: 'Racing Sans One, cursive'
-                    }}>
-                        <p style={{
-                            textShadowColor: 'rgba(0, 0, 0, 0.75)',
-                            textShadowOffset: { width: -1, height: 1 },
-                            textShadowRadius: 10
-                        }} > {this.year} Schedule</p></Header>
-                    <Grid textAlign='center' style={{ marginTop: 50 }}>
-                        <Button as='a' color='orange' size='huge'
+                    <Header className='main-header' as='h1' textAlign='center'>
+                        {this.year} Schedule</Header>
+                    <Grid style={{ marginTop: 50 }}>
+                        <Button as='a' color='orange' size='big'
                             href={`/schedule/new`}
                         >
                             Add New Race
@@ -37,7 +32,8 @@ export default class Schedule extends Component {
                     </Grid>
                 </Container>
                 <Container>
-                    <Segment style={{ marginTop: 40, marginBottom: 40, backgroundColor: '#4D4F52' }}>
+                    <Header className='next-header'>Next Race</Header>
+                    <Segment className='next'>
                         {
                             sortedSchedule.map((race, index) => {
                                 return (
@@ -50,7 +46,8 @@ export default class Schedule extends Component {
                         }
                     </Segment>
                     <Container style={{ marginBottom: 80 }}>
-                        <Table striped style={{ marginTop: 100, marginBottom: 40 }}>
+                        <Header className='next-header'>Upcoming Races</Header>
+                        <Table striped className='schedule-table'>
                             {/* <Table.Header>
                                 <Table.Row>
                                     <Table.HeaderCell width={2} textAlign='center'

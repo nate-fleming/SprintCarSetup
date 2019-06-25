@@ -1,0 +1,48 @@
+.first-row {
+    font-size: 2em;
+     color: #D0D6D7
+}
+
+.calendar-icon {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #F1A63B
+}
+
+.img-background {
+    background-color: #D0D6D7;
+    border: 4px solid #F1A63B ;
+    border-radius: 8px;
+    box-shadow: -4px 4px 2px 0px rgba(0,0,0,0.75);
+     padding-top: 20px;
+     padding-bottom: 20px
+}
+
+.weather-header {
+    margin-top: 20px;
+    font-size: 2em;
+    color:#CFC7B2
+}
+
+.line {
+    border-color: #F1A63B;
+     max-width: 360px
+}
+
+.current-weather {
+    font-size: 1.75em;
+    color: #D0D6D7
+}
+
+.weather-button {
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 40px;
+    max-width: 140px
+}
+
+.button-row {
+    padding-top:10px;
+    margin-left:40px;
+    text-align: center
+}
