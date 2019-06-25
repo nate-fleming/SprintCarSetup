@@ -34,7 +34,7 @@ export default class setupForm extends Component {
         return (
             <>
                 <Container>
-                    <Header textAlign='center' style={{ fontSize: 40 }}>
+                    <Header textAlign='center' style={{ fontSize: 60, fontFamily: 'Racing Sans One, cursive' }}>
                         Create a new setup for {this.props.track.name}
                     </Header>
                 </Container>

@@ -31,7 +31,7 @@ export default class SignUp extends Component {
         return (
             this.state.hasError ? <Error></Error>
                 :
-                <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+                <Grid textAlign='center' style={{ marginTop: 80 }} verticalAlign='middle'>
                     <Grid.Column style={{ maxWidth: 450 }}>
                         <Header as='h1' color='black' textAlign='center'>
                             <Icon name='flag checkered' /> Sign Up for a new account

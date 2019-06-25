@@ -12,9 +12,9 @@ export default class Error extends Component {
                 <Grid.Column style={{ maxWidth: 450 }}>
                     <Segment>
                         <Image src={error} size='medium' centered />
-                        <Button color='orange' fluid size='large'
+                        <Button color='orange' fluid size='large' as='a' href='/'
                         >
-                            <Link to="/" className='link'>Try Again</Link>
+                            Try Again
                         </Button>
                     </Segment>
                 </Grid.Column>

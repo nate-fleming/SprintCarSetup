@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Menu } from 'semantic-ui-react'
+import { Menu, Dropdown } from 'semantic-ui-react'
 import { Link } from "react-router-dom";
 import { Container } from 'semantic-ui-react'
 import loginManager from '../../modules/loginManager'
@@ -8,30 +8,46 @@ import loginManager from '../../modules/loginManager'
 export default class Navbar extends Component {
     render() {
         return (
-            <Menu borderless size='massive' inverted fixed='top' className='navbar' color="orange">
-                <Container>
-                    <Menu.Item>
-                        <Link to='/'>Sprint Setup Pro</Link>
+            (window.innerWidth > 425) ?
+                <Menu borderless size='massive' inverted fixed='top' color="orange" style={{ minHeight: 80 }}>
+                    <Container >
+                        <Menu.Item as='a' href='/' >
+                            Sprint Setup Pro
                     </Menu.Item>
 
-                    <Menu.Item>
-                        <Link to='/'>Schedule</Link>
+                        <Menu.Item as='a' href='/' >
+                            Schedule
                     </Menu.Item>
 
-                    <Menu.Item>
-                        <Link to='/tracks'>Tracks</Link>
+                        <Menu.Item as='a' href='/tracks' >
+                            Tracks
+                    </Menu.Item >
+
+                        <Menu.Item as='a' href='/results' >
+                            Results
                     </Menu.Item>
 
-                    <Menu.Item>
-                        <Link to='/results'>Results</Link>
+                        <Menu.Item position='right' as='a' href='/' onClick={loginManager.logout} >
+                            Logout
                     </Menu.Item>
-
-                    <Menu.Item position='right'>
-                        <Link to='/' onClick={loginManager.logout}>Logout
-                        </Link>
-                    </Menu.Item>
-                </Container>
-            </Menu>
+                    </Container>
+                </Menu>
+                :
+                <Menu borderless size='massive' inverted fixed='top' color="orange" style={{ minHeight: 80 }}>
+                    <Container>
+                        <Menu.Item as='a' href='/' >
+                            Sprint Setup Pro
+                        </Menu.Item>
+                        <Dropdown item simple text='Go To'>
+                            <Dropdown.Menu>
+                                <Dropdown.Item as='a' href='/'>Schedule</Dropdown.Item>
+                                <Dropdown.Item as='a' href='/tracks'>Tracks</Dropdown.Item>
+                                <Dropdown.Item as='a' href='/results'>Results</Dropdown.Item>
+                                <Dropdown.Item as='a' href='/' onClick={loginManager.logout}>Logout</Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
+                    </Container>
+                </Menu>
         )
     }
 }

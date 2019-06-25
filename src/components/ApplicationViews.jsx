@@ -30,10 +30,7 @@ class ApplicationViews extends Component {
         const newState = {}
 
         scheduleManager.getSchedule(this.state.user)
-            .then(schedule => {
-                console.log('schedule', schedule)
-                newState.schedule = schedule
-            })
+            .then(schedule => newState.schedule = schedule)
             .then(() => trackManager.getTracks())
             .then(tracks => newState.tracks = tracks)
             .then(() => this.setState(newState))
@@ -76,6 +73,13 @@ class ApplicationViews extends Component {
             .then(() => scheduleManager.getSchedule(this.state.user))
             .then(schedule => this.setState({ schedule: schedule }))
             .then(() => this.props.history.push('/'))
+    }
+
+    editResult = (editedRace) => {
+        scheduleManager.editRace(editedRace)
+            .then(() => scheduleManager.getSchedule(this.state.user))
+            .then(schedule => this.setState({ schedule: schedule }))
+            .then(() => this.props.history.push('/results'))
     }
 
 
@@ -128,7 +132,7 @@ class ApplicationViews extends Component {
 
                     return this.state.user ? (
                         <Results {...props} races={pastSchedule} tracks={this.state.tracks}
-                            user={this.state.user} deleteResult={this.deleteResult}></Results>
+                            user={this.state.user} deleteResult={this.deleteResult} editResult={this.editResult}></Results>
                     ) : (
                             <Redirect to="/sign-in" />
                         )

@@ -15,7 +15,6 @@ export default class SignIn extends Component {
     signIn = () => {
         loginManager.login(this.state.email, this.state.password)
             .then(user => {
-                console.log(user.user.uid)
                 // this.props.onLogin(user.user.uid)
                 this.props.login(user.user.uid)
             })
@@ -28,7 +27,7 @@ export default class SignIn extends Component {
         return (
             this.state.hasError ? <Error></Error>
                 :
-                <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+                <Grid textAlign='center' style={{ marginTop: 80 }} verticalAlign='middle'>
                     <Grid.Column style={{ maxWidth: 450 }}>
                         <Header as='h1' color='black' textAlign='center'>
                             <Icon name='flag checkered' /> Sign-in to your account

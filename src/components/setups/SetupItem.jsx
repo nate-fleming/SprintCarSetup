@@ -9,8 +9,8 @@ export default class SetupItem extends Component {
 
     render() {
         return (
-            <Card>
-                <Card.Content>
+            <Card >
+                <Card.Content >
                     <Card.Header>{this.props.setup.name}</Card.Header>
                     <Card.Description>
                         <Icon name='calendar alternate outline' /> {moment(this.props.setup.date).format('MMM-DD-YYYY')}

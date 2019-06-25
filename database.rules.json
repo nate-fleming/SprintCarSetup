@@ -1,0 +1,15 @@
+{
+  "rules": {
+    "Setups": {
+      ".indexOn": "userId"
+    },
+    "Tracks": {
+      ".indexOn": "id"
+    },
+    "Schedule": {
+      ".indexOn": "userId"
+    },
+    ".read": true,
+    ".write": true
+  }
+}
