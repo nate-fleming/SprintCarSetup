@@ -43,9 +43,9 @@ export default class Schedule extends Component {
                             })
                         }
                     </Segment>
-                    <Container style={{ marginBottom: 80 }}>
+                    <Container>
                         <Header className='next-header'>Upcoming Races</Header>
-                        <Table striped className='schedule-table'>
+                        <Table className='schedule-table'>
                             {/* <Table.Header>
                                 <Table.Row>
                                     <Table.HeaderCell width={2} textAlign='center'

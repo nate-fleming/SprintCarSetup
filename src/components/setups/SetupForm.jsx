@@ -254,7 +254,7 @@ export default class setupForm extends Component {
                         </Grid.Column>
                     </Grid.Row>
                     <Grid.Row>
-                        <Table celled className='setup-table'>
+                        <Table celled className='tire-table'>
                             <Table.Header>
                                 <Table.Row>
                                     <Table.HeaderCell colSpan='2'

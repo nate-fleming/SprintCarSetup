@@ -1,3 +1,7 @@
+.result-container {
+    margin-bottom: 100px !important
+}
+
 
 .result-header {
     font-size: 6em !important;
@@ -14,6 +18,7 @@
 }
 
 .result-table {
+    border: none !important;
     margin-top: 100px !important;
     box-shadow: -4px 4px 2px 0px rgba(0,0,0,0.75) !important;
     background-color:  #f2f2f2 !important;

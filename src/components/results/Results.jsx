@@ -70,7 +70,7 @@ export default class Results extends Component {
                 <Container>
                     <Header textAlign='center' className='result-header'>
                         Results </Header>
-                    <Grid textAlign='center' style={{ marginTop: 40, marginBottom: 80 }}>
+                    <Grid textAlign='center' className='result-container'>
                         <Tab className='result-tab-menu' menu={{ secondary: true, pointing: true, size: 'massive' }} panes={panes}
                         />
                     </Grid>
