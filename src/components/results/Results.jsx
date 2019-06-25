@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Container, Tab, Header, Grid } from 'semantic-ui-react'
 import ResultTab from './ResultTab'
 import moment from 'moment'
+import './results.css'
 
 
 export default class Results extends Component {
@@ -35,26 +36,26 @@ export default class Results extends Component {
 
         const panes = [
             {
-                menuItem: '2019', render: () => <Tab.Pane attached={false} style={{ backgroundColor: '#D0D6D9' }}><ResultTab
+                menuItem: '2019', render: () => <Tab.Pane className='result-tab' attached={false}><ResultTab
                     filteredRaces={twentyNineteenRaces}
                     tracks={this.props.tracks} deleteResult={this.props.deleteResult}
                     editResult={this.props.editResult}
                     user={this.props.user} {...this.props}></ResultTab></Tab.Pane>
             },
             {
-                menuItem: '2018', render: () => <Tab.Pane attached={false} style={{ backgroundColor: '#D0D6D9' }}><ResultTab filteredRaces={twentyEighteenRaces}
+                menuItem: '2018', render: () => <Tab.Pane className='result-tab' attached={false}><ResultTab filteredRaces={twentyEighteenRaces}
                     tracks={this.props.tracks} deleteResult={this.props.deleteResult}
                     editResult={this.props.editResult}
                     user={this.props.user} {...this.props}></ResultTab></Tab.Pane>
             },
             {
-                menuItem: '2017', render: () => <Tab.Pane attached={false} style={{ backgroundColor: '#D0D6D9' }}><ResultTab filteredRaces={twentySeventeenRaces}
+                menuItem: '2017', render: () => <Tab.Pane className='result-tab' attached={false}><ResultTab filteredRaces={twentySeventeenRaces}
                     tracks={this.props.tracks} deleteResult={this.props.deleteResult}
                     editResult={this.props.editResult}
                     user={this.props.user} {...this.props}></ResultTab></Tab.Pane>
             },
             {
-                menuItem: 'All', render: () => <Tab.Pane attached={false} style={{ backgroundColor: '#D0D6D9' }}><ResultTab
+                menuItem: 'All', render: () => <Tab.Pane className='result-tab' attached={false}><ResultTab
                     filteredRaces={sortedRaces}
                     tracks={this.props.tracks} deleteResult={this.props.deleteResult}
                     editResult={this.props.editResult}
@@ -67,10 +68,10 @@ export default class Results extends Component {
         return (
             <>
                 <Container>
-                    <Header textAlign='center' style={{ fontSize: 80, fontFamily: 'Racing Sans One, cursive' }}>
+                    <Header textAlign='center' className='result-header'>
                         Results </Header>
                     <Grid textAlign='center' style={{ marginTop: 40, marginBottom: 80 }}>
-                        <Tab menu={{ secondary: true, pointing: true, size: 'massive' }} panes={panes}
+                        <Tab className='result-tab-menu' menu={{ secondary: true, pointing: true, size: 'massive' }} panes={panes}
                         />
                     </Grid>
                 </Container>

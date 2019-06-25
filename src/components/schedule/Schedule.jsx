@@ -23,13 +23,11 @@ export default class Schedule extends Component {
                 <Container style={{ marginTop: 40 }}>
                     <Header className='main-header' as='h1' textAlign='center'>
                         {this.year} Schedule</Header>
-                    <Grid style={{ marginTop: 50 }}>
-                        <Button as='a' color='orange' size='big'
-                            href={`/schedule/new`}
-                        >
-                            Add New Race
+                    <Button className='schedule-button' as='a' color='orange' size='big'
+                        href={`/schedule/new`}
+                    >
+                        Add New Race
                         </Button>
-                    </Grid>
                 </Container>
                 <Container>
                     <Header className='next-header'>Next Race</Header>
