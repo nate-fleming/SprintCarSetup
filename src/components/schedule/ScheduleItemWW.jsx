@@ -74,19 +74,21 @@ export default class ScheduleItem extends Component {
 
 
         return (
-            <Grid>
-                <Grid.Row>
-                    <Grid.Column style={{ backgroundColor: 'white', paddingTop: 20, paddingBottom: 20, marginLeft: 80, marginRight: 80 }}>
-                        <Image centered src={track.imgUrl} style={{ maxHeight: 200 }} ></Image>
-                    </Grid.Column>
-                </Grid.Row>
-                <Grid.Row>
-                    <Grid.Column width={2} textAlign='center' verticalAlign='middle'>
+            <Grid centered>
+                <Grid.Row >
+                    <Grid.Column width={6} verticalAlign='middle'>
                         <Grid.Row style={{ fontSize: 20, color: '#D0D6D7' }}>
                             <Icon name='calendar alternate outline' size='big' style={{ marginTop: 20, marginBottom: 20, color: '#F1A63B' }} />
                             {moment(this.props.race.date).format('MMM-DD')}
                         </Grid.Row>
                     </Grid.Column>
+                    <Grid.Column width={10} >
+                        <Grid.Row style={{ backgroundColor: 'white', paddingTop: 20, paddingBottom: 20 }}>
+                            <Image centered src={track.imgUrl} style={{ maxHeight: 140 }} ></Image>
+                        </Grid.Row>
+                    </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
 
                     <Grid.Column width={9} textAlign='center' verticalAlign='middle'>
                         {/* <Grid.Row>

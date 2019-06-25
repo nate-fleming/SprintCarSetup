@@ -49,7 +49,7 @@ export default class Schedule extends Component {
                             })
                         }
                     </Segment>
-                    <Container>
+                    <Container style={{ marginBottom: 80 }}>
                         <Table striped style={{ marginTop: 100, marginBottom: 40 }}>
                             {/* <Table.Header>
                                 <Table.Row>
