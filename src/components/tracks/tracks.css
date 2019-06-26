@@ -5,12 +5,16 @@
    margin-bottom: 40px !important
 }
 
+.track-container {
+    margin-bottom: 40px
+}
+
 .card {
     box-shadow: -6px 6px 3px 0px rgba(0,0,0,0.75) !important
 }
 
 .card-container {
-    margin-top: 40px
+    margin-top: 40px;
 }
 
 .track-button {

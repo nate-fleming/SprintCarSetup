@@ -55,7 +55,7 @@ export default class ScheduleItem extends Component {
         console.log(this.state.currentWeather)
         const track = this.props.tracks.find(track => track.id === this.props.race.trackId)
         const rain = (this.state.currentWeather === "") ? "no weather data" :
-            `${(this.state.currentWeather.precipProbability) * 100}%`
+            `${parseInt((this.state.currentWeather.precipProbability) * 100)}%`
         const temp = (this.state.currentWeather === "") ? "no weather data" :
             parseInt(this.state.currentWeather.temperature)
         const icon = (this.state.currentWeather === "") ? "no weather data" :
@@ -99,9 +99,9 @@ export default class ScheduleItem extends Component {
                         <hr className='line'></hr>
                         <Grid.Row className='current-weather'>
                             <p>{this.state.currentWeather.summary}</p>
-                            <Icon name='thermometer half' size='large' style={{ color: '#F1A63B' }} />
+                            <Icon name='thermometer half' size='large' style={{ color: '#ff6f00' }} />
                             {temp}&deg;
-                            <Icon name='theme' size='large' style={{ color: '#F1A63B' }} />
+                            <Icon name='theme' size='large' style={{ color: '#ff6f00' }} />
                             {rain}
                         </Grid.Row>
                     </Grid.Column>
@@ -116,12 +116,12 @@ export default class ScheduleItem extends Component {
                                 closeIcon
                                 open={this.state.modalOpen}
                                 onClose={this.handleClose}>
-                                <Header icon='cog' content='Edit Race' style={{ backgroundColor: '#D0D6D9' }} />
-                                <Modal.Content>
+                                <Header icon='cog' content='Edit Race' className='modal-header' />
+                                <Modal.Content className='modal-body'>
                                     <Grid textAlign='center' style={{ fontSize: 40 }}  >
                                         <Grid.Column style={{ maxWidth: 450 }}>
                                             <Form size='large' >
-                                                <Segment stacked color='orange' inverted>
+                                                <Segment color='orange' inverted className='modal-segment'>
                                                     <Form.Input type='date' fluid icon='calendar alternate outline' iconPosition='left'
                                                         placeholder='Date'
                                                         label='Date'
@@ -143,11 +143,11 @@ export default class ScheduleItem extends Component {
                                         </Grid.Column>
                                     </Grid>
                                 </Modal.Content>
-                                <Modal.Actions style={{ backgroundColor: '#D0D6D9' }}>
-                                    <Button color='black' onClick={this.handleClose}>
+                                <Modal.Actions className='modal-header'>
+                                    <Button className='modal-button' color='black' onClick={this.handleClose}>
                                         <Icon name='remove' /> Cancel
                                     </Button>
-                                    <Button color='orange'
+                                    <Button className='modal-button' color='orange'
                                         onClick={() => {
                                             this.handleClose()
                                             this.saveEdits()

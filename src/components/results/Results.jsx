@@ -66,17 +66,14 @@ export default class Results extends Component {
 
 
         return (
-            <>
-                <Container>
-                    <Header textAlign='center' className='result-header'>
-                        Results </Header>
-                    <Grid textAlign='center' className='result-container'>
-                        <Tab className='result-tab-menu' menu={{ secondary: true, pointing: true, size: 'massive' }} panes={panes}
-                        />
-                    </Grid>
-                </Container>
-
-            </>
+            <Container>
+                <Header textAlign='center' className='result-header'>
+                    Results </Header>
+                <Grid textAlign='center' className='result-container'>
+                    <Tab className='result-tab-menu' menu={{ secondary: true, pointing: true, size: 'massive' }} panes={panes}
+                    />
+                </Grid>
+            </Container>
         )
     }
 }

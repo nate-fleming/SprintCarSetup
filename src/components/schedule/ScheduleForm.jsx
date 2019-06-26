@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Button, Form, Grid, Header, Icon, Message, Segment, Dropdown } from 'semantic-ui-react'
 import scheduleManager from '../../modules/scheduleManager'
+import './schedule.css'
 
 export default class ScheduleForm extends Component {
     state = {
@@ -23,13 +24,13 @@ export default class ScheduleForm extends Component {
 
         getTrackackOptions()
         return (
-            <Grid textAlign='center' style={{ fontSize: 40 }} >
-                <Grid.Column style={{ maxWidth: 450 }}>
-                    <Header as='h1' color='black' textAlign='center' style={{ fontSize: 60, fontFamily: 'Racing Sans One, cursive' }}>
+            <Grid textAlign='center'  >
+                <Grid.Column style={{ maxWidth: 520 }}>
+                    <Header className='form-header' as='h1' color='black' textAlign='center'>
                         Create A New Race
-              </Header>
+                    </Header>
                     <Form size='large' >
-                        <Segment color='orange'>
+                        <Segment className='form-segment'>
                             <Form.Input type='date' fluid icon='calendar alternate outline' iconPosition='left'
                                 placeholder='Date'
                                 label='Date'
@@ -44,7 +45,7 @@ export default class ScheduleForm extends Component {
                                 }
                             >
                             </Dropdown>
-                            <Button color='orange' size='large' style={{ marginTop: 20 }}
+                            <Button className='schedule-form-button' color='black' size='large'
                                 onClick={() => this.props.saveRace(this.state)}>
                                 Save
                             </Button>

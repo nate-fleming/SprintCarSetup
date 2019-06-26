@@ -95,7 +95,7 @@ export default class ResultItem extends Component {
                 </Table.Cell> */}
                 <Table.Cell>
                     <Modal trigger={<Button className='result-button' size='small' color='orange' >See Notes</Button>} closeIcon>
-                        <Header style={{ backgroundColor: '#F1A63B' }} icon='edit' content={`Notes for ${track.name} on ${moment(this.props.race.date).format('MMM-DD-YY')}`} />
+                        <Header className='notes-header' icon='edit' content={`Notes for ${track.name} on ${moment(this.props.race.date).format('MMM-DD-YY')}`} />
                         <Modal.Content>
                             <p>
                                 {this.state.notes}
@@ -108,12 +108,12 @@ export default class ResultItem extends Component {
                         closeIcon
                         open={this.state.modalOpen}
                         onClose={this.handleClose}>
-                        <Header icon='cog' content={`Log Results for ${track.name} on ${moment(this.props.race.date).format('MMM-DD-YY')}`} style={{ backgroundColor: '#D0D6D9' }} />
-                        <Modal.Content>
+                        <Header className='modal-header' icon='cog' content={`Log Results for ${track.name} on ${moment(this.props.race.date).format('MMM-DD-YY')}`} style={{ backgroundColor: '#D0D6D9' }} />
+                        <Modal.Content className='modal-body'>
                             <Grid textAlign='center' style={{ fontSize: 40 }}  >
                                 <Grid.Column style={{ maxWidth: 450 }}>
                                     <Form size='large' >
-                                        <Segment color='orange' inverted>
+                                        <Segment className='modal-segment' color='orange' inverted>
                                             <Form.Field>
                                                 <Label
                                                     color='black'
@@ -149,11 +149,11 @@ export default class ResultItem extends Component {
                                 </Grid.Column>
                             </Grid>
                         </Modal.Content>
-                        <Modal.Actions style={{ backgroundColor: '#D0D6D9' }}>
-                            <Button color='black' onClick={this.handleClose}>
+                        <Modal.Actions className='modal-header'>
+                            <Button className='modal-button' color='black' onClick={this.handleClose}>
                                 <Icon name='remove' /> Cancel
                                     </Button>
-                            <Button color='orange'
+                            <Button className='modal-button' color='orange'
                                 onClick={() => {
                                     this.handleClose()
                                     this.saveEdits()

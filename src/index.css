@@ -29,3 +29,25 @@ code {
   text-shadow: -4px 4px 4px #4D4F52 !important;
 }
 
+.button:active {
+  /* box-shadow: 0 5px #666 !important; */
+  transform: translateY(2px) !important;
+}
+
+.modal-header {
+  background-color: #4D4F52 !important;
+  color: #D0D6D7 !important;
+}
+
+.modal-body {
+  background-color: #D0D6D7 !important
+}
+
+.modal-segment {
+  box-shadow: -8px 8px 4px 0px rgba(0,0,0,0.75) !important
+}
+
+.modal-button {
+  box-shadow: -2px 2px 1px 0px rgba(0,0,0,0.75) !important
+}
+

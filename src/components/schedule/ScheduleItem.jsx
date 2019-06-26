@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Button, Grid, Image, Modal, Icon, Segment, Header, Form, Dropdown, Table } from 'semantic-ui-react'
 import moment from 'moment'
+import './schedule.css'
 
 export default class ScheduleItem extends Component {
     state = {
@@ -49,30 +50,30 @@ export default class ScheduleItem extends Component {
         const track = this.props.tracks.find(track => track.id === this.props.race.trackId)
         return (
             <>
-                <Table.Cell textAlign='center' >
+                <Table.Cell textAlign='center' style={{ fontSize: 20 }}>
                     <Icon name='calendar alternate outline' size='large' />
                     {moment(this.props.race.date).format('MMM-DD')}
                 </Table.Cell>
-                <Table.Cell style={{}}>
-                    <Image centered src={track.imgUrl} style={{ maxHeight: 80 }}></Image>
+                <Table.Cell>
+                    <Image className='schedule-icon' centered src={track.imgUrl} style={{ maxHeight: 80 }}></Image>
                 </Table.Cell>
                 <Table.Cell textAlign='center'>
-                    <Button as='a' color='orange' style={{}}
+                    <Button className='schedule-icon' as='a' color='orange'
                         href={`/tracks/${this.props.race.trackId}`}
                         icon='table'
                     ></Button>
                 </Table.Cell>
                 <Table.Cell textAlign='center'>
-                    <Modal trigger={<Button onClick={this.handleOpen} color='black' style={{}} icon='edit'></Button>}
+                    <Modal trigger={<Button className='schedule-icon' onClick={this.handleOpen} color='black' icon='edit'></Button>}
                         closeIcon
                         open={this.state.modalOpen}
                         onClose={this.handleClose}>
-                        <Header icon='cog' content='Edit Race' style={{ backgroundColor: '#D0D6D9' }} />
-                        <Modal.Content>
+                        <Header className='modal-header' icon='cog' content='Edit Race' />
+                        <Modal.Content className='modal-body'>
                             <Grid textAlign='center' style={{ fontSize: 40 }}  >
                                 <Grid.Column style={{ maxWidth: 450 }}>
                                     <Form size='large' >
-                                        <Segment color='orange' inverted>
+                                        <Segment className='modal-segment' color='orange' inverted>
                                             <Form.Input type='date' fluid icon='calendar alternate outline' iconPosition='left'
                                                 placeholder='Date'
                                                 label='Date'
@@ -94,11 +95,11 @@ export default class ScheduleItem extends Component {
                                 </Grid.Column>
                             </Grid>
                         </Modal.Content>
-                        <Modal.Actions style={{ backgroundColor: '#D0D6D9' }}>
-                            <Button color='black' onClick={this.handleClose}>
+                        <Modal.Actions className='modal-header'>
+                            <Button className='modal-button' color='black' onClick={this.handleClose}>
                                 <Icon name='remove' /> Cancel
                                     </Button>
-                            <Button color='orange'
+                            <Button className='modal-button' color='orange'
                                 onClick={() => {
                                     this.handleClose()
                                     this.saveEdits()
@@ -110,7 +111,8 @@ export default class ScheduleItem extends Component {
                     </Modal>
                 </Table.Cell>
                 <Table.Cell textAlign='center'>
-                    <Button as='a' color='red' style={{}} icon='delete'
+                    <Button as='a' color='red' icon='delete'
+                        className='schedule-icon'
                         onClick={() => this.props.deleteRace(this.props.race.id)}
                     ></Button>
                 </Table.Cell>

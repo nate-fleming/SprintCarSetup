@@ -9,7 +9,7 @@ export default class Tracks extends Component {
 
     render() {
         return (
-            <Container>
+            <Container className='track-container'>
                 <Header as='h1' textAlign='center' className='track-header'>Tracks</Header>
                 <Card.Group centered className='card-container'>
                     {

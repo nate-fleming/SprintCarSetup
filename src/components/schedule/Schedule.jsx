@@ -29,7 +29,7 @@ export default class Schedule extends Component {
                         Add New Race
                         </Button>
                 </Container>
-                <Container>
+                <Container style={{ marginBottom: 40 }}>
                     <Header className='next-header'>Next Race</Header>
                     <Segment className='next'>
                         {
@@ -43,7 +43,7 @@ export default class Schedule extends Component {
                             })
                         }
                     </Segment>
-                    <Container>
+                    <Container className='upcoming-table'>
                         <Header className='next-header'>Upcoming Races</Header>
                         <Table className='schedule-table'>
                             {/* <Table.Header>
