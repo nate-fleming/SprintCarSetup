@@ -21,8 +21,6 @@ export default class GarageSetup extends Component {
     render() {
         const hidden = this.props.isHidden ? 'none' : ''
         const reverseHidden = this.props.isHidden ? '' : 'none'
-        // console.log(this.state)
-        // console.log(this.props.trackSetup)
         return (
             <Container>
                 <Grid>

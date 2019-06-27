@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Menu, Dropdown } from 'semantic-ui-react'
-import { Link } from "react-router-dom";
 import { Container } from 'semantic-ui-react'
 import loginManager from '../../modules/loginManager'
 

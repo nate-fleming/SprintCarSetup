@@ -4,6 +4,7 @@ import { Button, Form, Grid, Header, Icon, Message, Segment } from
 import { Link } from "react-router-dom";
 import loginManager from '../../modules/loginManager'
 import Error from '../../Error'
+import './auth.css'
 
 
 export default class SignUp extends Component {

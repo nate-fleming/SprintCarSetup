@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import moment from 'moment'
-import { Container, Button, Grid, Header, Card, Table, Segment } from 'semantic-ui-react'
+import { Container, Button, Header, Table, Segment } from 'semantic-ui-react'
 import ScheduleItemWW from './ScheduleItemWW'
 import ScheduleItem from './ScheduleItem'
 import './schedule.css'
@@ -46,20 +46,6 @@ export default class Schedule extends Component {
                     <Container className='upcoming-table'>
                         <Header className='next-header'>Upcoming Races</Header>
                         <Table className='schedule-table'>
-                            {/* <Table.Header>
-                                <Table.Row>
-                                    <Table.HeaderCell width={2} textAlign='center'
-                                        style={{ fontSize: 20 }}>Date</Table.HeaderCell>
-                                    <Table.HeaderCell width={2} textAlign='center'
-                                        style={{ fontSize: 20 }}>Track</Table.HeaderCell>
-                                    <Table.HeaderCell width={1} textAlign='center'
-                                        style={{ fontSize: 20 }}>See Setup</Table.HeaderCell>
-                                    <Table.HeaderCell width={1} textAlign='center'
-                                        style={{ fontSize: 20 }}>Edit</Table.HeaderCell>
-                                    <Table.HeaderCell width={1} textAlign='center'
-                                        style={{ fontSize: 20 }}>Remove</Table.HeaderCell>
-                                </Table.Row>
-                            </Table.Header> */}
                             <Table.Body>
                                 {
                                     sortedSchedule.map((race, index) => {

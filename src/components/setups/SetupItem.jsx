@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Grid, Image, Card, Icon } from 'semantic-ui-react'
-import { Link } from "react-router-dom";
+import { Button, Grid, Card, Icon } from 'semantic-ui-react'
 import moment from 'moment'
 
 

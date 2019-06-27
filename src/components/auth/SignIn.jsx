@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import './auth.css'
 import loginManager from '../../modules/loginManager'
 import Error from '../../Error'
-import './auth.css'
 
 export default class SignIn extends Component {
     state = {

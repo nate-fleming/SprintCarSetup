@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { Header, Container, Card, Image } from 'semantic-ui-react'
-import track from './track.jpg'
+import { Header, Container, Card } from 'semantic-ui-react'
 import TrackItem from './TackItem'
 import './tracks.css'
 

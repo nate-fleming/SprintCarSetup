@@ -30,13 +30,13 @@ code {
 }
 
 .button:active {
-  /* box-shadow: 0 5px #666 !important; */
+  box-shadow: 0 0px rgba(0,0,0,0.75) !important;
   transform: translateY(2px) !important;
 }
 
 .modal-header {
   background-color: #4D4F52 !important;
-  color: #D0D6D7 !important;
+  color: white !important;
 }
 
 .modal-body {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Grid, Image, Modal, Icon, Header, Segment, Form, Dropdown, Confirm, GridRow } from 'semantic-ui-react'
+import { Button, Grid, Image, Modal, Icon, Header, Segment, Form, Dropdown } from 'semantic-ui-react'
 import moment from 'moment'
 import weatherManager from '../../modules/weatherManager'
 import WeatherIcon from 'react-icons-weather'
@@ -52,7 +52,7 @@ export default class ScheduleItem extends Component {
 
 
     render() {
-        console.log(this.state.currentWeather)
+        // console.log(this.state.currentWeather)
         const track = this.props.tracks.find(track => track.id === this.props.race.trackId)
         const rain = (this.state.currentWeather === "") ? "no weather data" :
             `${parseInt((this.state.currentWeather.precipProbability) * 100)}%`
@@ -76,15 +76,15 @@ export default class ScheduleItem extends Component {
         return (
             <Grid centered doubling stackable className='next-race'>
                 <Grid.Row >
-                    <Grid.Column width={6} verticalAlign='middle'>
+                    <Grid.Column width={4} verticalAlign='middle'>
                         <Grid.Row className='first-row'>
-                            <Icon name='calendar alternate outline' size='big' className='calendar-icon' />
+                            <Icon name='calendar alternate outline' size='large' className='calendar-icon' />
                             {moment(this.props.race.date).format('MMM-DD')}
                         </Grid.Row>
                     </Grid.Column>
-                    <Grid.Column width={10} >
+                    <Grid.Column width={12} >
                         <Grid.Row className='img-background'>
-                            <Image centered src={track.imgUrl} style={{ maxHeight: 120 }} ></Image>
+                            <Image centered src={track.imgUrl} style={{ maxHeight: 140 }} ></Image>
                         </Grid.Row>
                     </Grid.Column>
                 </Grid.Row>

@@ -87,7 +87,7 @@ export default class SetupDetail extends Component {
                         {this.state.trackSetup.name}
                     </Header>
                     <Grid columns={2} >
-                        <Form style={{ display: `${hidden}`, fontSize: 20 }}>
+                        <Form style={{ display: `${hidden}`, fontSize: 20, marginBottom: 20 }}>
                             <Form.Input
                                 label='Setup Name'
                                 onChange={(e) => this.setState(

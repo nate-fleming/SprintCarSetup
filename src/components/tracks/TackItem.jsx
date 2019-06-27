@@ -11,7 +11,7 @@ export default class TackItem extends Component {
                 <Card.Content style={{ backgroundColor: '#4D4F52', boder: 'none' }}>
                     <Card.Header style={{ color: '#F1A63B' }}>{this.props.track.name}</Card.Header>
                     <Card.Description>
-                        <p style={{ color: '#CFC7B2' }}><Icon color='white' name='map marker alternate' />{this.props.track.address}</p>
+                        <p style={{ color: '#CFC7B2' }}><Icon name='map marker alternate' />{this.props.track.address}</p>
                     </Card.Description>
                     <Grid>
                         <Grid.Column textAlign="center">

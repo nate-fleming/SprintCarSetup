@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Container, Image, Button, Grid, Card } from 'semantic-ui-react'
-import { Link } from "react-router-dom"
 import setupManager from '../../modules/setupManager'
 import SetupItem from '../setups/SetupItem'
 
