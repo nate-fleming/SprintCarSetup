@@ -3,31 +3,23 @@ Sprint Setup Pro is a web application designed to help users manage a sprint car
 
 ## Getting Started
 1. Clone this repository to your computer
-2. Run
- ```
- npm install
- ```
- to intall all packages
- 3. Run
- ```
- npm start
- ```
- to start React
+2. Run ```npm install```to install all packages
+3. Run ```npm start```to start React
 
- ## Visit The Site On The Web
-Sprint Setup Pro is also hosted on the web via Firebase. Go to https://sprintcarsetup-7a299.firebaseapp.com and user the following information to see a sample user.
+## Visit The Site On The Web
+Sprint Setup Pro is also hosted on the web via Firebase. Go to https://sprintcarsetup-7a299.firebaseapp.com and enter the following information to see a sample user.
 
-Email: ryan@dm.com
-Password: cheesepita
+-Email: ryan@dm.com
+-Password: cheesepita
 
 ## Technologies Used
-React
-Semantic UI
-Firebase Authenication
-Firebase Realtime Database
-Firebase Cloud Functions
-Moment JS
-Charts JS
+-React
+-Semantic UI
+-Firebase Authenication
+-Firebase Realtime Database
+-Firebase Cloud Functions
+-Moment JS
+-Charts JS
 
 ## ERD
 ![alt text](src/img/SprintCarDBDio.png)
