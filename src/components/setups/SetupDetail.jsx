@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import setupManager from '../../modules/setupManager'
-import { Container, Form, Button, Grid, Header, Table, Input, Dropdown, Tab } from 'semantic-ui-react'
+import { Container, Form, Button, Grid, Header, Tab } from 'semantic-ui-react'
 import GarageSetup from './GarageSetup'
 import HotLapsSetup from './HotLapsSetup'
 import HeatRaceSetup from './HeatRaceSetup'
-import FeatureSetup from './FeatureSetup';
+import FeatureSetup from './FeatureSetup'
+import './setups.css'
 
 export default class SetupDetail extends Component {
     state = {
@@ -52,23 +53,23 @@ export default class SetupDetail extends Component {
 
     panes = [
         {
-            menuItem: 'Garage', render: () => <Tab.Pane attached={false} style={{ backgroundColor: '#4D4F52' }}><GarageSetup
+            menuItem: 'Garage', render: () => <Tab.Pane className='setup-tab' attached={false}>  <GarageSetup
                 trackSetup={this.state.trackSetup} isHidden={this.state.isHidden}
                 handleFieldChange={this.handleFieldChange} editSetup={this.editSetup}
                 handleDropdown={this.handleDropdown}></GarageSetup></Tab.Pane>
         },
         {
-            menuItem: 'Hot Laps', render: () => <Tab.Pane attached={false} style={{ backgroundColor: '#4D4F52' }}><HotLapsSetup trackSetup={this.state.trackSetup} isHidden={this.state.isHidden}
+            menuItem: 'Hot Laps', render: () => <Tab.Pane className='setup-tab' attached={false}><HotLapsSetup trackSetup={this.state.trackSetup} isHidden={this.state.isHidden}
                 handleFieldChange={this.handleFieldChange} editSetup={this.editSetup}
                 handleDropdown={this.handleDropdown}></HotLapsSetup></Tab.Pane>
         },
         {
-            menuItem: 'Heat Race', render: () => <Tab.Pane attached={false} style={{ backgroundColor: '#4D4F52' }}><HeatRaceSetup trackSetup={this.state.trackSetup} isHidden={this.state.isHidden}
+            menuItem: 'Heat Race', render: () => <Tab.Pane className='setup-tab' attached={false}><HeatRaceSetup trackSetup={this.state.trackSetup} isHidden={this.state.isHidden}
                 handleFieldChange={this.handleFieldChange} editSetup={this.editSetup}
                 handleDropdown={this.handleDropdown}></HeatRaceSetup></Tab.Pane>
         },
         {
-            menuItem: 'Feature', render: () => <Tab.Pane attached={false} style={{ backgroundColor: '#4D4F52' }}><FeatureSetup
+            menuItem: 'Feature', render: () => <Tab.Pane className='setup-tab' attached={false}><FeatureSetup
                 trackSetup={this.state.trackSetup} isHidden={this.state.isHidden}
                 handleFieldChange={this.handleFieldChange} editSetup={this.editSetup}
                 handleDropdown={this.handleDropdown}></FeatureSetup></Tab.Pane>
@@ -82,11 +83,11 @@ export default class SetupDetail extends Component {
         return (
             <>
                 <Container>
-                    <Header style={{ fontSize: 40 }}>
+                    <Header className='setup-header'>
                         {this.state.trackSetup.name}
                     </Header>
                     <Grid columns={2} >
-                        <Form style={{ display: `${hidden}` }}>
+                        <Form style={{ display: `${hidden}`, fontSize: 20, marginBottom: 20 }}>
                             <Form.Input
                                 label='Setup Name'
                                 onChange={(e) => this.setState(
@@ -98,31 +99,29 @@ export default class SetupDetail extends Component {
                             ></Form.Input>
                         </Form>
                     </Grid>
-                    <Grid style={{ marginTop: 40 }}>
-                        <Button color='orange' size='huge'
-                            onClick={() => this.setState({ isHidden: false })}
-                            style={{ display: `${reverseHidden}` }}>
-                            Edit
+
+                    <Button className='setup-button' color='orange' size='huge'
+                        onClick={() => this.setState({ isHidden: false })}
+                        style={{ display: `${reverseHidden}` }}>
+                        Edit
                     </Button>
-                    </Grid>
+
                 </Container>
-                <Grid textAlign='center' style={{ marginTop: 40 }}>
+                <Grid textAlign='center' >
                     <Tab menu={{ secondary: true, pointing: true, size: 'massive' }} panes={this.panes}
                     />
                 </Grid>
                 <Container>
-                    <Grid style={{ marginTop: 40, marginBottom: 40 }}>
-                        <Button color='orange' size='huge'
-                            onClick={() => this.setState({ isHidden: false })}
-                            style={{ display: `${reverseHidden}` }}>
-                            Edit
+                    <Button className='setup-button' color='orange' size='huge'
+                        onClick={() => this.setState({ isHidden: false })}
+                        style={{ display: `${reverseHidden}` }}>
+                        Edit
                     </Button>
-                        <Button color='black' size='huge' style={{ display: `${reverseHidden}` }}
-                            onClick={() => this.deleteSetup(this.state.trackSetup.id)}
-                        >
-                            Delete
+                    <Button className='setup-button' color='black' size='huge' style={{ display: `${reverseHidden}` }}
+                        onClick={() => this.deleteSetup(this.state.trackSetup.id)}
+                    >
+                        Delete
                     </Button>
-                    </Grid>
                 </Container>
             </>
         )

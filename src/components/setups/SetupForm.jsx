@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Container, Form, Button, Grid, Header, Table, Input, Dropdown } from 'semantic-ui-react'
 import setupManager from '../../modules/setupManager'
+import './setups.css'
 
 
 export default class setupForm extends Component {
@@ -34,20 +35,21 @@ export default class setupForm extends Component {
         return (
             <>
                 <Container>
-                    <Header textAlign='center' style={{ fontSize: 60, fontFamily: 'Racing Sans One, cursive' }}>
+                    <Header textAlign='center' className='setup-header'>
                         Create a new setup for {this.props.track.name}
                     </Header>
                 </Container>
                 <Grid columns={2} style={{ padding: 20, marginTop: 20 }} textAlign='center'>
                     <Form>
                         <Form.Input
+                            style={{ fontSize: 20 }}
                             label='Setup Name'
                             onChange={(e) => this.setState({ name: e.target.value })}
                         ></Form.Input>
                     </Form>
                     <Grid.Row>
                         <Grid.Column>
-                            <Table celled color='orange' >
+                            <Table celled className='setup-table' >
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center'>Setup Blocks</Table.HeaderCell>
@@ -83,7 +85,7 @@ export default class setupForm extends Component {
                             </Table>
                         </Grid.Column>
                         <Grid.Column>
-                            <Table celled color='orange'>
+                            <Table celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center'>Gear Ratio</Table.HeaderCell>
@@ -112,7 +114,7 @@ export default class setupForm extends Component {
                     </Grid.Row>
                     <Grid.Row>
                         <Grid.Column>
-                            <Table celled color='orange'>
+                            <Table celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center'>Bars</Table.HeaderCell>
@@ -147,7 +149,7 @@ export default class setupForm extends Component {
                             </Table>
                         </Grid.Column>
                         <Grid.Column>
-                            <Table celled color='orange'>
+                            <Table celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center'>Wing Angle</Table.HeaderCell>
@@ -199,7 +201,7 @@ export default class setupForm extends Component {
                     </Grid.Row>
                     <Grid.Row>
                         <Grid.Column>
-                            <Table celled color='orange'>
+                            <Table celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center'>Turns</Table.HeaderCell>
@@ -234,7 +236,7 @@ export default class setupForm extends Component {
                             </Table>
                         </Grid.Column>
                         <Grid.Column>
-                            <Table celled color='orange'>
+                            <Table celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center'>Stagger</Table.HeaderCell>
@@ -252,7 +254,7 @@ export default class setupForm extends Component {
                         </Grid.Column>
                     </Grid.Row>
                     <Grid.Row>
-                        <Table celled color='orange'>
+                        <Table celled className='tire-table'>
                             <Table.Header>
                                 <Table.Row>
                                     <Table.HeaderCell colSpan='2'
@@ -319,8 +321,8 @@ export default class setupForm extends Component {
                         </Table>
                     </Grid.Row>
                 </Grid>
-                <Grid textAlign='center' style={{ marginTop: 20, marginBottom: 40 }}>
-                    <Button color='orange' size='huge'
+                <Grid textAlign='center'>
+                    <Button className='setup-form-button' color='orange' size='huge'
                         onClick={this.saveSetup}
                     >
                         Save

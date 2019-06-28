@@ -10,7 +10,7 @@ export default class HeatRaceSetup extends Component {
                 <Grid>
                     <Grid.Row>
                         <Grid.Column width={8}>
-                            <Table celled color='orange'>
+                            <Table className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center'
@@ -59,7 +59,7 @@ export default class HeatRaceSetup extends Component {
                             </Table>
                         </Grid.Column>
                         <Grid.Column width={8}>
-                            <Table celled color='orange'>
+                            <Table className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center' style={{ fontSize: 20 }}>Stagger</Table.HeaderCell>
@@ -82,7 +82,7 @@ export default class HeatRaceSetup extends Component {
                     </Grid.Row>
                     <Grid.Row>
                         <Grid.Column width={8}>
-                            <Table celled color='orange'>
+                            <Table className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center'
@@ -130,7 +130,7 @@ export default class HeatRaceSetup extends Component {
                             </Table>
                         </Grid.Column>
                         <Grid.Column width={8}>
-                            <Table celled color='orange'>
+                            <Table className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center' style={{ fontSize: 20 }}>RR Spacing</Table.HeaderCell>
@@ -153,7 +153,7 @@ export default class HeatRaceSetup extends Component {
                     </Grid.Row>
                     <Grid.Row>
                         <Grid.Column width={8}>
-                            <Table celled color='orange'>
+                            <Table className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center'
@@ -202,7 +202,7 @@ export default class HeatRaceSetup extends Component {
                         </Grid.Column>
                         <Grid.Column width={8}>
                             <Grid.Row>
-                                <Table celled color='orange'>
+                                <Table className='setup-table'>
                                     <Table.Header>
                                         <Table.Row>
                                             <Table.HeaderCell colSpan='2' textAlign='center' style={{ fontSize: 20 }}>Wing Position</Table.HeaderCell>
@@ -223,7 +223,7 @@ export default class HeatRaceSetup extends Component {
                                 </Table>
                             </Grid.Row>
                             <Grid.Row style={{ marginTop: 20 }}>
-                                <Table celled color='orange'>
+                                <Table className='setup-table'>
                                     <Table.Header>
                                         <Table.Row>
                                             <Table.HeaderCell colSpan='2' textAlign='center' style={{ fontSize: 20 }}>RPM</Table.HeaderCell>

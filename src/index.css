@@ -1,13 +1,15 @@
 body {
   margin: 0;
   padding-top: 100px;
-  /* background-image: url('../src/img/chris-liverani-533561-unsplash.jpg');
+  /* background-image: url('../src/img/chris-liverani-533561-unsplash.jpg'); */
+  background: rgb(156,161,163);
+  background: radial-gradient(circle, rgba(156,161,163,1) 20%, rgba(77,79,82,1) 100%);
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed; */
-  background-color:#9CA1A3;
+  background-attachment: fixed;
+  /* background-color:#9CA1A3; */
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -20,3 +22,32 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.main-header {
+  font-size: 6em !important;
+  color: #D0D6D7 !important;
+  text-shadow: -4px 4px 4px #4D4F52 !important;
+}
+
+.button:active {
+  box-shadow: 0 0px rgba(0,0,0,0.75) !important;
+  transform: translateY(2px) !important;
+}
+
+.modal-header {
+  background-color: #4D4F52 !important;
+  color: white !important;
+}
+
+.modal-body {
+  background-color: #D0D6D7 !important
+}
+
+.modal-segment {
+  box-shadow: -8px 8px 4px 0px rgba(0,0,0,0.75) !important
+}
+
+.modal-button {
+  box-shadow: -2px 2px 1px 0px rgba(0,0,0,0.75) !important
+}
+

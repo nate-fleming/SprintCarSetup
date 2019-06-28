@@ -111,7 +111,6 @@ class ApplicationViews extends Component {
                 />
 
                 <Route exact path="/" render={(props) => {
-                    console.log(this.state)
                     const today = moment(new Date()).format('YYYY-MM-DD')
                     const futureSchedule = this.state.schedule.filter(schedule =>
                         schedule.date >= today
@@ -140,7 +139,7 @@ class ApplicationViews extends Component {
 
                 <Route path="/schedule/new" render={(props) => {
                     return (
-                        <ScheduleForm user={this.state.user} {...props} tracks={this.state.tracks} saveRace={this.saveRace} user={this.state.user}></ScheduleForm>
+                        <ScheduleForm user={this.state.user} {...props} tracks={this.state.tracks} saveRace={this.saveRace}></ScheduleForm>
                     )
                 }}
                 />

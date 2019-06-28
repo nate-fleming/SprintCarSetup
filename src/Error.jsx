@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Image, Segment, Button, Grid } from 'semantic-ui-react'
 import error from './error.png'
-import { Link } from "react-router-dom"
 import './error.css'
 
 

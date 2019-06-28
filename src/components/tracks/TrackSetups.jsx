@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Container, Image, Button, Grid, Card } from 'semantic-ui-react'
-import { Link } from "react-router-dom"
 import setupManager from '../../modules/setupManager'
 import SetupItem from '../setups/SetupItem'
 
@@ -26,9 +25,10 @@ export default class TrackSetups extends Component {
         return (
             <>
                 <Container>
-                    <Image rounded src={this.props.track.imgUrl} style={{ height: 200 }} centered></Image>
+                    <Image className='header-img' rounded src={this.props.track.imgUrl} style={{ height: 200 }} centered></Image>
                     <Grid textAlign='center' style={{ marginTop: 50 }}>
-                        <Button as='a' color='orange' size='huge'
+                        <Button as='a' color='orange' size='big'
+                            className='track-page-button'
                             href={`/setups/new/${this.props.track.id}`}>
                             Add New Setup
                         </Button>

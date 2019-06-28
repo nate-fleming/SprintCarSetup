@@ -1,3 +1,20 @@
-.hidden {
-    display: none
+.auth-header {
+    font-size: 2em !important;
+    color: #D0D6D7 !important;
+    text-shadow: -2px 2px 2px #4D4F52 !important;
+}
+
+.auth-segment {
+    margin-top: 0px !important;
+    box-shadow: -8px 8px 4px 0px rgba(0,0,0,0.75) !important;
+    background-color: #ff6f00 !important;
+}
+
+.auth-button {
+    box-shadow: -2px 2px 1px 0px rgba(0,0,0,0.75) !important;
+    margin-top: 10px !important
+}
+
+.auth-message {
+    box-shadow: -2px 2px 1px 0px rgba(0,0,0,0.75) !important;
 }

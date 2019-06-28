@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Button, Form, Grid, Header, Icon, Message, Segment, Dropdown } from 'semantic-ui-react'
-import scheduleManager from '../../modules/scheduleManager'
+import { Button, Form, Grid, Header, Segment, Dropdown, Message } from 'semantic-ui-react'
+import './schedule.css'
 
 export default class ScheduleForm extends Component {
     state = {
@@ -11,6 +11,7 @@ export default class ScheduleForm extends Component {
 
 
     render() {
+
         const trackOptions = []
 
 
@@ -23,15 +24,15 @@ export default class ScheduleForm extends Component {
 
         getTrackackOptions()
         return (
-            <Grid textAlign='center' style={{ fontSize: 40 }} >
-                <Grid.Column style={{ maxWidth: 450 }}>
-                    <Header as='h1' color='black' textAlign='center' style={{ fontSize: 60, fontFamily: 'Racing Sans One, cursive' }}>
+            <Grid textAlign='center'  >
+                <Grid.Column style={{ maxWidth: 520 }}>
+                    <Header className='form-header' as='h1' color='black' textAlign='center'>
                         Create A New Race
-              </Header>
-                    <Form size='large' >
-                        <Segment color='orange'>
+                    </Header>
+                    <Form size='large' success error>
+                        <Segment className='form-segment'>
                             <Form.Input type='date' fluid icon='calendar alternate outline' iconPosition='left'
-                                placeholder='Date'
+                                placeholder='yyyy-mm-dd'
                                 label='Date'
                                 onChange={(e) => this.setState({ date: e.target.value })} />
                             <Dropdown
@@ -44,8 +45,16 @@ export default class ScheduleForm extends Component {
                                 }
                             >
                             </Dropdown>
-                            <Button color='orange' size='large' style={{ marginTop: 20 }}
-                                onClick={() => this.props.saveRace(this.state)}>
+                            {/* {(!this.state.date && !this.state.trackId) ?
+                                <Message error
+                                    header='Complete Form'
+                                    content='Make sure to complete both fields'
+                                /> : null
+                            } */}
+                            <Button className='schedule-form-button' color='black' size='large'
+                                onClick={() => this.props.saveRace(this.state)}
+                                disabled={(!this.state.date || !this.state.trackId) ? true : false}
+                            >
                                 Save
                             </Button>
                         </Segment>

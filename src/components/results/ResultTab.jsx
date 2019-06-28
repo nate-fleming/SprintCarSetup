@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Container, Table } from 'semantic-ui-react'
 import ResultItem from './ResultItem'
 import ResultsChart from './ResultsChart'
+import './results.css'
 
 export default class ResultTab extends Component {
     render() {
@@ -11,7 +12,7 @@ export default class ResultTab extends Component {
                     <ResultsChart races={this.props.filteredRaces}></ResultsChart>
                 </Container>
                 <Container>
-                    <Table striped style={{ marginTop: 100, marginBottom: 40 }}>
+                    <Table className='result-table'>
                         <Table.Header>
                             <Table.Row>
                                 <Table.HeaderCell width={2} textAlign='center'

@@ -27,17 +27,16 @@ export default class SignIn extends Component {
         return (
             this.state.hasError ? <Error></Error>
                 :
-                <Grid textAlign='center' style={{ marginTop: 80 }} verticalAlign='middle'>
+                <Grid textAlign='center' style={{ marginTop: 40 }} verticalAlign='middle'>
                     <Grid.Column style={{ maxWidth: 450 }}>
-                        <Header as='h1' color='black' textAlign='center'>
+                        <Header className='auth-header' as='h1' color='black' textAlign='center'>
                             <Icon name='flag checkered' /> Sign-in to your account
-              </Header>
+                        </Header>
                         <Form size='large' >
-                            <Segment stacked>
+                            <Segment className='auth-segment'>
                                 <Form.Input fluid icon='mail' iconPosition='left' placeholder='E-mail address'
                                     onChange={(e) => this.setState({ email: e.target.value })} />
                                 <Form.Input
-                                    // className='hidden'
                                     fluid
                                     icon='lock'
                                     iconPosition='left'
@@ -45,13 +44,13 @@ export default class SignIn extends Component {
                                     type='password'
                                     onChange={(e) => this.setState({ password: e.target.value })}
                                 />
-                                <Button color='orange' fluid size='large'
+                                <Button className='auth-button' color='black' size='large'
                                     onClick={this.signIn}>
                                     Login
-                  </Button>
+                                </Button>
                             </Segment>
                         </Form>
-                        <Message color='black'>
+                        <Message className='auth-message' color='black'>
                             New User? <Link className='link' to='/sign-up'>Sign Up</Link>
                         </Message>
                     </Grid.Column>

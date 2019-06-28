@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Line } from 'react-chartjs-2'
 import moment from 'moment'
-import { Container } from 'semantic-ui-react'
 
 
 
@@ -40,8 +39,6 @@ export default class ResultsChart extends Component {
             ]
         };
 
-
-        const displayName = '2019Results'
         return (
             <div style={{ position: 'relative', maxHeight: 300, maxWidth: 700, margin: 'auto' }}>
                 <Line data={data} options={{
