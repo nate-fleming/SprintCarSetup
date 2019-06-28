@@ -9,10 +9,7 @@ Sprint Setup Pro is a web application designed to help users manage a sprint car
 3. Run ```npm start``` to start React
 
 ## Visit The Site On The Web
-Sprint Setup Pro is also hosted on the web via Firebase. Go to https://sprintcarsetup-7a299.firebaseapp.com and enter the following information to see a sample user.
-
-- Email: ryan@dm.com
-- Password: cheesepita
+Sprint Setup Pro is also hosted on the web via Firebase. Go to https://sprintcarsetup-7a299.firebaseapp.com and register as a new user.
 
 ## Technologies Used
 - React
