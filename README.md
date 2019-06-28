@@ -1,68 +1,33 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Sprint Setup Pro
+Sprint Setup Pro is a web application designed to help users manage a sprint car racing team. With this app you can create and edit car setups based on tracks that currently race at. You can also add your racing schedule to see what races are coming up, along with the weather information for your next race. Once a race is finished it autmatically shows up in the results section where you can log your result and include any notes you'd like to make about that race. In the results section you will aslo see a chart and table of all of your past race results based on year or all completed races. This app is intended to be a single point of reference for a sprint car to team to manage their team schedule and track setups as well as being a helpful tool to make setup decisions based on previous race results.
 
-## Available Scripts
+## Getting Started
+1. Clone this repository to your computer
+2. Run
+ ```
+ npm install
+ ```
+ to intall all packages
+ 3. Run
+ ```
+ npm start
+ ```
+ to start React
 
-In the project directory, you can run:
+ ## Visit The Site On The Web
+Sprint Setup Pro is also hosted on the web via Firebase. Go to https://sprintcarsetup-7a299.firebaseapp.com and user the following information to see a sample user.
 
-### `npm start`
+Email: ryan@dm.com
+Password: cheesepita
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Technologies Used
+React
+Semantic UI
+Firebase Authenication
+Firebase Realtime Database
+Firebase Cloud Functions
+Moment JS
+Charts JS
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## ERD
+![alt text](src/img/SprintCarDBDio.png)

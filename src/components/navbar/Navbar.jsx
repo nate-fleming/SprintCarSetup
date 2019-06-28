@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { Menu, Dropdown } from 'semantic-ui-react'
+import { Menu, Dropdown, Image } from 'semantic-ui-react'
 import { Container } from 'semantic-ui-react'
 import loginManager from '../../modules/loginManager'
-
+import logo from '../../img/Logo2.png'
+import './navbar.css'
 
 export default class Navbar extends Component {
     render() {
@@ -10,9 +11,10 @@ export default class Navbar extends Component {
             (window.innerWidth > 425) ?
                 <Menu borderless size='massive' inverted fixed='top' color="orange" style={{ minHeight: 80 }}>
                     <Container >
-                        <Menu.Item as='a' href='/' >
+                        <Menu.Item as='a' href='/' className='logo-name'>
                             Sprint Setup Pro
-                    </Menu.Item>
+                            {/* <Image src={logo} className='logo'></Image> */}
+                        </Menu.Item>
 
                         <Menu.Item as='a' href='/' >
                             Schedule
