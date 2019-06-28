@@ -27,5 +27,5 @@ Sprint Setup Pro is also hosted on the web via Firebase. Go to https://sprintcar
 ## In Use
 This application was originally built for a friend of mine who has been racing sprint cars in Indiana, Illinois, and Kentucky for 3 years. I wanted to build an app to his specifications to simluate building an app for a client. Below is a picture of his car and the excel sheet that he had been using to track his setups in the past. I am glad to say that he currently using the app for his racing team and I am continually updating the app to best fit his needs.
 
-![alt text](src/img/jeff.png)
+![alt text](src/img/jeff.jpg)
 ![alt text](src/img/exampleSetup.pdf)
