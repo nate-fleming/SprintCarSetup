@@ -99,9 +99,9 @@ export default class ScheduleItem extends Component {
                         <hr className='line'></hr>
                         <Grid.Row className='current-weather'>
                             <p>{this.state.currentWeather.summary}</p>
-                            <Icon name='thermometer half' size='large' style={{ color: '#ff6f00' }} />
+                            <Icon name='thermometer half' size='large' style={{ color: '#f44336' }} />
                             {temp}&deg;
-                            <Icon name='theme' size='large' style={{ color: '#ff6f00' }} />
+                            <Icon name='theme' size='large' style={{ color: '#0693e3' }} />
                             {rain}
                         </Grid.Row>
                     </Grid.Column>

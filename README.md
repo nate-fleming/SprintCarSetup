@@ -14,6 +14,7 @@ Sprint Setup Pro is also hosted on the web via Firebase. Go to https://sprintcar
 ## Technologies Used
 - React
 - Semantic UI
+- Dark Sky Weather API
 - Firebase Authenication
 - Firebase Realtime Database
 - Firebase Cloud Functions

@@ -108,7 +108,7 @@ export default class SetupDetail extends Component {
 
                 </Container>
                 <Grid textAlign='center' >
-                    <Tab menu={{ secondary: true, pointing: true, size: 'massive' }} panes={this.panes}
+                    <Tab menu={{ secondary: true, pointing: true, size: 'massive', stackable: true }} panes={this.panes}
                     />
                 </Grid>
                 <Container>

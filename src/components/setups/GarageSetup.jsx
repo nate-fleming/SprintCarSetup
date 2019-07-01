@@ -26,7 +26,7 @@ export default class GarageSetup extends Component {
                 <Grid>
                     <Grid.Row>
                         <Grid.Column width={8}>
-                            <Table celled className='setup-table'>
+                            <Table unstackable celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center'
@@ -75,7 +75,7 @@ export default class GarageSetup extends Component {
                             </Table>
                         </Grid.Column>
                         <Grid.Column width={8}>
-                            <Table celled className='setup-table'>
+                            <Table unstackable celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center'
@@ -117,7 +117,7 @@ export default class GarageSetup extends Component {
                     </Grid.Row>
                     <Grid.Row>
                         <Grid.Column width={8}>
-                            <Table celled className='setup-table'>
+                            <Table unstackable celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center'
@@ -165,7 +165,7 @@ export default class GarageSetup extends Component {
                             </Table>
                         </Grid.Column>
                         <Grid.Column width={8}>
-                            <Table celled className='setup-table'>
+                            <Table unstackable celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center'
@@ -223,7 +223,7 @@ export default class GarageSetup extends Component {
                     </Grid.Row>
                     <Grid.Row>
                         <Grid.Column width={8}>
-                            <Table celled className='setup-table'>
+                            <Table unstackable celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center'
@@ -271,7 +271,7 @@ export default class GarageSetup extends Component {
                             </Table>
                         </Grid.Column>
                         <Grid.Column width={8}>
-                            <Table celled className='setup-table'>
+                            <Table unstackable celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center' style={{ fontSize: 20 }}>Stagger</Table.HeaderCell>
@@ -293,7 +293,7 @@ export default class GarageSetup extends Component {
                         </Grid.Column>
                     </Grid.Row>
                     <Grid.Row>
-                        <Table celled className='tire-table'>
+                        <Table unstackable celled className='tire-table'>
                             <Table.Header>
                                 <Table.Row>
                                     <Table.HeaderCell colSpan='2'
