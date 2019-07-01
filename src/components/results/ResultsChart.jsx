@@ -8,7 +8,7 @@ import moment from 'moment'
 export default class ResultsChart extends Component {
 
     render() {
-        const dates = this.props.races.map(race => moment(race.date).format('MMM-DD-YY'))
+        const dates = this.props.races.map(race => race.date)
         const featureResult = this.props.races.map(race => (race.featureResult) ? race.featureResult.replace(/(^\d+)(.+$)/i, '$1') : 'enter result')
         // const heatRaceResult = this.props.races.map(race => (race.featureResult) ? race.heatRaceResult.replace(/(^\d+)(.+$)/i, '$1') : 'enter result')
 
