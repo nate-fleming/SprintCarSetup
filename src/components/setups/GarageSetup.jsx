@@ -25,7 +25,7 @@ export default class GarageSetup extends Component {
             <Container>
                 <Grid>
                     <Grid.Row>
-                        <Grid.Column width={8}>
+                        <Grid.Column computer={8} tablet={8} mobile={hidden === 'none' ? 8 : 16}>
                             <Table unstackable celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
@@ -74,7 +74,7 @@ export default class GarageSetup extends Component {
                                 </Table.Body>
                             </Table>
                         </Grid.Column>
-                        <Grid.Column width={8}>
+                        <Grid.Column computer={8} tablet={8} mobile={hidden === 'none' ? 8 : 16} style={{ marginTop: hidden === 'none' ? '' : 20 }}>
                             <Table unstackable celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
@@ -116,7 +116,7 @@ export default class GarageSetup extends Component {
                         </Grid.Column>
                     </Grid.Row>
                     <Grid.Row>
-                        <Grid.Column width={8}>
+                        <Grid.Column computer={8} tablet={8} mobile={hidden === 'none' ? 8 : 16}>
                             <Table unstackable celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
@@ -164,7 +164,7 @@ export default class GarageSetup extends Component {
                                 </Table.Body>
                             </Table>
                         </Grid.Column>
-                        <Grid.Column width={8}>
+                        <Grid.Column computer={8} tablet={8} mobile={hidden === 'none' ? 8 : 16} style={{ marginTop: hidden === 'none' ? '' : 20 }}>
                             <Table unstackable celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
@@ -222,7 +222,7 @@ export default class GarageSetup extends Component {
                         </Grid.Column>
                     </Grid.Row>
                     <Grid.Row>
-                        <Grid.Column width={8}>
+                        <Grid.Column computer={8} tablet={8} mobile={hidden === 'none' ? 8 : 16}>
                             <Table unstackable celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
@@ -270,7 +270,7 @@ export default class GarageSetup extends Component {
                                 </Table.Body>
                             </Table>
                         </Grid.Column>
-                        <Grid.Column width={8}>
+                        <Grid.Column computer={8} tablet={8} mobile={hidden === 'none' ? 8 : 16} style={{ marginTop: hidden === 'none' ? '' : 20 }}>
                             <Table unstackable celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>

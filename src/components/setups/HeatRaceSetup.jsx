@@ -9,8 +9,8 @@ export default class HeatRaceSetup extends Component {
             <Container>
                 <Grid>
                     <Grid.Row>
-                        <Grid.Column width={8}>
-                            <Table unstackable className='setup-table'>
+                        <Grid.Column computer={8} tablet={8} mobile={hidden === 'none' ? 8 : 16}>
+                            <Table unstackable celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center'
@@ -58,8 +58,8 @@ export default class HeatRaceSetup extends Component {
                                 </Table.Body>
                             </Table>
                         </Grid.Column>
-                        <Grid.Column width={8}>
-                            <Table unstackable className='setup-table'>
+                        <Grid.Column computer={8} tablet={8} mobile={hidden === 'none' ? 8 : 16} style={{ marginTop: hidden === 'none' ? '' : 20 }}>
+                            <Table unstackable celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center' style={{ fontSize: 20 }}>Stagger</Table.HeaderCell>
@@ -81,8 +81,8 @@ export default class HeatRaceSetup extends Component {
                         </Grid.Column>
                     </Grid.Row>
                     <Grid.Row>
-                        <Grid.Column width={8}>
-                            <Table unstackable className='setup-table'>
+                        <Grid.Column computer={8} tablet={8} mobile={hidden === 'none' ? 8 : 16}>
+                            <Table unstackable celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center'
@@ -129,8 +129,8 @@ export default class HeatRaceSetup extends Component {
                                 </Table.Body>
                             </Table>
                         </Grid.Column>
-                        <Grid.Column width={8}>
-                            <Table unstackable className='setup-table'>
+                        <Grid.Column computer={8} tablet={8} mobile={hidden === 'none' ? 8 : 16} style={{ marginTop: hidden === 'none' ? '' : 20 }}>
+                            <Table unstackable celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center' style={{ fontSize: 20 }}>RR Spacing</Table.HeaderCell>
@@ -152,8 +152,8 @@ export default class HeatRaceSetup extends Component {
                         </Grid.Column>
                     </Grid.Row>
                     <Grid.Row>
-                        <Grid.Column width={8}>
-                            <Table unstackable className='setup-table'>
+                        <Grid.Column computer={8} tablet={8} mobile={hidden === 'none' ? 8 : 16}>
+                            <Table unstackable celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center'
@@ -200,9 +200,9 @@ export default class HeatRaceSetup extends Component {
                                 </Table.Body>
                             </Table>
                         </Grid.Column>
-                        <Grid.Column width={8}>
+                        <Grid.Column computer={8} tablet={8} mobile={hidden === 'none' ? 8 : 16} style={{ marginTop: hidden === 'none' ? '' : 20 }}>
                             <Grid.Row>
-                                <Table unstackable className='setup-table'>
+                                <Table unstackable celled className='setup-table'>
                                     <Table.Header>
                                         <Table.Row>
                                             <Table.HeaderCell colSpan='2' textAlign='center' style={{ fontSize: 20 }}>Wing Position</Table.HeaderCell>
@@ -223,7 +223,7 @@ export default class HeatRaceSetup extends Component {
                                 </Table>
                             </Grid.Row>
                             <Grid.Row style={{ marginTop: 20 }}>
-                                <Table unstackable className='setup-table'>
+                                <Table unstackable celled className='setup-table'>
                                     <Table.Header>
                                         <Table.Row>
                                             <Table.HeaderCell colSpan='2' textAlign='center' style={{ fontSize: 20 }}>RPM</Table.HeaderCell>
