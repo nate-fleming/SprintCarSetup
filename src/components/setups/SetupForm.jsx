@@ -48,7 +48,7 @@ export default class setupForm extends Component {
                         ></Form.Input>
                     </Form>
                     <Grid.Row>
-                        <Grid.Column>
+                        <Grid.Column computer={8} tablet={8} mobile={16}>
                             <Table unstackable celled className='setup-table' >
                                 <Table.Header>
                                     <Table.Row>
@@ -84,7 +84,7 @@ export default class setupForm extends Component {
                                 </Table.Body>
                             </Table>
                         </Grid.Column>
-                        <Grid.Column>
+                        <Grid.Column computer={8} tablet={8} mobile={16} style={{ marginTop: 20 }}>
                             <Table unstackable celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
@@ -113,7 +113,7 @@ export default class setupForm extends Component {
                         </Grid.Column>
                     </Grid.Row>
                     <Grid.Row>
-                        <Grid.Column>
+                        <Grid.Column computer={8} tablet={8} mobile={16}>
                             <Table unstackable celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
@@ -148,7 +148,7 @@ export default class setupForm extends Component {
                                 </Table.Body>
                             </Table>
                         </Grid.Column>
-                        <Grid.Column>
+                        <Grid.Column computer={8} tablet={8} mobile={16} style={{ marginTop: 20 }}>
                             <Table unstackable celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
@@ -200,7 +200,7 @@ export default class setupForm extends Component {
                         </Grid.Column>
                     </Grid.Row>
                     <Grid.Row>
-                        <Grid.Column>
+                        <Grid.Column computer={8} tablet={8} mobile={16}>
                             <Table unstackable celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
@@ -235,7 +235,7 @@ export default class setupForm extends Component {
                                 </Table.Body>
                             </Table>
                         </Grid.Column>
-                        <Grid.Column>
+                        <Grid.Column computer={8} tablet={8} mobile={16} style={{ marginTop: 20 }}>
                             <Table unstackable celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
