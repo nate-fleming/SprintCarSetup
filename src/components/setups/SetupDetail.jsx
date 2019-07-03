@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import setupManager from '../../modules/setupManager'
-import { Container, Form, Button, Grid, Header, Tab } from 'semantic-ui-react'
+import { Container, Form, Button, Grid, Header, Tab, Modal, Icon } from 'semantic-ui-react'
 import GarageSetup from './GarageSetup'
 import HotLapsSetup from './HotLapsSetup'
 import HeatRaceSetup from './HeatRaceSetup'
@@ -11,7 +11,12 @@ export default class SetupDetail extends Component {
     state = {
         trackSetup: [],
         isHidden: true,
+        modalOpen: false
     }
+
+    handleOpen = () => this.setState({ modalOpen: true })
+
+    handleClose = () => this.setState({ modalOpen: false })
 
     componentDidMount() {
         setupManager.getSetups()
@@ -117,11 +122,23 @@ export default class SetupDetail extends Component {
                         style={{ display: `${reverseHidden}` }}>
                         Edit
                     </Button>
-                    <Button className='setup-button' color='black' size='huge' style={{ display: `${reverseHidden}` }}
-                        onClick={() => this.deleteSetup(this.state.trackSetup.id)}
-                    >
-                        Delete
-                    </Button>
+                    <Modal trigger={<Button className='setup-button' color='black' size='huge' style={{ display: `${reverseHidden}` }} onClick={this.handleOpen}>Delete</Button>} closeIcon open={this.state.modalOpen}
+                        onClose={this.handleClose}>
+                        <Header className='modal-header' icon='trash alternate' content={`Delete ${this.state.trackSetup.name}?`} />
+                        <Modal.Content className='modal-body'>
+                            <p>
+                                Are you sure you want to delete this setup?
+                            </p>
+                        </Modal.Content>
+                        <Modal.Actions className='modal-header'>
+                            <Button color='orange' onClick={this.handleClose}>
+                                <Icon name='remove' /> No
+                            </Button>
+                            <Button color='black' onClick={() => this.deleteSetup(this.state.trackSetup.id)}>
+                                <Icon name='checkmark' /> Yes
+                            </Button>
+                        </Modal.Actions>
+                    </Modal>
                 </Container>
             </>
         )
