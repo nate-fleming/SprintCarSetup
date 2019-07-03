@@ -62,8 +62,6 @@ export default class ScheduleItem extends Component {
                         href={`/tracks/${this.props.race.trackId}`}
                         icon='table'
                     ></Button>
-                </Table.Cell>
-                <Table.Cell textAlign='center'>
                     <Modal trigger={<Button className='schedule-icon' onClick={this.handleOpen} color='black' icon='edit'></Button>}
                         closeIcon
                         open={this.state.modalOpen}
@@ -109,8 +107,6 @@ export default class ScheduleItem extends Component {
                                     </Button>
                         </Modal.Actions>
                     </Modal>
-                </Table.Cell>
-                <Table.Cell textAlign='center'>
                     <Button as='a' color='red' icon='delete'
                         className='schedule-icon'
                         onClick={() => this.props.deleteRace(this.props.race.id)}

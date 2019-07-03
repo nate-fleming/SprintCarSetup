@@ -45,7 +45,7 @@ export default class Schedule extends Component {
                     </Segment>
                     <Container className='upcoming-table'>
                         <Header className='next-header'>Upcoming Races</Header>
-                        <Table className='schedule-table'>
+                        <Table unstackable className='schedule-table'>
                             <Table.Body>
                                 {
                                     sortedSchedule.map((race, index) => {
