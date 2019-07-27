@@ -13,7 +13,9 @@ export default class ScheduleItem extends Component {
         open: false,
         date: '',
         trackId: '',
-        id: ''
+        id: '',
+        rain: <Icon loading name='spinner' size='large' style={{ color: '#D0D6D7' }}></Icon>,
+        temp: <Icon loading name='spinner' size='large' style={{ color: '#D0D6D7' }}></Icon>
     }
 
 
@@ -25,10 +27,11 @@ export default class ScheduleItem extends Component {
         newState.trackId = this.props.race.trackId
         newState.id = this.props.race.id
         weatherManager.getWeather(track.latitude, track.longitude, date)
-            // .then(weather => console.log(weather))
             .then(weather => {
                 newState.currentWeather = weather.currently
                 newState.dailyWeather = weather.daily.data[0]
+                newState.rain = `${parseInt((weather.currently.precipProbability) * 100)}%`
+                newState.temp = parseInt(weather.currently.temperature)
             })
             .catch(error => newState.currentWeather = "")
             .then(() => this.setState(newState))
@@ -54,10 +57,6 @@ export default class ScheduleItem extends Component {
     render() {
         // console.log(this.state.currentWeather)
         const track = this.props.tracks.find(track => track.id === this.props.race.trackId)
-        const rain = (this.state.currentWeather === "") ? "no weather data" :
-            `${parseInt((this.state.currentWeather.precipProbability) * 100)}%`
-        const temp = (this.state.currentWeather === "") ? "no weather data" :
-            parseInt(this.state.currentWeather.temperature)
         const icon = (this.state.currentWeather === "") ? "no weather data" :
             `${this.state.currentWeather.icon}`
 
@@ -99,10 +98,11 @@ export default class ScheduleItem extends Component {
                         <hr className='line'></hr>
                         <Grid.Row className='current-weather'>
                             <p>{this.state.currentWeather.summary}</p>
+
                             <Icon name='thermometer half' size='large' style={{ color: '#f44336' }} />
-                            {temp}&deg;
+                            {this.state.temp}&deg;
                             <Icon name='theme' size='large' style={{ color: '#0693e3' }} />
-                            {rain}
+                            {this.state.rain}
                         </Grid.Row>
                     </Grid.Column>
                     <Grid.Column width={6} textAlign='center' verticalAlign='middle'>
