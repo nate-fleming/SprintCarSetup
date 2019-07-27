@@ -12,6 +12,7 @@ export default class SignIn extends Component {
         hasError: false
     }
 
+
     signIn = () => {
         loginManager.login(this.state.email, this.state.password)
             .then(user => {
