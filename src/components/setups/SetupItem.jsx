@@ -8,8 +8,8 @@ export default class SetupItem extends Component {
         modalOpen: false
     }
 
+    // Handle Modal
     handleOpen = () => this.setState({ modalOpen: true })
-
     handleClose = () => this.setState({ modalOpen: false })
 
     render() {

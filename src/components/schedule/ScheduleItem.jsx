@@ -23,10 +23,11 @@ export default class ScheduleItem extends Component {
         })
     }
 
+    // Handle modal
     handleOpen = () => this.setState({ modalOpen: true })
-
     handleClose = () => this.setState({ modalOpen: false })
 
+    // Save edits for race information
     saveEdits = () => {
         const editedRace = {
             date: this.state.date,
@@ -38,6 +39,7 @@ export default class ScheduleItem extends Component {
     }
 
     render() {
+        // Get tracks and make them options for dropdown menu in modal
         const trackOptions = []
         const getTrackackOptions = () => this.props.tracks.map(track => {
             const options = {
@@ -47,6 +49,8 @@ export default class ScheduleItem extends Component {
         })
 
         getTrackackOptions()
+
+        // Get current track information
         const track = this.props.tracks.find(track => track.id === this.props.race.trackId)
         return (
             <>

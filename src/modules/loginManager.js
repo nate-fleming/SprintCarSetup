@@ -8,6 +8,7 @@ const setUserInLocalStorage = (user) => {
 }
 
 export default {
+    // Get user information from local storage
     getUserFromLocalStorage() {
         const user = localStorage.getItem('user');
 
@@ -15,6 +16,7 @@ export default {
 
         return JSON.parse(user);
     },
+    // Register new user
     registerUser(email, password) {
         return firebase.auth().createUserWithEmailAndPassword(email, password)
             .then(newUser => {
@@ -22,7 +24,7 @@ export default {
                 return newUser
             })
     },
-
+    // Check login with firebase
     login(email, password) {
         return firebase.auth().signInWithEmailAndPassword(email, password)
             .then(user => {
@@ -30,7 +32,7 @@ export default {
                 return user
             })
     },
-
+    // Ramove user from local storage on logout
     logout() {
         localStorage.removeItem('user')
         this.props.history.push('/sign-in')

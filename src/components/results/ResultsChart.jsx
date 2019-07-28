@@ -1,17 +1,17 @@
 import React, { Component } from 'react'
 import { Line } from 'react-chartjs-2'
-import moment from 'moment'
-
-
 
 
 export default class ResultsChart extends Component {
 
     render() {
+        // Get the dates for completed races
         const dates = this.props.races.map(race => race.date)
-        const featureResult = this.props.races.map(race => (race.featureResult) ? race.featureResult.replace(/(^\d+)(.+$)/i, '$1') : 'enter result')
-        // const heatRaceResult = this.props.races.map(race => (race.featureResult) ? race.heatRaceResult.replace(/(^\d+)(.+$)/i, '$1') : 'enter result')
 
+        // Get the results for completed races
+        const featureResult = this.props.races.map(race => (race.featureResult) ? race.featureResult.replace(/(^\d+)(.+$)/i, '$1') : 'enter result')
+
+        // Create line chart with result based on date
         const data = {
             labels: dates,
             datasets: [

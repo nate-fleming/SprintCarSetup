@@ -37,12 +37,15 @@ export default class ScheduleItem extends Component {
             .then(() => this.setState(newState))
     }
 
-
+    // Handle Edit Modal
     handleOpen = () => this.setState({ modalOpen: true })
     handleClose = () => this.setState({ modalOpen: false })
+
+    // Handle Delete Modal
     open = () => this.setState({ open: true })
     close = () => this.setState({ open: false })
 
+    // Save Race Edits
     saveEdits = () => {
         const editedRace = {
             date: this.state.date,
@@ -53,24 +56,21 @@ export default class ScheduleItem extends Component {
         this.props.editRace(editedRace)
     }
 
-
     render() {
-        // console.log(this.state.currentWeather)
+        // Get track information
         const track = this.props.tracks.find(track => track.id === this.props.race.trackId)
         const icon = (this.state.currentWeather === "") ? "no weather data" :
             `${this.state.currentWeather.icon}`
 
+        // Get tracks for edit dropdown menu
         const trackOptions = []
-
         const getTrackackOptions = () => this.props.tracks.map(track => {
             const options = {
                 key: track.id, text: track.name, value: track.id
             }
             trackOptions.push(options)
         })
-
         getTrackackOptions()
-
 
         return (
             <Grid centered doubling stackable className='next-race'>
@@ -90,7 +90,7 @@ export default class ScheduleItem extends Component {
                 <Grid.Row>
                     <Grid.Column width={8} textAlign='center' verticalAlign='middle'>
                         {/* <Grid.Row>
-                            <WeatherIcon name='darksky' iconId={`${icon}`} className='icon' />
+                            <WeatherIcon name='darksky' iconId={this.state.icon} className='icon' />
                         </Grid.Row> */}
                         <Grid.Row className='weather-header'>
                             <p>Race Day Weather</p>

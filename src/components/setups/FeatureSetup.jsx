@@ -3,6 +3,7 @@ import { Container, Button, Grid, Table, Input } from 'semantic-ui-react'
 
 export default class FeatureSetup extends Component {
     render() {
+        // Setup components that are hidden when the edit button is clicked and reverse
         const hidden = this.props.isHidden ? 'none' : ''
         const reverseHidden = this.props.isHidden ? '' : 'none'
         return (

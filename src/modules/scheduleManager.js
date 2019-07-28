@@ -1,6 +1,7 @@
 const url = 'https://sprintcarsetup-7a299.firebaseio.com/'
 
 export default {
+    // Add new race to database
     post(race) {
         return fetch(`${url}Schedule.json`, {
             method: "POST",
@@ -10,6 +11,7 @@ export default {
             body: JSON.stringify(race)
         }).then(e => e.json)
     },
+    // Get future races for schedule from database
     getSchedule(userId) {
         return fetch(`${url}Schedule.json?orderBy="userId"&equalTo="${userId}"&print=pretty`)
             .then(e => e.json())
@@ -20,6 +22,7 @@ export default {
                 })
             })
     },
+    // Delete race from database
     deleteRace(id) {
         return fetch(`${url}/Schedule/${id}.json`, {
             method: "DELETE",
@@ -29,6 +32,7 @@ export default {
         })
             .then(e => e.json())
     },
+    // Replace race in database with edits
     editRace(race) {
         return fetch(`${url}Schedule/${race.id}.json`, {
             method: "PUT",

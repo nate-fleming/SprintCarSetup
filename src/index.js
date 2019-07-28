@@ -7,6 +7,7 @@ import * as firebase from 'firebase/app'
 import keys from './keys'
 import "./index.css";
 
+// Firebase SDK
 var firebaseConfig = {
   apiKey: keys.firebaseKey,
   authDomain: "sprintcarsetup-7a299.firebaseapp.com",

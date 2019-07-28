@@ -11,6 +11,7 @@ export default class Schedule extends Component {
 
 
     render() {
+        // Sort upcoming races
         const sortedSchedule = this.props.schedule.sort((a, b) => {
             a = new Date(a.date)
             b = new Date(b.date)

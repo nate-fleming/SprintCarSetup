@@ -12,9 +12,10 @@ export default class ScheduleForm extends Component {
 
     render() {
 
+        // Store tracks
         const trackOptions = []
 
-
+        // Get all tracks and create dropdown to select them
         const getTrackackOptions = () => this.props.tracks.map(track => {
             const options = {
                 key: track.id, text: track.name, value: track.id

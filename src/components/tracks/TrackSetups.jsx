@@ -14,6 +14,7 @@ export default class TrackSetups extends Component {
             .then(setups => this.setState({ mySetups: setups }))
     }
 
+    // Handle Delete Setup
     deleteSetup = (setupId, trackId) => {
         setupManager.deleteSetup(setupId)
             .then(() => setupManager.myTracks(this.props.user)

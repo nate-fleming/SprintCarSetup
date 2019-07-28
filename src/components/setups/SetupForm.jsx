@@ -11,6 +11,7 @@ export default class setupForm extends Component {
         trackId: this.props.track.id
     }
 
+    // Create options for Wing dropdown menu
     wingOptions = [
         {
             key: 'winged',
@@ -24,6 +25,7 @@ export default class setupForm extends Component {
         }
     ]
 
+    // Save new Setup
     saveSetup = async () => {
         await this.setState({ trackId: this.props.track.id })
         await setupManager.post(this.state)

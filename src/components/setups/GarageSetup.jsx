@@ -4,6 +4,7 @@ import './setups.css'
 
 export default class GarageSetup extends Component {
 
+    // Create options for wing droptown menu
     wingOptions = [
         {
             key: '1',
@@ -19,6 +20,7 @@ export default class GarageSetup extends Component {
 
 
     render() {
+        // Setup components that are hidden when the edit button is clicked and reverse
         const hidden = this.props.isHidden ? 'none' : ''
         const reverseHidden = this.props.isHidden ? '' : 'none'
         return (

@@ -6,6 +6,7 @@ import './results.css'
 
 export default class ResultTab extends Component {
     render() {
+        // Set up each tab to display corrisponding chart and table with result information
         return (
             <>
                 <Container >

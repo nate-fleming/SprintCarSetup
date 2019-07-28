@@ -1,6 +1,7 @@
 const url = 'https://sprintcarsetup-7a299.firebaseio.com/'
 
 export default {
+    // Add new setup to database
     post(setup) {
         return fetch(`${url}Setups.json`, {
             method: "POST",
@@ -10,6 +11,7 @@ export default {
             body: JSON.stringify(setup)
         }).then(e => e.json)
     },
+    // Get Setups based on user id from database
     myTracks(userId) {
         return fetch(`${url}Setups.json?orderBy="userId"&equalTo="${userId}"&print=pretty`)
             .then(e => e.json())
@@ -20,6 +22,7 @@ export default {
                 })
             })
     },
+    // Get setups from database
     getSetups() {
         return fetch(`${url}Setups.json?print=pretty`)
             .then(e => e.json())
@@ -30,6 +33,7 @@ export default {
                 })
             })
     },
+    // Edit setups in database
     editSetup(setup) {
         return fetch(`${url}Setups/${setup.id}.json`, {
             method: "PUT",
@@ -39,6 +43,7 @@ export default {
             body: JSON.stringify(setup)
         }).then(data => data.json());
     },
+    // Delete setup from database
     deleteSetup(id) {
         return fetch(`${url}/Setups/${id}.json`, {
             method: "DELETE",
