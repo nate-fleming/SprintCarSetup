@@ -12,10 +12,10 @@ export default class SignIn extends Component {
         hasError: false
     }
 
+    // Check user login and set user state and catch if there is an error
     signIn = () => {
         loginManager.login(this.state.email, this.state.password)
             .then(user => {
-                // this.props.onLogin(user.user.uid)
                 this.props.login(user.user.uid)
             })
             .catch(() => {
@@ -25,6 +25,7 @@ export default class SignIn extends Component {
 
     render() {
         return (
+            // if there is an error with login, display error component
             this.state.hasError ? <Error></Error>
                 :
                 <Grid textAlign='center' style={{ marginTop: 40 }} verticalAlign='middle'>

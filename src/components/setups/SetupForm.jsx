@@ -11,6 +11,7 @@ export default class setupForm extends Component {
         trackId: this.props.track.id
     }
 
+    // Create options for Wing dropdown menu
     wingOptions = [
         {
             key: 'winged',
@@ -24,6 +25,7 @@ export default class setupForm extends Component {
         }
     ]
 
+    // Save new Setup
     saveSetup = async () => {
         await this.setState({ trackId: this.props.track.id })
         await setupManager.post(this.state)
@@ -48,8 +50,8 @@ export default class setupForm extends Component {
                         ></Form.Input>
                     </Form>
                     <Grid.Row>
-                        <Grid.Column>
-                            <Table celled className='setup-table' >
+                        <Grid.Column computer={8} tablet={8} mobile={16}>
+                            <Table unstackable celled className='setup-table' >
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center'>Setup Blocks</Table.HeaderCell>
@@ -84,8 +86,8 @@ export default class setupForm extends Component {
                                 </Table.Body>
                             </Table>
                         </Grid.Column>
-                        <Grid.Column>
-                            <Table celled className='setup-table'>
+                        <Grid.Column computer={8} tablet={8} mobile={16} style={{ marginTop: 20 }}>
+                            <Table unstackable celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center'>Gear Ratio</Table.HeaderCell>
@@ -113,8 +115,8 @@ export default class setupForm extends Component {
                         </Grid.Column>
                     </Grid.Row>
                     <Grid.Row>
-                        <Grid.Column>
-                            <Table celled className='setup-table'>
+                        <Grid.Column computer={8} tablet={8} mobile={16}>
+                            <Table unstackable celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center'>Bars</Table.HeaderCell>
@@ -148,8 +150,8 @@ export default class setupForm extends Component {
                                 </Table.Body>
                             </Table>
                         </Grid.Column>
-                        <Grid.Column>
-                            <Table celled className='setup-table'>
+                        <Grid.Column computer={8} tablet={8} mobile={16} style={{ marginTop: 20 }}>
+                            <Table unstackable celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center'>Wing Angle</Table.HeaderCell>
@@ -200,8 +202,8 @@ export default class setupForm extends Component {
                         </Grid.Column>
                     </Grid.Row>
                     <Grid.Row>
-                        <Grid.Column>
-                            <Table celled className='setup-table'>
+                        <Grid.Column computer={8} tablet={8} mobile={16}>
+                            <Table unstackable celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center'>Turns</Table.HeaderCell>
@@ -235,8 +237,8 @@ export default class setupForm extends Component {
                                 </Table.Body>
                             </Table>
                         </Grid.Column>
-                        <Grid.Column>
-                            <Table celled className='setup-table'>
+                        <Grid.Column computer={8} tablet={8} mobile={16} style={{ marginTop: 20 }}>
+                            <Table unstackable celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center'>Stagger</Table.HeaderCell>
@@ -254,7 +256,7 @@ export default class setupForm extends Component {
                         </Grid.Column>
                     </Grid.Row>
                     <Grid.Row>
-                        <Table celled className='tire-table'>
+                        <Table unstackable celled className='tire-table'>
                             <Table.Header>
                                 <Table.Row>
                                     <Table.HeaderCell colSpan='2'

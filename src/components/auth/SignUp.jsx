@@ -16,7 +16,7 @@ export default class SignUp extends Component {
     }
 
 
-
+    // Check user login and set user state and catch if there is an error
     signUp = () => {
         loginManager.registerUser(this.state.email, this.state.password)
             .then(newUser => {
@@ -30,6 +30,7 @@ export default class SignUp extends Component {
 
     render() {
         return (
+            // if there is an error with login, display error component
             this.state.hasError ? <Error></Error>
                 :
                 <Grid textAlign='center' style={{ marginTop: 40 }} verticalAlign='middle'>

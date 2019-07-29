@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import { Menu, Dropdown, Image } from 'semantic-ui-react'
 import { Container } from 'semantic-ui-react'
 import loginManager from '../../modules/loginManager'
-import logo from '../../img/Logo2.png'
 import './navbar.css'
 
 export default class Navbar extends Component {
     render() {
         return (
+            //if user is on a mobile device, display dropdown menu
             (window.innerWidth > 425) ?
                 <Menu borderless size='massive' inverted fixed='top' color="orange" style={{ minHeight: 80 }}>
                     <Container >

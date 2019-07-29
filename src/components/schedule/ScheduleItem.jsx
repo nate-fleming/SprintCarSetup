@@ -23,10 +23,11 @@ export default class ScheduleItem extends Component {
         })
     }
 
+    // Handle modal
     handleOpen = () => this.setState({ modalOpen: true })
-
     handleClose = () => this.setState({ modalOpen: false })
 
+    // Save edits for race information
     saveEdits = () => {
         const editedRace = {
             date: this.state.date,
@@ -38,6 +39,7 @@ export default class ScheduleItem extends Component {
     }
 
     render() {
+        // Get tracks and make them options for dropdown menu in modal
         const trackOptions = []
         const getTrackackOptions = () => this.props.tracks.map(track => {
             const options = {
@@ -47,6 +49,8 @@ export default class ScheduleItem extends Component {
         })
 
         getTrackackOptions()
+
+        // Get current track information
         const track = this.props.tracks.find(track => track.id === this.props.race.trackId)
         return (
             <>
@@ -62,8 +66,6 @@ export default class ScheduleItem extends Component {
                         href={`/tracks/${this.props.race.trackId}`}
                         icon='table'
                     ></Button>
-                </Table.Cell>
-                <Table.Cell textAlign='center'>
                     <Modal trigger={<Button className='schedule-icon' onClick={this.handleOpen} color='black' icon='edit'></Button>}
                         closeIcon
                         open={this.state.modalOpen}
@@ -109,8 +111,6 @@ export default class ScheduleItem extends Component {
                                     </Button>
                         </Modal.Actions>
                     </Modal>
-                </Table.Cell>
-                <Table.Cell textAlign='center'>
                     <Button as='a' color='red' icon='delete'
                         className='schedule-icon'
                         onClick={() => this.props.deleteRace(this.props.race.id)}

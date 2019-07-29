@@ -27,10 +27,11 @@ export default class ResultItem extends Component {
         })
     }
 
+    // Modal actions
     handleOpen = () => this.setState({ modalOpen: true })
-
     handleClose = () => this.setState({ modalOpen: false })
 
+    // Save edits for race information
     saveEdits = () => {
         const editedRace = {
             date: this.state.date,
@@ -44,6 +45,7 @@ export default class ResultItem extends Component {
         this.props.editResult(editedRace)
     }
 
+    // Result options
     results = [
         { key: 1, text: '1st', value: '1st' },
         { key: 2, text: '2nd', value: '2nd' },
@@ -88,11 +90,6 @@ export default class ResultItem extends Component {
                         : this.state.featureResult
                     }</p>
                 </Table.Cell>
-                {/* <Table.Cell style={{ fontSize: 16 }}>
-                    <p>{(!this.state.heatRaceResult) ? 'enter result'
-                        : this.state.heatRaceResult
-                    }</p>
-                </Table.Cell> */}
                 <Table.Cell>
                     <Modal trigger={<Button className='result-button' size='small' color='orange' >See Notes</Button>} closeIcon>
                         <Header className='notes-header' icon='edit' content={`Notes for ${track.name} on ${moment(this.props.race.date).format('MMM-DD-YY')}`} />

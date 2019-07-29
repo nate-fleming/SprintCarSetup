@@ -13,7 +13,9 @@ export default class ScheduleItem extends Component {
         open: false,
         date: '',
         trackId: '',
-        id: ''
+        id: '',
+        rain: <Icon loading name='spinner' size='large' style={{ color: '#D0D6D7' }}></Icon>,
+        temp: <Icon loading name='spinner' size='large' style={{ color: '#D0D6D7' }}></Icon>
     }
 
 
@@ -25,21 +27,25 @@ export default class ScheduleItem extends Component {
         newState.trackId = this.props.race.trackId
         newState.id = this.props.race.id
         weatherManager.getWeather(track.latitude, track.longitude, date)
-            // .then(weather => console.log(weather))
             .then(weather => {
                 newState.currentWeather = weather.currently
                 newState.dailyWeather = weather.daily.data[0]
+                newState.rain = `${parseInt((weather.currently.precipProbability) * 100)}%`
+                newState.temp = parseInt(weather.currently.temperature)
             })
             .catch(error => newState.currentWeather = "")
             .then(() => this.setState(newState))
     }
 
-
+    // Handle Edit Modal
     handleOpen = () => this.setState({ modalOpen: true })
     handleClose = () => this.setState({ modalOpen: false })
+
+    // Handle Delete Modal
     open = () => this.setState({ open: true })
     close = () => this.setState({ open: false })
 
+    // Save Race Edits
     saveEdits = () => {
         const editedRace = {
             date: this.state.date,
@@ -50,28 +56,21 @@ export default class ScheduleItem extends Component {
         this.props.editRace(editedRace)
     }
 
-
     render() {
-        // console.log(this.state.currentWeather)
+        // Get track information
         const track = this.props.tracks.find(track => track.id === this.props.race.trackId)
-        const rain = (this.state.currentWeather === "") ? "no weather data" :
-            `${parseInt((this.state.currentWeather.precipProbability) * 100)}%`
-        const temp = (this.state.currentWeather === "") ? "no weather data" :
-            parseInt(this.state.currentWeather.temperature)
         const icon = (this.state.currentWeather === "") ? "no weather data" :
             `${this.state.currentWeather.icon}`
 
+        // Get tracks for edit dropdown menu
         const trackOptions = []
-
         const getTrackackOptions = () => this.props.tracks.map(track => {
             const options = {
                 key: track.id, text: track.name, value: track.id
             }
             trackOptions.push(options)
         })
-
         getTrackackOptions()
-
 
         return (
             <Grid centered doubling stackable className='next-race'>
@@ -91,7 +90,7 @@ export default class ScheduleItem extends Component {
                 <Grid.Row>
                     <Grid.Column width={8} textAlign='center' verticalAlign='middle'>
                         {/* <Grid.Row>
-                            <WeatherIcon name='darksky' iconId={`${icon}`} className='icon' />
+                            <WeatherIcon name='darksky' iconId={this.state.icon} className='icon' />
                         </Grid.Row> */}
                         <Grid.Row className='weather-header'>
                             <p>Race Day Weather</p>
@@ -99,10 +98,11 @@ export default class ScheduleItem extends Component {
                         <hr className='line'></hr>
                         <Grid.Row className='current-weather'>
                             <p>{this.state.currentWeather.summary}</p>
-                            <Icon name='thermometer half' size='large' style={{ color: '#ff6f00' }} />
-                            {temp}&deg;
-                            <Icon name='theme' size='large' style={{ color: '#ff6f00' }} />
-                            {rain}
+
+                            <Icon name='thermometer half' size='large' style={{ color: '#f44336' }} />
+                            {this.state.temp}&deg;
+                            <Icon name='theme' size='large' style={{ color: '#0693e3' }} />
+                            {this.state.rain}
                         </Grid.Row>
                     </Grid.Column>
                     <Grid.Column width={6} textAlign='center' verticalAlign='middle'>

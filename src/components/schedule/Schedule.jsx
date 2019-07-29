@@ -11,6 +11,7 @@ export default class Schedule extends Component {
 
 
     render() {
+        // Sort upcoming races
         const sortedSchedule = this.props.schedule.sort((a, b) => {
             a = new Date(a.date)
             b = new Date(b.date)
@@ -45,7 +46,7 @@ export default class Schedule extends Component {
                     </Segment>
                     <Container className='upcoming-table'>
                         <Header className='next-header'>Upcoming Races</Header>
-                        <Table className='schedule-table'>
+                        <Table unstackable className='schedule-table'>
                             <Table.Body>
                                 {
                                     sortedSchedule.map((race, index) => {

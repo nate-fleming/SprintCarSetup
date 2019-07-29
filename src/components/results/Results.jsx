@@ -8,24 +8,28 @@ import './results.css'
 export default class Results extends Component {
 
     render() {
+        // Sort all races
         const sortedRaces = this.props.races.sort((a, b) => {
             a = new Date(a.date)
             b = new Date(b.date)
             return (a < b) ? -1 : (a > b) ? 1 : 0
         })
 
+        // Return all races for 2019
         const twentyNineteenRaces = this.props.races.filter(race => moment(race.date).format('YYYY') === '2019').sort((a, b) => {
             a = new Date(a.date)
             b = new Date(b.date)
             return (a < b) ? -1 : (a > b) ? 1 : 0
         })
 
+        // Return all races for 2018
         const twentyEighteenRaces = this.props.races.filter(race => moment(race.date).format('YYYY') === '2018').sort((a, b) => {
             a = new Date(a.date)
             b = new Date(b.date)
             return (a < b) ? -1 : (a > b) ? 1 : 0
         })
 
+        // Return all races for 2017
         const twentySeventeenRaces = this.props.races.filter(race => moment(race.date).format('YYYY') === '2017').sort((a, b) => {
             a = new Date(a.date)
             b = new Date(b.date)
@@ -33,9 +37,10 @@ export default class Results extends Component {
         })
 
 
-
+        // Setup Tab panes
         const panes = [
             {
+                // Tab for races in 2019
                 menuItem: '2019', render: () => <Tab.Pane className='result-tab' attached={false}><ResultTab
                     filteredRaces={twentyNineteenRaces}
                     tracks={this.props.tracks} deleteResult={this.props.deleteResult}
@@ -43,18 +48,21 @@ export default class Results extends Component {
                     user={this.props.user} {...this.props}></ResultTab></Tab.Pane>
             },
             {
+                // Tab for races in 2018
                 menuItem: '2018', render: () => <Tab.Pane className='result-tab' attached={false}><ResultTab filteredRaces={twentyEighteenRaces}
                     tracks={this.props.tracks} deleteResult={this.props.deleteResult}
                     editResult={this.props.editResult}
                     user={this.props.user} {...this.props}></ResultTab></Tab.Pane>
             },
             {
+                // Tab for races in2017
                 menuItem: '2017', render: () => <Tab.Pane className='result-tab' attached={false}><ResultTab filteredRaces={twentySeventeenRaces}
                     tracks={this.props.tracks} deleteResult={this.props.deleteResult}
                     editResult={this.props.editResult}
                     user={this.props.user} {...this.props}></ResultTab></Tab.Pane>
             },
             {
+                // Tab for all races
                 menuItem: 'All', render: () => <Tab.Pane className='result-tab' attached={false}><ResultTab
                     filteredRaces={sortedRaces}
                     tracks={this.props.tracks} deleteResult={this.props.deleteResult}

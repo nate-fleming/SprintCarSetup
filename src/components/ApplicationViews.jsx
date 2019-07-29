@@ -36,6 +36,7 @@ class ApplicationViews extends Component {
             .then(() => this.setState(newState))
     }
 
+    // Handle user login and update state
     login = (user) => {
         scheduleManager.getSchedule(user)
             .then(schedule =>
@@ -46,7 +47,7 @@ class ApplicationViews extends Component {
             .then(() => this.props.history.push('/'))
     }
 
-
+    // Handle new race and update state
     saveRace = (race) => {
         scheduleManager.post(race)
             .then(() => scheduleManager.getSchedule(this.state.user))
@@ -54,6 +55,7 @@ class ApplicationViews extends Component {
             .then(() => this.props.history.push('/'))
     }
 
+    // Handle race deletion and update state
     deleteRace = (id) => {
         scheduleManager.deleteRace(id)
             .then(() => scheduleManager.getSchedule(this.state.user))
@@ -61,6 +63,7 @@ class ApplicationViews extends Component {
             .then(() => this.props.history.push('/'))
     }
 
+    // Handle result deleteion and update state
     deleteResult = (id) => {
         scheduleManager.deleteRace(id)
             .then(() => scheduleManager.getSchedule(this.state.user))
@@ -68,6 +71,7 @@ class ApplicationViews extends Component {
             .then(() => this.props.history.push('/results'))
     }
 
+    // Handle race edits and update state
     editRace = (editedRace) => {
         scheduleManager.editRace(editedRace)
             .then(() => scheduleManager.getSchedule(this.state.user))
@@ -75,6 +79,7 @@ class ApplicationViews extends Component {
             .then(() => this.props.history.push('/'))
     }
 
+    // Handle result edits and update state
     editResult = (editedRace) => {
         scheduleManager.editRace(editedRace)
             .then(() => scheduleManager.getSchedule(this.state.user))

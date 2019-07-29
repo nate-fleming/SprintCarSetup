@@ -4,6 +4,7 @@ import './setups.css'
 
 export default class GarageSetup extends Component {
 
+    // Create options for wing droptown menu
     wingOptions = [
         {
             key: '1',
@@ -19,14 +20,15 @@ export default class GarageSetup extends Component {
 
 
     render() {
+        // Setup components that are hidden when the edit button is clicked and reverse
         const hidden = this.props.isHidden ? 'none' : ''
         const reverseHidden = this.props.isHidden ? '' : 'none'
         return (
             <Container>
                 <Grid>
                     <Grid.Row>
-                        <Grid.Column width={8}>
-                            <Table celled className='setup-table'>
+                        <Grid.Column computer={8} tablet={8} mobile={hidden === 'none' ? 8 : 16}>
+                            <Table unstackable celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center'
@@ -74,8 +76,8 @@ export default class GarageSetup extends Component {
                                 </Table.Body>
                             </Table>
                         </Grid.Column>
-                        <Grid.Column width={8}>
-                            <Table celled className='setup-table'>
+                        <Grid.Column computer={8} tablet={8} mobile={hidden === 'none' ? 8 : 16} style={{ marginTop: hidden === 'none' ? '' : 20 }}>
+                            <Table unstackable celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center'
@@ -116,8 +118,8 @@ export default class GarageSetup extends Component {
                         </Grid.Column>
                     </Grid.Row>
                     <Grid.Row>
-                        <Grid.Column width={8}>
-                            <Table celled className='setup-table'>
+                        <Grid.Column computer={8} tablet={8} mobile={hidden === 'none' ? 8 : 16}>
+                            <Table unstackable celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center'
@@ -164,8 +166,8 @@ export default class GarageSetup extends Component {
                                 </Table.Body>
                             </Table>
                         </Grid.Column>
-                        <Grid.Column width={8}>
-                            <Table celled className='setup-table'>
+                        <Grid.Column computer={8} tablet={8} mobile={hidden === 'none' ? 8 : 16} style={{ marginTop: hidden === 'none' ? '' : 20 }}>
+                            <Table unstackable celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center'
@@ -222,8 +224,8 @@ export default class GarageSetup extends Component {
                         </Grid.Column>
                     </Grid.Row>
                     <Grid.Row>
-                        <Grid.Column width={8}>
-                            <Table celled className='setup-table'>
+                        <Grid.Column computer={8} tablet={8} mobile={hidden === 'none' ? 8 : 16}>
+                            <Table unstackable celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center'
@@ -270,8 +272,8 @@ export default class GarageSetup extends Component {
                                 </Table.Body>
                             </Table>
                         </Grid.Column>
-                        <Grid.Column width={8}>
-                            <Table celled className='setup-table'>
+                        <Grid.Column computer={8} tablet={8} mobile={hidden === 'none' ? 8 : 16} style={{ marginTop: hidden === 'none' ? '' : 20 }}>
+                            <Table unstackable celled className='setup-table'>
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.HeaderCell colSpan='2' textAlign='center' style={{ fontSize: 20 }}>Stagger</Table.HeaderCell>
@@ -293,7 +295,7 @@ export default class GarageSetup extends Component {
                         </Grid.Column>
                     </Grid.Row>
                     <Grid.Row>
-                        <Table celled className='tire-table'>
+                        <Table unstackable celled className='tire-table'>
                             <Table.Header>
                                 <Table.Row>
                                     <Table.HeaderCell colSpan='2'

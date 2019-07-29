@@ -14,6 +14,7 @@ export default class TrackSetups extends Component {
             .then(setups => this.setState({ mySetups: setups }))
     }
 
+    // Handle Delete Setup
     deleteSetup = (setupId, trackId) => {
         setupManager.deleteSetup(setupId)
             .then(() => setupManager.myTracks(this.props.user)
@@ -35,7 +36,7 @@ export default class TrackSetups extends Component {
                     </Grid>
                 </Container>
                 <Container>
-                    <Card.Group centered style={{ marginTop: 40 }}>
+                    <Card.Group centered style={{ marginTop: 40, marginBottom: 40 }}>
                         {
                             this.state.mySetups.filter(setup => setup.trackId === this.props.track.id).map(setup => {
                                 return <SetupItem key={setup.id} setup={setup}
